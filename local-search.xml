@@ -4,25 +4,75 @@
   
   
   <entry>
-    <title>Authentication in SPA</title>
-    <link href="/2021/01/04/Authentication-in-SPA/"/>
-    <url>/2021/01/04/Authentication-in-SPA/</url>
+    <title>Setup Spring Environment</title>
+    <link href="/2021/01/05/envSetup/"/>
+    <url>/2021/01/05/envSetup/</url>
     
-    <content type="html"><![CDATA[<h2 id="Authentication-in-SPA"><a href="#Authentication-in-SPA" class="headerlink" title="Authentication in SPA"></a>Authentication in SPA</h2><p><img src="/img/AuthenticationSPA.png" alt="Authentication"></p><p>The API/Server is stateless and decoupled from the front-end.</p><ol><li>Generate a Token by the Server.</li><li>Return the token to the front end and stored in a cookie.</li><li>The front end attached the token to request protected resources.</li><li>The server generates the token with algorithm using a private key.</li><li>The server is the only one that knows the token. So the server can validate the token with the incoming request.</li></ol><p>With this approach, we only need to store the private key in the server side. </p><p>On the front-end part, we use the token to attach to it to requests.</p><p>一点理解：<a href="https://blog.csdn.net/maocai008/article/details/79064542">关于Token,签名,加密</a></p>]]></content>
+    <content type="html"><![CDATA[<h2 id="Setup-Spring-Environment"><a href="#Setup-Spring-Environment" class="headerlink" title="Setup Spring Environment"></a>Setup Spring Environment</h2><h3 id="1-Install-Tomcat9-0"><a href="#1-Install-Tomcat9-0" class="headerlink" title="1. Install Tomcat9.0"></a>1. Install Tomcat9.0</h3><p>Download Tomcat9.0 from <a href="https://tomcat.apache.org/download-90.cgi">here</a>.</p><p><img src="/img/tomcatInstall.png" alt="Install Tomcat"></p><h4 id="Start-Server"><a href="#Start-Server" class="headerlink" title="Start Server"></a>Start Server</h4><p><code>cd /tomcat &amp;&amp; bin/startup.sh</code></p><h4 id="Shutdown-Server"><a href="#Shutdown-Server" class="headerlink" title="Shutdown Server"></a>Shutdown Server</h4><p><code>cd /tomcat &amp;&amp; bin/shutdown.sh</code></p><h3 id="2-Install-IntelliJ-IDEA"><a href="#2-Install-IntelliJ-IDEA" class="headerlink" title="2. Install IntelliJ IDEA"></a>2. Install IntelliJ IDEA</h3><h3 id="3-Connect-Tomcat-to-IntelliJ-IDEA"><a href="#3-Connect-Tomcat-to-IntelliJ-IDEA" class="headerlink" title="3. Connect Tomcat to IntelliJ IDEA"></a>3. Connect Tomcat to IntelliJ IDEA</h3><ol><li><p>Open Preference.</p></li><li><p>Click on <code>Build, Execution, Deployment</code></p><p><img src="/img/connectTomcatAndIdea.png" alt="Connect Tomcat to Idea"></p></li><li><p>Choose <code>Tomcat Server</code></p></li><li><p>Select the path of downloaded Tomcat Server.</p></li><li><p>Done.</p></li></ol><h3 id="4-Download-Spring-5-JAR-Files"><a href="#4-Download-Spring-5-JAR-Files" class="headerlink" title="4. Download Spring 5 JAR Files"></a>4. Download Spring 5 JAR Files</h3><ol><li>Create a project. </li><li>Choose <strong>Spring</strong> and click on <code>Next</code>.</li></ol><p><img src="/img/downloadJARFiles.png" alt="Create a Spring Project"></p><ol start="3"><li>Select the project path and click on <code>Finish</code>.</li></ol><p class="note note-warning">Reference:  Udemy, Spring & Hibernate for Beginners (including SpringBoot)</p>]]></content>
     
     
     <categories>
       
-      <category>mernProject</category>
+      <category>Spring &amp; Hibernate</category>
       
     </categories>
     
     
     <tags>
       
-      <tag>Hexo</tag>
+      <tag>Spring</tag>
       
-      <tag>Fluid</tag>
+      <tag>Environment</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>J2EE and Spring Overview</title>
+    <link href="/2021/01/05/J2EE&amp;Spring/"/>
+    <url>/2021/01/05/J2EE&amp;Spring/</url>
+    
+    <content type="html"><![CDATA[<h2 id="What-is-Java-EE"><a href="#What-is-Java-EE" class="headerlink" title="What is Java EE?"></a>What is Java EE?</h2><p><strong>J2EE - Java 2 Platform Enterprise Edition</strong></p><pre><code class=" mermaid">graph TB    A[Client-Side Presentation] --&gt; B[Server-Side Presentation];    B --&gt; C[Server-Side Business Logic];    C --&gt; D[Database]; </code></pre><h2 id="Overview-of-Spring"><a href="#Overview-of-Spring" class="headerlink" title="Overview of Spring"></a>Overview of Spring</h2><h3 id="Goals"><a href="#Goals" class="headerlink" title="Goals"></a>Goals</h3><ul><li>Lightweight development with Java POJO(Plain-Old-Java-Objects)</li><li>Dependency injection to promote loose coupling </li><li>Declarative programming with Aspect-Oriented-Programming</li><li>Minimize boilerplate Java Code</li></ul><h3 id="Spring-Core-Framework"><a href="#Spring-Core-Framework" class="headerlink" title="Spring Core Framework"></a>Spring Core Framework</h3><h3 id="Core-Container"><a href="#Core-Container" class="headerlink" title="Core Container"></a>Core Container</h3><p>Creating beans and making these beans available.</p><ul><li>Bean Factory - Create Beans and manage beans</li><li>Context - Spring Container that holds the beans in memory.</li><li>SpEL - Spring Expression Language</li></ul><h3 id="AOP-Section"><a href="#AOP-Section" class="headerlink" title="AOP Section"></a>AOP Section</h3><p><strong>AOP:</strong> Aspect Oriented Programming</p><p>Allows you to create application-wide services. </p><p>Add functionality to object without modifying your code using <code>config</code> file or by adding annotations.</p><blockquote><p>Logging, security, transactions, etc..</p></blockquote><h3 id="Data-Access-Layer"><a href="#Data-Access-Layer" class="headerlink" title="Data Access Layer"></a>Data Access Layer</h3><ul><li>JDBC - helper classes</li><li>ORM - Objection Relational Mapping - hook in to Hibernate</li><li>Transactions - Add transaction support   </li><li>JMS - Java Message Service - Send msgs to a msg queue in a asych way.</li></ul><h3 id="Web-Layer"><a href="#Web-Layer" class="headerlink" title="Web Layer"></a>Web Layer</h3><p>Home of the Spring MVC framework</p><h3 id="Test-Layer"><a href="#Test-Layer" class="headerlink" title="Test Layer"></a>Test Layer</h3><p>Supports <strong>Test-Driven-Development</strong></p><p>Mock objects and out-of-container testing.</p><p>Integration test as well.</p><h2 id="Spring-Projects"><a href="#Spring-Projects" class="headerlink" title="Spring Projects"></a>Spring Projects</h2><p>Additional modules built on top of the core Spring Framework.</p><ul><li>Spring Cloud, Spring Data</li><li>Spring Web Service - RESTful </li></ul><p class="note note-warning">Reference:  Udemy, Spring & Hibernate for Beginners (including SpringBoot)</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>Spring &amp; Hibernate</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Spring</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
+    <title>Authentication in SPA</title>
+    <link href="/2021/01/04/Authentication-in-SPA/"/>
+    <url>/2021/01/04/Authentication-in-SPA/</url>
+    
+    <content type="html"><![CDATA[<h2 id="Authentication-in-SPA"><a href="#Authentication-in-SPA" class="headerlink" title="Authentication in SPA"></a>Authentication in SPA</h2><p><img src="/img/AuthenticationSPA.png" alt="Authentication"></p><p>The API/Server is stateless and decoupled from the front-end.</p><ol><li>Generate a Token by the Server.</li><li>Return the token to the front end and stored in a cookie.</li><li>The front end attached the token to request protected resources.</li><li>The server generates the token with algorithm using a private key.</li><li>The server is the only one that knows the token. So the server can validate the token with the incoming request.</li></ol><p>With this approach, we only need to store the private key in the server side. </p><p>On the front-end part, we use the token to attach to it to requests.</p><p>一点理解：<a href="https://blog.csdn.net/maocai008/article/details/79064542">关于Token,签名,加密</a></p><p class="note note-warning">Reference:  Udemy, MERN - Full Stack Guide.</p>]]></content>
+    
+    
+    <categories>
+      
+      <category>MERN</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Authentication</tag>
       
     </tags>
     
@@ -35,9 +85,15 @@
     <link href="/2021/01/04/hello-world/"/>
     <url>/2021/01/04/hello-world/</url>
     
-    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start-about-Hello-world"><a href="#Quick-Start-about-Hello-world" class="headerlink" title="Quick Start about Hello world"></a>Quick Start about Hello world</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start-about-Hello-world"><a href="#Quick-Start-about-Hello-world" class="headerlink" title="Quick Start about Hello world"></a>Quick Start about Hello world</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
     
     
+    
+    <tags>
+      
+      <tag>HelloWorld</tag>
+      
+    </tags>
     
   </entry>
   
