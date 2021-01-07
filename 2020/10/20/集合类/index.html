@@ -1,0 +1,756 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>Java 集合类 - Xinyi Ashley Ma</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Xinyi Ashley Ma</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Java 集合类">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2020-10-20 20:55" pubdate>
+        October 20, 2020 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      3.3k Words
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      45
+       min
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Java 集合类</h1>
+            
+              <p class="note note-info">
+                
+                  Last Updated on: January 6, 2021 pm
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="JAVA-集合类"><a href="#JAVA-集合类" class="headerlink" title="JAVA 集合类"></a>JAVA 集合类</h1><h2 id="基本概念"><a href="#基本概念" class="headerlink" title="基本概念"></a>基本概念</h2><p>JAVA中集合类主要负责保存数据。所有的集合类都位于 <code>java.util</code> 包下。Java容器类类库主要用于保存<strong>对象</strong>。主要有两大分支。</p>
+<ul>
+<li><p>Collection —— 容器的每个位置只能保存一个元素。</p>
+<p>一组对立的元素。通常Collection中的元素都符合某种规则。</p>
+<ul>
+<li>List必须保持一定的顺序。</li>
+<li>Set的元素不能重复。</li>
+<li>Queue保持队列FIFO原则。</li>
+</ul>
+</li>
+<li><p>Map —— 容器的每个位置保存一个<strong>键值对</strong>，通过键找到对应的值。</p>
+<ul>
+<li>一组成对的<strong>键值对</strong>对象。</li>
+</ul>
+</li>
+</ul>
+<p><img src="/img/java.jpg" srcset="/img/loading.gif"></p>
+<h2 id="MAP-集合类"><a href="#MAP-集合类" class="headerlink" title="MAP 集合类"></a>MAP 集合类</h2><p><img src="/img/map.jpg" srcset="/img/loading.gif" alt="Map"></p>
+<h3 id="Entry类"><a href="#Entry类" class="headerlink" title="Entry类"></a>Entry类</h3><p>Map中包含一个内部类<code>Entry</code>。该类中包含了一个<strong>key - value</strong> 的键值对。其中包含了三个方法。</p>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>方法解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>getKey()</td>
+<td>获取该entry的Key。</td>
+</tr>
+<tr>
+<td>getValue()</td>
+<td>获取该entry的Value。</td>
+</tr>
+<tr>
+<td>setValue()</td>
+<td>设置该Entry的Value并且返回新的Value。</td>
+</tr>
+</tbody></table>
+<p>Map是一个顶级接口。主要包括几个方法。</p>
+<h3 id="覆盖方法-amp-更新方法"><a href="#覆盖方法-amp-更新方法" class="headerlink" title="覆盖方法 &amp; 更新方法"></a>覆盖方法 &amp; 更新方法</h3><table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th align="left">方法解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>equals(Object o)</td>
+<td align="left">比较对象和该map是否等价</td>
+</tr>
+<tr>
+<td>hashCode()</td>
+<td align="left">返回当前map的哈希码</td>
+</tr>
+<tr>
+<td>clear()</td>
+<td align="left">删除所有映射</td>
+</tr>
+<tr>
+<td>remove(Object key)</td>
+<td align="left">从Map中删除一堆键值</td>
+</tr>
+<tr>
+<td>put(Object key, Object value)</td>
+<td align="left">从Map中删除所有映射</td>
+</tr>
+<tr>
+<td>putAll(Map t)</td>
+<td align="left">将指定Map中所有映射复制到此</td>
+</tr>
+</tbody></table>
+<h3 id="返回视图的方法-amp-遍历Map"><a href="#返回视图的方法-amp-遍历Map" class="headerlink" title="返回视图的方法 &amp; 遍历Map"></a>返回视图的方法 &amp; 遍历Map</h3><table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>方法解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>entrySet()</td>
+<td>返回Map中所包含的所有映射的Set视图。每一个元素都是Map.Entry对象：可以使用getKey() 和 getValue()的方法访问键和值。</td>
+</tr>
+<tr>
+<td>keySet()</td>
+<td>返回Map中所有键的Set视图。删除Set中的元素时将会删除Map中相应的映射。</td>
+</tr>
+<tr>
+<td>values()</td>
+<td>返回Map中所有值的Collection视图。删除Collection中的元素时将会删除Map中相应的映射。</td>
+</tr>
+</tbody></table>
+<p>如果要对键值对进行迭代，必须获得一个Iterator对象。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">Iterator keyValuePairs = aMap.entrySet().iterator();<br>Iterator keys = aMap.keySet().iterator();<br>Iterator values = aMap.values().iterator();<br></code></pre></td></tr></table></figure>
+
+
+<h3 id="访问和测试方法"><a href="#访问和测试方法" class="headerlink" title="访问和测试方法"></a>访问和测试方法</h3><p>只检索Map的内容信息但是不更改Map的内容。</p>
+<table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>方法解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>get(Object key)</td>
+<td>返回与key关联的value</td>
+</tr>
+<tr>
+<td>containsKey(Object key)</td>
+<td>如果包含指定的key则返回True</td>
+</tr>
+<tr>
+<td>containsValue(Obejct value)</td>
+<td>如果存在指定的value则返回True</td>
+</tr>
+<tr>
+<td>isEmpty()</td>
+<td>是否为空</td>
+</tr>
+<tr>
+<td>size()</td>
+<td>key-value的数目</td>
+</tr>
+</tbody></table>
+<h3 id="HashMap-和-Hashtable"><a href="#HashMap-和-Hashtable" class="headerlink" title="HashMap 和 Hashtable"></a>HashMap 和 Hashtable</h3><p><strong>HASHMAP用的多！！！</strong></p>
+<h4 id="不同点"><a href="#不同点" class="headerlink" title="不同点"></a>不同点</h4><ol>
+<li>HashMap不是<strong>线程安全</strong>的，<strong>Hashtable线程安全</strong> —— 通过synchronize实现。</li>
+<li>效率：HashMap &gt; Hashtable</li>
+<li>HashMap的key可以为<code>NULL</code>，Hashtable不可以。</li>
+</ol>
+<p>判断两个Key相同的标准为：两个Key通过equals方法比较后返回True，两个key的HashCode值相等。</p>
+<h4 id="LinkedHashMap"><a href="#LinkedHashMap" class="headerlink" title="LinkedHashMap"></a>LinkedHashMap</h4><p>它是HashMap的子类，通过双向链表维护键值对的顺序。该双向链表负责维护Map的迭代顺序，与key-value的插入顺序保持一致。</p>
+<h4 id="HashMap功能实现"><a href="#HashMap功能实现" class="headerlink" title="HashMap功能实现"></a>HashMap功能实现</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> java.util.*;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">test</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String [] args)</span></span>&#123;<br>        Map&lt;Integer, String&gt; hMap = <span class="hljs-keyword">new</span> HashMap&lt;Integer, String&gt;();<br>        <span class="hljs-comment">// 将一个接口的引用指向一个实现接口的类。</span><br>        <span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>;<br>        hMap.put(<span class="hljs-number">101</span>, <span class="hljs-string">&quot;序号 &quot;</span>+<span class="hljs-number">200</span>);<br>        <span class="hljs-keyword">while</span>(i &lt; <span class="hljs-number">50</span>)&#123;<br>            hMap.put(i, <span class="hljs-string">&quot;序号 &quot;</span> + i);<br>            i++;<br>        &#125;<br>        hMap.put(-<span class="hljs-number">1</span>, <span class="hljs-string">&quot;序号 &quot;</span> + <span class="hljs-number">199</span>);<br>        hMap.put(<span class="hljs-number">200</span>, <span class="hljs-string">&quot;序号 &quot;</span> + <span class="hljs-number">199</span>);<br><br>        <span class="hljs-comment">// No.1 遍历方式： for each遍历entrySet</span><br>        <span class="hljs-comment">// 这种方式遍历时定义hMap必须写成Map&lt;Integer, String&gt; 不能只写Map</span><br><br>        System.out.println(<span class="hljs-string">&quot;Traverse 1 :&quot;</span>);<br>        <span class="hljs-keyword">for</span>(Map.Entry&lt;Integer, String&gt; entry : hMap.entrySet())&#123;<br>            System.out.println(<span class="hljs-string">&quot;key : &quot;</span> + entry.getKey() + <span class="hljs-string">&quot; , and value : &quot;</span> + entry.getValue());<br>        &#125;<br><br>        <span class="hljs-comment">// No.2 遍历方式： 使用entrySet的Iterator</span><br>        System.out.println(<span class="hljs-string">&quot;Traverse 2 : &quot;</span>);<br>        Iterator&lt;Map.Entry&lt;Integer, String&gt;&gt; iterator = hMap.entrySet().iterator();<br>        <span class="hljs-keyword">while</span>(iterator.hasNext())&#123;<br>            Map.Entry&lt;Integer, String&gt; entry = iterator.next();<br>            System.out.println(<span class="hljs-string">&quot;Key: &quot;</span>+ entry.getKey() + <span class="hljs-string">&quot;, and value: &quot;</span>+entry.getValue());<br>        &#125;<br><br>        <span class="hljs-comment">// No.3 遍历方式： for each 直接用HashMap的keyset</span><br>        System.out.println(<span class="hljs-string">&quot;Traverse 3 : &quot;</span>);<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> key : hMap.keySet())&#123;<br>            System.out.println(<span class="hljs-string">&quot;Key: &quot;</span> + key + <span class="hljs-string">&quot;, and value: &quot;</span> + hMap.get(key));<br>        &#125;<br><br>        <span class="hljs-comment">// No.4 用keyset的iterator</span><br>        System.out.println(<span class="hljs-string">&quot;Traverse 4 : &quot;</span>);<br>        Iterator iter = hMap.keySet().iterator();<br>        <span class="hljs-keyword">while</span>(iter.hasNext())&#123;<br>            <span class="hljs-keyword">int</span> key = (<span class="hljs-keyword">int</span>)iter.next();<br>            System.out.println(<span class="hljs-string">&quot;Key: &quot;</span> + key + <span class="hljs-string">&quot;, and value: &quot;</span> + hMap.get(key));<br>        &#125;<br><br>        sortHashMapByTreeMap(hMap);<br>    &#125;<br><br>    <span class="hljs-comment">// 对HashMap按值排序</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sortHashMap</span><span class="hljs-params">(Map&lt;Integer, String&gt; hMap)</span></span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;按值排序之后：&quot;</span>);<br><br>        <span class="hljs-comment">// Step 1 ： copy HashMap to a LinkedList</span><br>        Set&lt;Map.Entry&lt;Integer , String&gt;&gt; sets = hMap.entrySet();<br>        LinkedList&lt;Map.Entry&lt;Integer, String&gt;&gt; linkedList = <span class="hljs-keyword">new</span> LinkedList&lt;Map.Entry&lt;Integer, String&gt;&gt;(sets);<br><br>        <span class="hljs-comment">// Step 2 : use Collection.sort to sort the HashMap according to values</span><br>        Collections.sort(linkedList, <span class="hljs-keyword">new</span> Comparator&lt;Map.Entry&lt;Integer, String&gt;&gt;() &#123;<br>            <span class="hljs-meta">@Override</span><br>            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compare</span><span class="hljs-params">(Map.Entry&lt;Integer, String&gt; o1, Map.Entry&lt;Integer, String&gt; o2)</span> </span>&#123;<br>                <span class="hljs-keyword">return</span> o1.getValue().compareTo(o2.getValue());<br>            &#125;<br>        &#125;);<br>        Map&lt;Integer, String&gt; map = <span class="hljs-keyword">new</span> LinkedHashMap();<br>        <span class="hljs-keyword">for</span>(Map.Entry&lt;Integer, String&gt; entry : linkedList)&#123;<br>            map.put(entry.getKey(), entry.getValue());<br>        &#125;<br><br>        <span class="hljs-keyword">for</span>(Map.Entry&lt;Integer, String&gt; entry : map.entrySet())&#123;<br>            System.out.println(<span class="hljs-string">&quot;Key is : &quot;</span> + entry.getKey() + <span class="hljs-string">&quot;, and value is : &quot;</span> + entry.getValue());<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sortHashMapByKEy</span><span class="hljs-params">(Map&lt;Integer, String&gt; hashmap)</span></span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;按Key排序之后：&quot;</span>);<br><br>        <span class="hljs-comment">// Step 1 ： copy HashMap to a LinkedList</span><br>        Set&lt;Map.Entry&lt;Integer , String&gt;&gt; sets = hashmap.entrySet();<br>        LinkedList&lt;Map.Entry&lt;Integer, String&gt;&gt; linkedList = <span class="hljs-keyword">new</span> LinkedList&lt;Map.Entry&lt;Integer, String&gt;&gt;(sets);<br><br>        <span class="hljs-comment">// Step 2 : use Collection.sort to sort the HashMap according to values</span><br>        Collections.sort(linkedList, <span class="hljs-keyword">new</span> Comparator&lt;Map.Entry&lt;Integer, String&gt;&gt;() &#123;<br>            <span class="hljs-meta">@Override</span><br>            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compare</span><span class="hljs-params">(Map.Entry&lt;Integer, String&gt; o1, Map.Entry&lt;Integer, String&gt; o2)</span> </span>&#123;<br>                <span class="hljs-keyword">return</span> o1.getKey().compareTo(o2.getKey());<br>            &#125;<br>        &#125;);<br>        Map&lt;Integer, String&gt; map = <span class="hljs-keyword">new</span> LinkedHashMap();<br>        <span class="hljs-keyword">for</span>(Map.Entry&lt;Integer, String&gt; entry : linkedList)&#123;<br>            map.put(entry.getKey(), entry.getValue());<br>        &#125;<br><br>        <span class="hljs-keyword">for</span>(Map.Entry&lt;Integer, String&gt; entry : map.entrySet())&#123;<br>            System.out.println(<span class="hljs-string">&quot;Key is : &quot;</span> + entry.getKey() + <span class="hljs-string">&quot;, and value is : &quot;</span> + entry.getValue());<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">sortHashMapByTreeMap</span><span class="hljs-params">(Map&lt;Integer, String&gt; hMap)</span></span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;按键排序之后：&quot;</span>);<br><br>        TreeMap&lt;Integer, String&gt; treeMap = <span class="hljs-keyword">new</span> TreeMap&lt;Integer, String&gt;(<span class="hljs-keyword">new</span> Comparator&lt;Integer&gt;() &#123;<br>            <span class="hljs-meta">@Override</span><br>            <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">compare</span><span class="hljs-params">(Integer o1, Integer o2)</span> </span>&#123;<br>                <span class="hljs-keyword">return</span> Integer.compare(o1, o2);<br>            &#125;<br>        &#125;);<br><br>        treeMap.putAll(hMap);<br>        <span class="hljs-keyword">for</span>(Map.Entry&lt;Integer, String&gt; entry : treeMap.entrySet())&#123;<br>            System.out.println(<span class="hljs-string">&quot;Key is : &quot;</span> + entry.getKey() + <span class="hljs-string">&quot;, and value is : &quot;</span> + entry.getValue());<br>        &#125;<br><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<h3 id="SortedMap接口和TreeMap实现类"><a href="#SortedMap接口和TreeMap实现类" class="headerlink" title="SortedMap接口和TreeMap实现类"></a>SortedMap接口和TreeMap实现类</h3><p>Map接口派生出一个SortedMap子接口，而SortedMap子接口也有一个实现类TreeMap。</p>
+<p>TreeMap是一个红黑树结构，对所有的Key进行排序，从而保证TreeMap中所有Key-Value对处于有序状态。</p>
+<p>TreeMap有两种排序方法：</p>
+<ol>
+<li>自然排序 —— 所有的Key必须实现Comparable接口，而且所有Key应该是同一个类的对象。</li>
+<li>定制排序 —— 创建TreeMap时传入一个Comparator对象，负责对TreeMap中所有的Key进行排序。</li>
+</ol>
+<table>
+<thead>
+<tr>
+<th>方法名称</th>
+<th>方法解释</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Map.Entry firstEntry()</td>
+<td>最小key的键值对。</td>
+</tr>
+<tr>
+<td>Object firstKey()</td>
+<td>最小的Key值。</td>
+</tr>
+<tr>
+<td>Map.Entry lastEntry()</td>
+<td>最大Key的键值对。</td>
+</tr>
+</tbody></table>
+<h2 id="Collection接口及其子类"><a href="#Collection接口及其子类" class="headerlink" title="Collection接口及其子类"></a>Collection接口及其子类</h2><p>Collection作为一个集合的根接口，定义了一组对象和它的子类需要实现的方法。</p>
+<ul>
+<li>int size() 获取元素个数</li>
+<li>boolean isEmpty() 是否个数为 0</li>
+<li>boolean contains(Object element) 是否包含指定元素</li>
+<li>boolean add(E element)  添加元素，成功时返回 true</li>
+<li>boolean remove(Object element) 删除元素，成功时返回 true</li>
+<li>Iterator&lt; E &gt; iterator() 获取迭代器</li>
+</ul>
+<p><img src="/img/coll.jpg" srcset="/img/loading.gif" alt="Collection"></p>
+<h3 id="Iterator"><a href="#Iterator" class="headerlink" title="Iterator"></a>Iterator</h3><p>Collection继承了Iteratable&lt; E &gt;接口，里面只有iterator一个方法，返回一个Iterator迭代器。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">Iterable</span>&lt;<span class="hljs-title">T</span>&gt; </span>&#123;<br>    <span class="hljs-comment">/**</span><br><span class="hljs-comment">    * Returns an &#123;<span class="hljs-doctag">@link</span> Iterator&#125; for the elements in this object.</span><br><span class="hljs-comment">    *</span><br><span class="hljs-comment">    * <span class="hljs-doctag">@return</span> An &#123;<span class="hljs-doctag">@code</span> Iterator&#125; instance.</span><br><span class="hljs-comment">    */</span><br>    <span class="hljs-function">Iterator&lt;T&gt; <span class="hljs-title">iterator</span><span class="hljs-params">()</span></span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="Iterator-的使用方法"><a href="#Iterator-的使用方法" class="headerlink" title="Iterator 的使用方法"></a>Iterator 的使用方法</h4><p>遍历集合</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">Iterator iterator = list.iterator();<br><span class="hljs-keyword">while</span> (iterator.hasNext())&#123;<br>    System.out.println(iterator.next());<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>用Iterator的标准操作方法可以让我们不关心具体集合的类型。使得客户端代码和具体集合类型耦合性弱，复合性更强。但是却点在于无法获得特定元素，只能挨个遍历。</p>
+<p>当创建完成指向某个集合或者容器的Iterator对象时，指针其实指向第一个元素的上方。(NULL)</p>
+<h4 id="Iterator的主要API"><a href="#Iterator的主要API" class="headerlink" title="Iterator的主要API"></a>Iterator的主要API</h4><ul>
+<li>hasNext(): 没有指针下移操作，只判断是否存在下一个元素。</li>
+<li>next(): 指针下移，返回该指针所指向的元素。</li>
+<li>remove(): 删除当前指针所指向的元素。—— 一般和next方法一起用，这时候作用是删除Next方法返回的元素。</li>
+</ul>
+<h3 id="List"><a href="#List" class="headerlink" title="List"></a>List</h3><ul>
+<li>List是Collection的一个子接口。</li>
+<li>List是一个元素有序的，可以重复并且可以为null的集合。</li>
+<li>在Collection集合类中最常使用的几种List实现类为<strong>ArrayList, LinkedList, Vector</strong>。</li>
+<li>有序&amp;可以重复： List的数据结构是一个序列，存储元素时直接在内存中开辟一块连续的空间，然后将空间与索引对应。</li>
+</ul>
+<p>官方文档：</p>
+<blockquote>
+<p>The user of this interface has precise control over where in the list each element is inserted. The user can access elements by their integer index (position in the list), and search for elements in the list.</p>
+</blockquote>
+<h4 id="List局部范围操作"><a href="#List局部范围操作" class="headerlink" title="List局部范围操作"></a>List局部范围操作</h4><p><code>List.subList(int fromIndex, int toIndex)</code> 返回的是fromIndex到toIndex之间的子集。注意：<strong>左闭右开 —— [fromIndex, toIndex)</strong></p>
+<p><code>subList( )</code> 返回的是原来List的引用，只是把开始位置offset和size修改了。</p>
+<p>由于subList和原来的List保持同一个引用，所以对subList进行操作也会对原来的List产生影响。 </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.company;<br><span class="hljs-keyword">import</span> java.util.*;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">ListTest</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span></span>&#123;<br>        List test = <span class="hljs-keyword">new</span> ArrayList();<br>        test.add(<span class="hljs-number">7</span>);<br>        test.add(<span class="hljs-number">8</span>);<br>        test.add(<span class="hljs-number">9</span>);<br>        test.add(<span class="hljs-number">10</span>);<br>        test.add(<span class="hljs-number">11</span>);<br><br>        List test2 = test.subList(<span class="hljs-number">0</span>,<span class="hljs-number">2</span>);<br>        System.out.println(test);<br>        test2.clear();<br>        System.out.println(test);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>Output:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java">com.company.ListTest<br>[<span class="hljs-number">7</span>, <span class="hljs-number">8</span>, <span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>]<br>[<span class="hljs-number">9</span>, <span class="hljs-number">10</span>, <span class="hljs-number">11</span>]<br><br>Process finished with exit code <span class="hljs-number">0</span><br></code></pre></td></tr></table></figure>
+
+
+<h4 id="List和Array的区别"><a href="#List和Array的区别" class="headerlink" title="List和Array的区别"></a>List和Array的区别</h4><ul>
+<li>相似之处<ol>
+<li>都可以表示同一类型的对象</li>
+<li>使用Index进行索引</li>
+</ol>
+</li>
+<li>不同之处<ol>
+<li>数组可以存任何类型元素 —— List不能存基本数据类型</li>
+<li>数组容量不能改变 —— List容量动态增长</li>
+<li>数组效率高 —— List效率相对低一些</li>
+</ol>
+</li>
+</ul>
+<p>总结：当容量固定的时候优先使用数组，容纳的类型更多而且更加高效。</p>
+<p>当容量不固定的情况下，用List更有优势（ArrayList &amp; LinkedList）。</p>
+<h4 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h4><ul>
+<li><p><strong>非线程安全类</strong></p>
+</li>
+<li><p>ArrayList是一个容量可以动态增长的数组。它继承了AbstractList抽象类。</p>
+</li>
+<li><p>有序</p>
+</li>
+<li><p>元素可以为null</p>
+</li>
+<li><p>效率高</p>
+<ul>
+<li>size(), isEmpty(), get(), set(), iterator(), ==&gt; O(1)</li>
+<li>add()平均复杂度为O(n)</li>
+<li>其他操作复杂度基本上都是O(n)</li>
+</ul>
+</li>
+<li><p>占用空间小：和LinkedList相比，不用维护额外的链表</p>
+</li>
+</ul>
+<h5 id="ArrayList构造器"><a href="#ArrayList构造器" class="headerlink" title="ArrayList构造器"></a>ArrayList构造器</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ArrayList</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">this</span>.elementData = DEFAULTCAPACITY_EMPTY_ELEMENTDATA;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ArrayList</span><span class="hljs-params">(<span class="hljs-keyword">int</span> initialCapacity)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span> (initialCapacity &gt; <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">this</span>.elementData = <span class="hljs-keyword">new</span> Object[initialCapacity];<br>        &#125; <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span> (initialCapacity == <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-keyword">this</span>.elementData = EMPTY_ELEMENTDATA;<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> IllegalArgumentException(<span class="hljs-string">&quot;Illegal Capacity: &quot;</span>+<br>                                               initialCapacity);<br>        &#125;<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-title">ArrayList</span><span class="hljs-params">(Collection&lt;? extends E&gt; c)</span> </span>&#123;<br>        elementData = c.toArray();<br>        <span class="hljs-keyword">if</span> ((size = elementData.length) != <span class="hljs-number">0</span>) &#123;<br>            <span class="hljs-comment">// c.toArray might (incorrectly) not return Object[] (see 6260652)</span><br>            <span class="hljs-keyword">if</span> (elementData.getClass() != Object[].class)<br>                elementData = Arrays.copyOf(elementData, size, Object[].class);<br>        &#125; <span class="hljs-keyword">else</span> &#123;<br>            <span class="hljs-comment">// replace with empty array.</span><br>            <span class="hljs-keyword">this</span>.elementData = EMPTY_ELEMENTDATA;<br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+
+<h5 id="ArrayList遍历方式"><a href="#ArrayList遍历方式" class="headerlink" title="ArrayList遍历方式"></a>ArrayList遍历方式</h5><ul>
+<li>迭代器遍历</li>
+<li>索引遍历</li>
+<li>for循环遍历</li>
+</ul>
+<p>说明： 遍历效率 —— <strong>索引值 &gt; for循环 &gt; 迭代器</strong></p>
+<h5 id="toArray-的使用"><a href="#toArray-的使用" class="headerlink" title="toArray()的使用"></a>toArray()的使用</h5><p>通常情况下，调用<code>ArrayList</code> 中的<code>toArray()</code>可能会遇到<code>java.lang.ClassCastException</code>异常。 —— 这是由于 <code>toArray()</code>返回的是<code>Object[]</code>数组，而将<code>Object[]</code>转化为其他类型时会抛出异常，因为其他类型(例如<code>Integer</code>)是<code>Object</code>的子类，而Java不支持向下转型。所以提供了另外一种方法。</p>
+<p><code>&lt;T&gt; T[] toArray(T[] a)</code></p>
+<p>用法如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// 方法一</span><br>Integer[] arr = test.toArray(<span class="hljs-keyword">new</span> Integer[<span class="hljs-number">0</span>]); <br><span class="hljs-comment">// Content传入Array的首地址</span><br><br><br><span class="hljs-comment">// 方法二(容易理解)</span><br>Integer[] arr = <span class="hljs-keyword">new</span> Integer[test.size()];<br>        test.toArray(arr);<br></code></pre></td></tr></table></figure>
+
+
+<h4 id="LinkedList"><a href="#LinkedList" class="headerlink" title="LinkedList"></a>LinkedList</h4><ul>
+<li>非线程安全类</li>
+<li>双向链表实现</li>
+<li>元素时有序的，并且允许元素为null</li>
+<li>继承自AbstractSequentialList接口</li>
+<li>只有三个成员变量：头结点 First 尾结点 Last 容量 Size</li>
+<li>Node是一个双向节点</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> <span class="hljs-keyword">static</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Node</span>&lt;<span class="hljs-title">E</span>&gt; </span>&#123;<br>        E item;<br>        Node&lt;E&gt; next;<br>        Node&lt;E&gt; prev;<br><br>        Node(Node&lt;E&gt; prev, E element, Node&lt;E&gt; next) &#123;<br>            <span class="hljs-keyword">this</span>.item = element;<br>            <span class="hljs-keyword">this</span>.next = next;<br>            <span class="hljs-keyword">this</span>.prev = prev;<br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure>
+
+
+<h4 id="ArrayList-amp-LinkedList-比较"><a href="#ArrayList-amp-LinkedList-比较" class="headerlink" title="ArrayList &amp; LinkedList 比较"></a>ArrayList &amp; LinkedList 比较</h4><h5 id="ArrayList-1"><a href="#ArrayList-1" class="headerlink" title="ArrayList"></a>ArrayList</h5><ul>
+<li>基于数组，搜索和读取数据很快。</li>
+<li>添加和删除元素时效率不高。</li>
+<li>每次达到阈值之后需要扩容，有点影响效率。</li>
+</ul>
+<h5 id="LinkedList-1"><a href="#LinkedList-1" class="headerlink" title="LinkedList"></a>LinkedList</h5><ul>
+<li>基于双向链表，添加删除元素效率很高。</li>
+<li>只能顺序遍历，所以搜索读取数据效率不高。</li>
+<li>没有固定容量不需要扩容。</li>
+<li>需要维护链表因此占用空间更多。</li>
+</ul>
+<h4 id="Vector"><a href="#Vector" class="headerlink" title="Vector"></a>Vector</h4><ul>
+<li>底层由一个可以增长的数组组成</li>
+<li>Vector 通过 capacity (容量) 和 capacityIncrement (增长数量) 来尽量少的占用空间</li>
+<li>扩容时默认扩大两倍</li>
+<li>最好在插入大量元素前增加 vector 容量，那样可以减少重新申请内存的次数</li>
+<li>通过 iterator 和 lastIterator 获得的迭代器是 fail-fast 的</li>
+<li>通过 elements 获得的老版迭代器 Enumeration 不是 fail-fast 的</li>
+<li>同步类，每个方法前都有同步锁 synchronized</li>
+<li>在 JDK 2.0 以后，经过优化，Vector 也加入了 Java 集合框架大家族</li>
+<li>线程安全！</li>
+</ul>
+<h3 id="Queue"><a href="#Queue" class="headerlink" title="Queue"></a>Queue</h3><h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><p>Set 注重元素的独一无二，不能存储重复的元素。并且存储元素时<strong>无序</strong>。</p>
+<p>Set Implementations</p>
+<ul>
+<li>java.util.EnumSet</li>
+<li>java.util.HashSet</li>
+<li>java.util.LinkedHashSet</li>
+<li>java.util.TreeSet</li>
+</ul>
+<h4 id="HashSet-SubClass"><a href="#HashSet-SubClass" class="headerlink" title="HashSet(SubClass)"></a>HashSet(SubClass)</h4><p>HashSet中存放的是HashCode，但存储的顺序并不是存入的顺序。</p>
+<ul>
+<li><p>HashSet如何实现不存入重复元素？</p>
+</li>
+<li><p>通过元素的hashCode() 和 Equals() 方法判断元素是否重复。</p>
+</li>
+<li><p>如果元素的HashCode是不相同的，那么HashSet会认为对象是不相等的。</p>
+</li>
+<li><p>然后用Equals()方法比较，如果结果为True，则无法加入。反之可以加入。</p>
+<ul>
+<li>那么哈希值HashCode相同的元素如何存储呢？</li>
+<li>可以认为相同哈希值的元素放在同一个哈希桶（Bucket）中。</li>
+</ul>
+<p><img src="/img/hashSet.png" srcset="/img/loading.gif" alt="HashSet"></p>
+</li>
+</ul>
+<h4 id="TreeSet-Subclass"><a href="#TreeSet-Subclass" class="headerlink" title="TreeSet(Subclass)"></a>TreeSet(Subclass)</h4>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Java/">Java</a>
+                    
+                  </div>
+                
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/01/04/hello-world/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Hello World</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2020/05/31/29DivideTwoIntegers/">
+                        <span class="hidden-mobile">29 Divide Two Integers</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     © Xinyi Ma | Powered by  <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize(null);
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Hello World - Xinyi Ashley Ma</title>
+  <title>25 Reverse Nodes in k-Group - Xinyi Ashley Ma</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Hello World">
+            <span class="h2" id="subtitle" title="25 Reverse Nodes in k-Group">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-04 14:53" pubdate>
-        January 4, 2021 pm
+      <time datetime="2020-05-07 14:13" pubdate>
+        May 7, 2020 pm
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      78 Words
+      387 Words
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      7
        min
     </span>
   
@@ -224,37 +224,45 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Hello World</h1>
+            <h1 style="display: none">25 Reverse Nodes in k-Group</h1>
             
               <p class="note note-info">
                 
-                  Last Updated on: January 5, 2021 pm
+                  Last Updated on: January 6, 2021 pm
                 
               </p>
             
             <div class="markdown-body">
-              <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start-about-Hello-world"><a href="#Quick-Start-about-Hello-world" class="headerlink" title="Quick Start about Hello world"></a>Quick Start about Hello world</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+              <h2 id="25-Reverse-Nodes-in-k-Group"><a href="#25-Reverse-Nodes-in-k-Group" class="headerlink" title="25 Reverse Nodes in k-Group"></a>25 Reverse Nodes in k-Group</h2><p><strong>Tag:</strong> Linked List</p>
+<h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>Given a linked list, reverse the nodes of a linked list <em>k</em> at a time and return its modified list.</p>
+<p><em>k</em> is a positive integer and is less than or equal to the length of the linked list. If the number of nodes is not a multiple of <em>k</em> then left-out nodes in the end should remain as it is.</p>
+<p>如果链表的长度不是<strong>k</strong>的长度，那么最后多余的部分不用翻转。</p>
+<p><strong>Example:</strong></p>
+<p>Given this linked list: <code>1-&gt;2-&gt;3-&gt;4-&gt;5</code></p>
+<p>For <em>k</em> = 2, you should return: <code>2-&gt;1-&gt;4-&gt;3-&gt;5</code></p>
+<p>For <em>k</em> = 3, you should return: <code>3-&gt;2-&gt;1-&gt;4-&gt;5</code></p>
+<p><strong>Note:</strong></p>
+<ul>
+<li>Only constant extra memory is allowed.</li>
+<li>You may not alter the values in the list’s nodes, only nodes itself may be changed.</li>
+</ul>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for singly-linked list.</span><br><span class="hljs-comment"> * public class ListNode &#123;</span><br><span class="hljs-comment"> *     int val;</span><br><span class="hljs-comment"> *     ListNode next;</span><br><span class="hljs-comment"> *     ListNode(int x) &#123; val = x; &#125;</span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">reverseKGroup</span><span class="hljs-params">(ListNode head, <span class="hljs-keyword">int</span> k)</span> </span>&#123;<br>        ListNode dummy = <span class="hljs-keyword">new</span> ListNode(<span class="hljs-number">0</span>);<br>        dummy.next = head;<br>        head = dummy;<br>        <span class="hljs-keyword">while</span>(<span class="hljs-keyword">true</span>)&#123;<br>            head = reverse(head, k);<br>            <span class="hljs-keyword">if</span>(head == <span class="hljs-keyword">null</span>) <br>                <span class="hljs-keyword">break</span>;<br>        &#125;<br>        <span class="hljs-keyword">return</span> dummy.next;<br>    &#125;<br>    <br>    <span class="hljs-comment">// head -&gt; n1 -&gt; n2 ... nk -&gt; nk+1</span><br>    <span class="hljs-comment">// =&gt;</span><br>    <span class="hljs-comment">// head -&gt; nk -&gt; nk-1 .. n1 -&gt; nk+1</span><br>    <span class="hljs-comment">// return n1</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">reverse</span><span class="hljs-params">(ListNode head, <span class="hljs-keyword">int</span> k)</span></span>&#123;<br>        <span class="hljs-comment">// 找到nk</span><br>        <span class="hljs-comment">// 找到nkplus</span><br>        <span class="hljs-comment">// 找到n1</span><br>        ListNode nk = head;<br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; k; i++)&#123;<br>            <span class="hljs-keyword">if</span>(nk == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>; <span class="hljs-comment">// 判断是否到了链表尾部不足k个元素的部分</span><br>            nk = nk.next;<br>        &#125;<br>        <br>        <span class="hljs-keyword">if</span>(nk == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>;   <span class="hljs-comment">// 解决最后一个sub-linked-list长度不够的情况</span><br>        ListNode nkplus = nk.next;<br>        ListNode n1 = head.next;<br>        <br>        <span class="hljs-comment">// 设置n1前面的node -&gt; pre</span><br>        <span class="hljs-comment">// 设置当前node -&gt; cur</span><br>        <span class="hljs-comment">// reverse the sub - linked list</span><br>        <br>        ListNode pre = <span class="hljs-keyword">null</span>;<br>        ListNode cur = n1;<br> <br>        <span class="hljs-keyword">while</span>(cur != nkplus)&#123;<br>            ListNode temp = cur.next;<br>            cur.next = pre;<br>            pre = cur;<br>            cur = temp;<br>        &#125;<br>        <br>        <span class="hljs-comment">// connect</span><br>        head.next = nk;<br>        n1.next = nkplus;<br>        <span class="hljs-keyword">return</span> n1; <br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<h3 id="Space-Complexity"><a href="#Space-Complexity" class="headerlink" title="Space Complexity"></a>Space Complexity</h3><p><strong>Space: O(1)</strong></p>
 
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/tags/HelloWorld/">HelloWorld</a>
+                      <a class="hover-with-bg" href="/categories/LeetCode/">LeetCode</a>
                     
                   </div>
+                
                 
               </div>
               
@@ -263,9 +271,9 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/01/05/J2EE&amp;Spring/">
+                      <a href="/2020/05/08/24SwapNodesinPairs/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">J2EE and Spring Overview</span>
+                        <span class="hidden-mobile">24 Swap Nodes in Pairs</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -273,8 +281,8 @@
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/10/20/%E9%9B%86%E5%90%88%E7%B1%BB/">
-                        <span class="hidden-mobile">Java 集合类</span>
+                      <a href="/2020/04/06/4StringtoInteger/">
+                        <span class="hidden-mobile">4 String to Integer</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
