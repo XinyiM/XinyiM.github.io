@@ -17,25 +17,9 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Authentication in SPA - Xinyi Ashley Ma</title>
+  <title>Categories - Java - Xinyi Ashley Ma</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
-
-
-  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
-  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
-
-  
-    
-    
-      
-      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
-    
-  
-
-  
-    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
-  
 
 
 
@@ -63,7 +47,7 @@
 
 
 <body>
-  <header style="height: 70vh;">
+  <header style="height: 60vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -162,46 +146,9 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Authentication in SPA">
+            <span class="h2" id="subtitle" title="Category - Java">
               
             </span>
-
-            
-              <div class="mt-3">
-  
-  
-    <span class="post-meta">
-      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-04 16:13" pubdate>
-        January 4, 2021 pm
-      </time>
-    </span>
-  
-</div>
-
-<div class="mt-1">
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-chart"></i>
-      121 Words
-    </span>
-  
-
-  
-    
-    <span class="post-meta mr-2">
-      <i class="iconfont icon-clock-fill"></i>
-      
-      
-      2
-       min
-    </span>
-  
-
-  
-  
-</div>
 
             
           </div>
@@ -214,108 +161,40 @@
 
   <main>
     
+      <div class="container nopadding-x-md">
+        <div class="py-5" id="board"
+          >
+          
+          <div class="container">
+            <div class="row">
+              <div class="col-12 col-md-10 m-auto">
+                
+
+<div class="list-group">
+  <p class="h4">1 posts in total.</p>
+  <hr>
+  
+  
+    
       
+      <p class="h5">2020</p>
+    
+    <a href="/2020/10/20/%E9%9B%86%E5%90%88%E7%B1%BB/" class="list-group-item list-group-item-action">
+      <span class="archive-post-title">Java 集合类</span>
+      <time style="float: right;">10-20</time>
+    </a>
+  
+</div>
 
-<div class="container-fluid nopadding-x">
-  <div class="row nomargin-x">
-    <div class="d-none d-lg-block col-lg-2"></div>
-    <div class="col-lg-8 nopadding-x-md">
-      <div class="container nopadding-x-md" id="board-ctn">
-        <div class="py-5" id="board">
-          <article class="post-content mx-auto">
-            <!-- SEO header -->
-            <h1 style="display: none">Authentication in SPA</h1>
-            
-              <p class="note note-info">
-                
-                  Last Updated on: January 5, 2021 pm
-                
-              </p>
-            
-            <div class="markdown-body">
-              <h2 id="Authentication-in-SPA"><a href="#Authentication-in-SPA" class="headerlink" title="Authentication in SPA"></a>Authentication in SPA</h2><p><img src="/img/AuthenticationSPA.png" srcset="/img/loading.gif" alt="Authentication"></p>
-<p>The API/Server is stateless and decoupled from the front-end.</p>
-<ol>
-<li>Generate a Token by the Server.</li>
-<li>Return the token to the front end and stored in a cookie.</li>
-<li>The front end attached the token to request protected resources.</li>
-<li>The server generates the token with algorithm using a private key.</li>
-<li>The server is the only one that knows the token. So the server can validate the token with the incoming request.</li>
-</ol>
-<p>With this approach, we only need to store the private key in the server side. </p>
-<p>On the front-end part, we use the token to attach to it to requests.</p>
-<p>一点理解：<a target="_blank" rel="noopener" href="https://blog.csdn.net/maocai008/article/details/79064542">关于Token,签名,加密</a></p>
-<p class="note note-warning">
-Reference:  Udemy, MERN - Full Stack Guide.
-</p>
-            </div>
-            <hr>
-            <div>
-              <div class="post-metas mb-3">
-                
-                  <div class="post-meta mr-3">
-                    <i class="iconfont icon-category"></i>
-                    
-                      <a class="hover-with-bg" href="/categories/MERN/">MERN</a>
-                    
-                  </div>
-                
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/Authentication/">Authentication</a>
-                    
-                  </div>
-                
+
+
+
+
               </div>
-              
-              
-                <div class="post-prevnext">
-                  <article class="post-prev col-6">
-                    
-                    
-                      <a href="/2021/01/05/J2EE&amp;Spring/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">J2EE and Spring Overview</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
-                  </article>
-                  <article class="post-next col-6">
-                    
-                    
-                      <a href="/2021/01/04/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
-                        <span class="visible-mobile">Next</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
-                    
-                  </article>
-                </div>
-              
             </div>
-
-            
-          </article>
+          </div>
         </div>
       </div>
-    </div>
-    
-      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
-        <div id="toc">
-  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
-  <div class="toc-body" id="toc-body"></div>
-</div>
-
-      </div>
-    
-  </div>
-</div>
-
-<!-- Custom -->
-
-
     
 
     
@@ -395,15 +274,9 @@ Reference:  Udemy, MERN - Full Stack Guide.
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
-  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
-
-
-
-  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
 
 
 
@@ -446,13 +319,6 @@ Reference:  Udemy, MERN - Full Stack Guide.
 
 
 
-
-  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
-  <script>
-    if (window.mermaid) {
-      mermaid.initialize(null);
-    }
-  </script>
 
 
 

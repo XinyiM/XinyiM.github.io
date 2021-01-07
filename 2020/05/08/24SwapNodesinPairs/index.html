@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>J2EE and Spring Overview - Xinyi Ashley Ma</title>
+  <title>24 Swap Nodes in Pairs - Xinyi Ashley Ma</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="J2EE and Spring Overview">
+            <span class="h2" id="subtitle" title="24 Swap Nodes in Pairs">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-05 13:42" pubdate>
-        January 5, 2021 pm
+      <time datetime="2020-05-08 09:40" pubdate>
+        May 8, 2020 am
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      203 Words
+      161 Words
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      3
        min
     </span>
   
@@ -224,57 +224,23 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">J2EE and Spring Overview</h1>
+            <h1 style="display: none">24 Swap Nodes in Pairs</h1>
             
               <p class="note note-info">
                 
-                  Last Updated on: January 5, 2021 pm
+                  Last Updated on: January 6, 2021 pm
                 
               </p>
             
             <div class="markdown-body">
-              <h2 id="What-is-Java-EE"><a href="#What-is-Java-EE" class="headerlink" title="What is Java EE?"></a>What is Java EE?</h2><p><strong>J2EE - Java 2 Platform Enterprise Edition</strong></p>
-<pre><code class=" mermaid">graph TB
-    A[Client-Side Presentation] --&gt; B[Server-Side Presentation];
-    B --&gt; C[Server-Side Business Logic];
-    C --&gt; D[Database]; 
-</code></pre>
-<h2 id="Overview-of-Spring"><a href="#Overview-of-Spring" class="headerlink" title="Overview of Spring"></a>Overview of Spring</h2><h3 id="Goals"><a href="#Goals" class="headerlink" title="Goals"></a>Goals</h3><ul>
-<li>Lightweight development with Java POJO(Plain-Old-Java-Objects)</li>
-<li>Dependency injection to promote loose coupling </li>
-<li>Declarative programming with Aspect-Oriented-Programming</li>
-<li>Minimize boilerplate Java Code</li>
-</ul>
-<h3 id="Spring-Core-Framework"><a href="#Spring-Core-Framework" class="headerlink" title="Spring Core Framework"></a>Spring Core Framework</h3><h3 id="Core-Container"><a href="#Core-Container" class="headerlink" title="Core Container"></a>Core Container</h3><p>Creating beans and making these beans available.</p>
-<ul>
-<li>Bean Factory - Create Beans and manage beans</li>
-<li>Context - Spring Container that holds the beans in memory.</li>
-<li>SpEL - Spring Expression Language</li>
-</ul>
-<h3 id="AOP-Section"><a href="#AOP-Section" class="headerlink" title="AOP Section"></a>AOP Section</h3><p><strong>AOP:</strong> Aspect Oriented Programming</p>
-<p>Allows you to create application-wide services. </p>
-<p>Add functionality to object without modifying your code using <code>config</code> file or by adding annotations.</p>
-<blockquote>
-<p>Logging, security, transactions, etc..</p>
-</blockquote>
-<h3 id="Data-Access-Layer"><a href="#Data-Access-Layer" class="headerlink" title="Data Access Layer"></a>Data Access Layer</h3><ul>
-<li>JDBC - helper classes</li>
-<li>ORM - Objection Relational Mapping - hook in to Hibernate</li>
-<li>Transactions - Add transaction support   </li>
-<li>JMS - Java Message Service - Send msgs to a msg queue in a asych way.</li>
-</ul>
-<h3 id="Web-Layer"><a href="#Web-Layer" class="headerlink" title="Web Layer"></a>Web Layer</h3><p>Home of the Spring MVC framework</p>
-<h3 id="Test-Layer"><a href="#Test-Layer" class="headerlink" title="Test Layer"></a>Test Layer</h3><p>Supports <strong>Test-Driven-Development</strong></p>
-<p>Mock objects and out-of-container testing.</p>
-<p>Integration test as well.</p>
-<h2 id="Spring-Projects"><a href="#Spring-Projects" class="headerlink" title="Spring Projects"></a>Spring Projects</h2><p>Additional modules built on top of the core Spring Framework.</p>
-<ul>
-<li>Spring Cloud, Spring Data</li>
-<li>Spring Web Service - RESTful </li>
-</ul>
-<p class="note note-warning">
-Reference:  Udemy, Spring & Hibernate for Beginners (including SpringBoot)
-</p>
+              <h2 id="24-Swap-Nodes-in-Pairs-Medium"><a href="#24-Swap-Nodes-in-Pairs-Medium" class="headerlink" title="24. Swap Nodes in Pairs - Medium"></a>24. Swap Nodes in Pairs - Medium</h2><p>Given a linked list, swap every two adjacent nodes and return its head.</p>
+<p>You may <strong>not</strong> modify the values in the list’s nodes, only nodes itself may be changed.</p>
+<p><strong>Example:</strong></p>
+<figure class="highlight apache"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs apache"><span class="hljs-attribute">Given</span> <span class="hljs-number">1</span>-&gt;<span class="hljs-number">2</span>-&gt;<span class="hljs-number">3</span>-&gt;<span class="hljs-number">4</span>, you should return the list as <span class="hljs-number">2</span>-&gt;<span class="hljs-number">1</span>-&gt;<span class="hljs-number">4</span>-&gt;<span class="hljs-number">3</span>.<br></code></pre></td></tr></table></figure>
+
+
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">/**</span><br><span class="hljs-comment"> * Definition for singly-linked list.</span><br><span class="hljs-comment"> * public class ListNode &#123;</span><br><span class="hljs-comment"> *     int val;</span><br><span class="hljs-comment"> *     ListNode next;</span><br><span class="hljs-comment"> *     ListNode() &#123;&#125;</span><br><span class="hljs-comment"> *     ListNode(int val) &#123; this.val = val; &#125;</span><br><span class="hljs-comment"> *     ListNode(int val, ListNode next) &#123; this.val = val; this.next = next; &#125;</span><br><span class="hljs-comment"> * &#125;</span><br><span class="hljs-comment"> */</span><br><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> ListNode <span class="hljs-title">swapPairs</span><span class="hljs-params">(ListNode head)</span> </span>&#123;<br>        <span class="hljs-keyword">if</span>(head == <span class="hljs-keyword">null</span> || head.next == <span class="hljs-keyword">null</span>) <span class="hljs-keyword">return</span> head;<br>        ListNode dummy = <span class="hljs-keyword">new</span> ListNode(<span class="hljs-number">0</span>);<br>        dummy.next = head;<br>        head = dummy;<br>        <span class="hljs-keyword">while</span>(head.next != <span class="hljs-keyword">null</span> &amp;&amp; head.next.next != <span class="hljs-keyword">null</span>)&#123;<br>            ListNode n1 = head.next;<br>            ListNode n2 = head.next.next;<br>            n1.next = n2.next;<br>            n2.next = n1;<br>            head.next = n2;<br>            <br>            head = n1;<br>        &#125;<br>        <span class="hljs-keyword">return</span> dummy.next;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
             </div>
             <hr>
             <div>
@@ -283,17 +249,10 @@ Reference:  Udemy, Spring & Hibernate for Beginners (including SpringBoot)
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Spring-Hibernate/">Spring & Hibernate</a>
+                      <a class="hover-with-bg" href="/categories/LeetCode/">LeetCode</a>
                     
                   </div>
                 
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/Spring/">Spring</a>
-                    
-                  </div>
                 
               </div>
               
@@ -302,9 +261,9 @@ Reference:  Udemy, Spring & Hibernate for Beginners (including SpringBoot)
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/01/05/envSetup/">
+                      <a href="/2020/05/17/23MergekSortedLists/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Setup Spring Environment</span>
+                        <span class="hidden-mobile">23 Merge k Sorted Lists</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -312,8 +271,8 @@ Reference:  Udemy, Spring & Hibernate for Beginners (including SpringBoot)
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/01/04/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2020/05/07/25ReverseNodesink-Group/">
+                        <span class="hidden-mobile">25 Reverse Nodes in k-Group</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

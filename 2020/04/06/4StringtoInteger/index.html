@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>J2EE and Spring Overview - Xinyi Ashley Ma</title>
+  <title>4 String to Integer - Xinyi Ashley Ma</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="J2EE and Spring Overview">
+            <span class="h2" id="subtitle" title="4 String to Integer">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-05 13:42" pubdate>
-        January 5, 2021 pm
+      <time datetime="2020-04-06 13:26" pubdate>
+        April 6, 2020 pm
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      203 Words
+      454 Words
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      9
        min
     </span>
   
@@ -224,57 +224,41 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">J2EE and Spring Overview</h1>
+            <h1 style="display: none">4 String to Integer</h1>
             
               <p class="note note-info">
                 
-                  Last Updated on: January 5, 2021 pm
+                  Last Updated on: January 6, 2021 pm
                 
               </p>
             
             <div class="markdown-body">
-              <h2 id="What-is-Java-EE"><a href="#What-is-Java-EE" class="headerlink" title="What is Java EE?"></a>What is Java EE?</h2><p><strong>J2EE - Java 2 Platform Enterprise Edition</strong></p>
-<pre><code class=" mermaid">graph TB
-    A[Client-Side Presentation] --&gt; B[Server-Side Presentation];
-    B --&gt; C[Server-Side Business Logic];
-    C --&gt; D[Database]; 
-</code></pre>
-<h2 id="Overview-of-Spring"><a href="#Overview-of-Spring" class="headerlink" title="Overview of Spring"></a>Overview of Spring</h2><h3 id="Goals"><a href="#Goals" class="headerlink" title="Goals"></a>Goals</h3><ul>
-<li>Lightweight development with Java POJO(Plain-Old-Java-Objects)</li>
-<li>Dependency injection to promote loose coupling </li>
-<li>Declarative programming with Aspect-Oriented-Programming</li>
-<li>Minimize boilerplate Java Code</li>
-</ul>
-<h3 id="Spring-Core-Framework"><a href="#Spring-Core-Framework" class="headerlink" title="Spring Core Framework"></a>Spring Core Framework</h3><h3 id="Core-Container"><a href="#Core-Container" class="headerlink" title="Core Container"></a>Core Container</h3><p>Creating beans and making these beans available.</p>
+              <h2 id="3-String-to-Integer"><a href="#3-String-to-Integer" class="headerlink" title="3 String to Integer"></a>3 String to Integer</h2><h3 id="Description"><a href="#Description" class="headerlink" title="Description"></a>Description</h3><p>Implement <code>atoi</code> which converts a string to an integer.</p>
+<p>The function first discards as many whitespace characters as necessary until the first non-whitespace character is found. Then, starting from this character, takes an optional initial plus or minus sign followed by as many numerical digits as possible, and interprets them as a numerical value.</p>
+<p>The string can contain additional characters after those that form the integral number, which are ignored and have no effect on the behavior of this function.</p>
+<p>If the first sequence of non-whitespace characters in str is not a valid integral number, or if no such sequence exists because either str is empty or it contains only whitespace characters, no conversion is performed.</p>
+<p>If no valid conversion could be performed, a zero value is returned.</p>
+<p><strong>Note:</strong></p>
 <ul>
-<li>Bean Factory - Create Beans and manage beans</li>
-<li>Context - Spring Container that holds the beans in memory.</li>
-<li>SpEL - Spring Expression Language</li>
+<li>Only the space character <code>&#39; &#39;</code> is considered as whitespace character.</li>
+<li>Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231, 231 − 1]. If the numerical value is out of the range of representable values, INT_MAX (231 − 1) or INT_MIN (−231) is returned.</li>
 </ul>
-<h3 id="AOP-Section"><a href="#AOP-Section" class="headerlink" title="AOP Section"></a>AOP Section</h3><p><strong>AOP:</strong> Aspect Oriented Programming</p>
-<p>Allows you to create application-wide services. </p>
-<p>Add functionality to object without modifying your code using <code>config</code> file or by adding annotations.</p>
-<blockquote>
-<p>Logging, security, transactions, etc..</p>
-</blockquote>
-<h3 id="Data-Access-Layer"><a href="#Data-Access-Layer" class="headerlink" title="Data Access Layer"></a>Data Access Layer</h3><ul>
-<li>JDBC - helper classes</li>
-<li>ORM - Objection Relational Mapping - hook in to Hibernate</li>
-<li>Transactions - Add transaction support   </li>
-<li>JMS - Java Message Service - Send msgs to a msg queue in a asych way.</li>
-</ul>
-<h3 id="Web-Layer"><a href="#Web-Layer" class="headerlink" title="Web Layer"></a>Web Layer</h3><p>Home of the Spring MVC framework</p>
-<h3 id="Test-Layer"><a href="#Test-Layer" class="headerlink" title="Test Layer"></a>Test Layer</h3><p>Supports <strong>Test-Driven-Development</strong></p>
-<p>Mock objects and out-of-container testing.</p>
-<p>Integration test as well.</p>
-<h2 id="Spring-Projects"><a href="#Spring-Projects" class="headerlink" title="Spring Projects"></a>Spring Projects</h2><p>Additional modules built on top of the core Spring Framework.</p>
-<ul>
-<li>Spring Cloud, Spring Data</li>
-<li>Spring Web Service - RESTful </li>
-</ul>
-<p class="note note-warning">
-Reference:  Udemy, Spring & Hibernate for Beginners (including SpringBoot)
-</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">Input:</span> <span class="hljs-string">&quot;42&quot;</span><br><span class="hljs-symbol">Output:</span> <span class="hljs-number">42</span><br></code></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight vbnet"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs vbnet"><span class="hljs-symbol">Input:</span> <span class="hljs-string">&quot;   -42&quot;</span><br><span class="hljs-symbol">Output:</span> -<span class="hljs-number">42</span><br><span class="hljs-symbol">Explanation:</span> The first non-whitespace character <span class="hljs-built_in">is</span> <span class="hljs-comment">&#x27;-&#x27;, which is the minus sign.</span><br>             <span class="hljs-keyword">Then</span> <span class="hljs-keyword">take</span> <span class="hljs-keyword">as</span> many numerical digits <span class="hljs-keyword">as</span> possible, which gets <span class="hljs-number">42</span>.<br></code></pre></td></tr></table></figure>
+<p><strong>Example 3:</strong></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">Input</span>: &quot;4193 with words&quot;<br>Output: <span class="hljs-number">4193</span><br>Explanation: <span class="hljs-keyword">Conversion</span> stops at digit <span class="hljs-string">&#x27;3&#x27;</span> <span class="hljs-keyword">as</span> the next <span class="hljs-type">character</span> <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> a numerical digit.<br></code></pre></td></tr></table></figure>
+<p><strong>Example 4:</strong></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">Input</span>: &quot;words and 987&quot;<br>Output: <span class="hljs-number">0</span><br>Explanation: The first non-whitespace <span class="hljs-type">character</span> <span class="hljs-keyword">is</span> <span class="hljs-string">&#x27;w&#x27;</span>, which <span class="hljs-keyword">is</span> <span class="hljs-keyword">not</span> a numerical <br>             digit <span class="hljs-keyword">or</span> a +/- sign. Therefore <span class="hljs-keyword">no</span> <span class="hljs-keyword">valid</span> <span class="hljs-keyword">conversion</span> could be performed.<br></code></pre></td></tr></table></figure>
+<p><strong>Example 5:</strong></p>
+<figure class="highlight pgsql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs pgsql"><span class="hljs-keyword">Input</span>: &quot;-91283472332&quot;<br>Output: <span class="hljs-number">-2147483648</span><br>Explanation: The number &quot;-91283472332&quot; <span class="hljs-keyword">is</span> <span class="hljs-keyword">out</span> <span class="hljs-keyword">of</span> the range <span class="hljs-keyword">of</span> a <span class="hljs-number">32</span>-<span class="hljs-type">bit</span> signed <span class="hljs-type">integer</span>.<br>             Thefore INT_MIN (−<span class="hljs-number">231</span>) <span class="hljs-keyword">is</span> returned.<br></code></pre></td></tr></table></figure>
+
+
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">int</span> <span class="hljs-title">myAtoi</span><span class="hljs-params">(String str)</span> </span>&#123;<br>        <span class="hljs-comment">// IT IS JUST A &#x27;IF-ELSE&#x27; PRACTICE</span><br>        <span class="hljs-comment">// NOT A REAL PROBLEM</span><br>        <span class="hljs-keyword">if</span>(str == <span class="hljs-keyword">null</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        str = str.trim(); <span class="hljs-comment">// trim() to delete all whitespaces at the front or rear</span><br>        <span class="hljs-keyword">if</span>(str.length() == <span class="hljs-number">0</span>)<br>            <span class="hljs-keyword">return</span> <span class="hljs-number">0</span>;<br>        <br>        <span class="hljs-keyword">int</span> sign = <span class="hljs-number">1</span>;<br>        <span class="hljs-keyword">int</span> index = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">if</span>(str.charAt(index) == <span class="hljs-string">&#x27;+&#x27;</span>)<br>            index++;<br>        <span class="hljs-keyword">else</span> <span class="hljs-keyword">if</span>(str.charAt(index) == <span class="hljs-string">&#x27;-&#x27;</span>)&#123;<br>            sign = -<span class="hljs-number">1</span>;<br>            index++;<br>        &#125;<br>        <span class="hljs-keyword">long</span> num = <span class="hljs-number">0</span>;<br>        <span class="hljs-keyword">for</span>(;index &lt; str.length();index++)&#123;<br>            <span class="hljs-keyword">if</span>(str.charAt(index) &lt; <span class="hljs-string">&#x27;0&#x27;</span> || str.charAt(index) &gt; <span class="hljs-string">&#x27;9&#x27;</span>)<br>                <span class="hljs-keyword">break</span>;<br>            num = num * <span class="hljs-number">10</span> + (str.charAt(index) - <span class="hljs-string">&#x27;0&#x27;</span>);<br>            <span class="hljs-keyword">if</span>(num &gt; Integer.MAX_VALUE)<br>                <span class="hljs-keyword">break</span>;<br>        &#125;<br>        <br>        <span class="hljs-keyword">if</span>(num * sign &gt; Integer.MAX_VALUE)<br>            <span class="hljs-keyword">return</span> Integer.MAX_VALUE;<br>        <span class="hljs-keyword">if</span>(num * sign &lt; Integer.MIN_VALUE)<br>            <span class="hljs-keyword">return</span> Integer.MIN_VALUE;<br>        <span class="hljs-keyword">return</span> (<span class="hljs-keyword">int</span>)num* sign;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
             </div>
             <hr>
             <div>
@@ -283,17 +267,10 @@ Reference:  Udemy, Spring & Hibernate for Beginners (including SpringBoot)
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Spring-Hibernate/">Spring & Hibernate</a>
+                      <a class="hover-with-bg" href="/categories/LeetCode/">LeetCode</a>
                     
                   </div>
                 
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/Spring/">Spring</a>
-                    
-                  </div>
                 
               </div>
               
@@ -302,21 +279,15 @@ Reference:  Udemy, Spring & Hibernate for Beginners (including SpringBoot)
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/01/05/envSetup/">
+                      <a href="/2020/05/07/25ReverseNodesink-Group/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Setup Spring Environment</span>
+                        <span class="hidden-mobile">25 Reverse Nodes in k-Group</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
                   </article>
                   <article class="post-next col-6">
                     
-                    
-                      <a href="/2021/01/04/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
-                        <span class="visible-mobile">Next</span>
-                        <i class="iconfont icon-arrowright"></i>
-                      </a>
                     
                   </article>
                 </div>

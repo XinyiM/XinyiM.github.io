@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>J2EE and Spring Overview - Xinyi Ashley Ma</title>
+  <title>30 Substring with Concatenation of All Words - Xinyi Ashley Ma</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="J2EE and Spring Overview">
+            <span class="h2" id="subtitle" title="30 Substring with Concatenation of All Words">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-05 13:42" pubdate>
-        January 5, 2021 pm
+      <time datetime="2020-05-20 09:03" pubdate>
+        May 20, 2020 am
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      203 Words
+      271 Words
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      4
+      5
        min
     </span>
   
@@ -224,57 +224,24 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">J2EE and Spring Overview</h1>
+            <h1 style="display: none">30 Substring with Concatenation of All Words</h1>
             
               <p class="note note-info">
                 
-                  Last Updated on: January 5, 2021 pm
+                  Last Updated on: January 6, 2021 pm
                 
               </p>
             
             <div class="markdown-body">
-              <h2 id="What-is-Java-EE"><a href="#What-is-Java-EE" class="headerlink" title="What is Java EE?"></a>What is Java EE?</h2><p><strong>J2EE - Java 2 Platform Enterprise Edition</strong></p>
-<pre><code class=" mermaid">graph TB
-    A[Client-Side Presentation] --&gt; B[Server-Side Presentation];
-    B --&gt; C[Server-Side Business Logic];
-    C --&gt; D[Database]; 
-</code></pre>
-<h2 id="Overview-of-Spring"><a href="#Overview-of-Spring" class="headerlink" title="Overview of Spring"></a>Overview of Spring</h2><h3 id="Goals"><a href="#Goals" class="headerlink" title="Goals"></a>Goals</h3><ul>
-<li>Lightweight development with Java POJO(Plain-Old-Java-Objects)</li>
-<li>Dependency injection to promote loose coupling </li>
-<li>Declarative programming with Aspect-Oriented-Programming</li>
-<li>Minimize boilerplate Java Code</li>
-</ul>
-<h3 id="Spring-Core-Framework"><a href="#Spring-Core-Framework" class="headerlink" title="Spring Core Framework"></a>Spring Core Framework</h3><h3 id="Core-Container"><a href="#Core-Container" class="headerlink" title="Core Container"></a>Core Container</h3><p>Creating beans and making these beans available.</p>
-<ul>
-<li>Bean Factory - Create Beans and manage beans</li>
-<li>Context - Spring Container that holds the beans in memory.</li>
-<li>SpEL - Spring Expression Language</li>
-</ul>
-<h3 id="AOP-Section"><a href="#AOP-Section" class="headerlink" title="AOP Section"></a>AOP Section</h3><p><strong>AOP:</strong> Aspect Oriented Programming</p>
-<p>Allows you to create application-wide services. </p>
-<p>Add functionality to object without modifying your code using <code>config</code> file or by adding annotations.</p>
-<blockquote>
-<p>Logging, security, transactions, etc..</p>
-</blockquote>
-<h3 id="Data-Access-Layer"><a href="#Data-Access-Layer" class="headerlink" title="Data Access Layer"></a>Data Access Layer</h3><ul>
-<li>JDBC - helper classes</li>
-<li>ORM - Objection Relational Mapping - hook in to Hibernate</li>
-<li>Transactions - Add transaction support   </li>
-<li>JMS - Java Message Service - Send msgs to a msg queue in a asych way.</li>
-</ul>
-<h3 id="Web-Layer"><a href="#Web-Layer" class="headerlink" title="Web Layer"></a>Web Layer</h3><p>Home of the Spring MVC framework</p>
-<h3 id="Test-Layer"><a href="#Test-Layer" class="headerlink" title="Test Layer"></a>Test Layer</h3><p>Supports <strong>Test-Driven-Development</strong></p>
-<p>Mock objects and out-of-container testing.</p>
-<p>Integration test as well.</p>
-<h2 id="Spring-Projects"><a href="#Spring-Projects" class="headerlink" title="Spring Projects"></a>Spring Projects</h2><p>Additional modules built on top of the core Spring Framework.</p>
-<ul>
-<li>Spring Cloud, Spring Data</li>
-<li>Spring Web Service - RESTful </li>
-</ul>
-<p class="note note-warning">
-Reference:  Udemy, Spring & Hibernate for Beginners (including SpringBoot)
-</p>
+              <h2 id="30-Substring-with-Concatenation-of-All-Words-Hard"><a href="#30-Substring-with-Concatenation-of-All-Words-Hard" class="headerlink" title="30 Substring with Concatenation of All Words - Hard"></a>30 Substring with Concatenation of All Words - Hard</h2><p><strong>Tags:</strong> HashMap, String</p>
+<p>You are given a string, <strong>s</strong>, and a list of words, <strong>words</strong>, that are all of the same length. Find all starting indices of substring(s) in <strong>s</strong> that is a concatenation of each word in <strong>words</strong> exactly once and without any intervening characters.</p>
+<p><strong>Example 1:</strong></p>
+<figure class="highlight applescript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs applescript">Input:<br>  s = <span class="hljs-string">&quot;barfoothefoobarman&quot;</span>,<br>  <span class="hljs-built_in">words</span> = [<span class="hljs-string">&quot;foo&quot;</span>,<span class="hljs-string">&quot;bar&quot;</span>]<br>Output: [<span class="hljs-number">0</span>,<span class="hljs-number">9</span>]<br>Explanation: Substrings starting <span class="hljs-keyword">at</span> index <span class="hljs-number">0</span> <span class="hljs-keyword">and</span> <span class="hljs-number">9</span> are <span class="hljs-string">&quot;barfoo&quot;</span> <span class="hljs-keyword">and</span> <span class="hljs-string">&quot;foobar&quot;</span> respectively.<br>The output order <span class="hljs-keyword">does</span> <span class="hljs-keyword">not</span> matter, <span class="hljs-keyword">returning</span> [<span class="hljs-number">9</span>,<span class="hljs-number">0</span>] <span class="hljs-keyword">is</span> fine too.<br></code></pre></td></tr></table></figure>
+<p><strong>Example 2:</strong></p>
+<figure class="highlight avrasm"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs avrasm"><span class="hljs-symbol">Input:</span><br>  s = <span class="hljs-string">&quot;wordgoodgoodgoodbestword&quot;</span>,<br>  words = [<span class="hljs-string">&quot;word&quot;</span>,<span class="hljs-string">&quot;good&quot;</span>,<span class="hljs-string">&quot;best&quot;</span>,<span class="hljs-string">&quot;word&quot;</span>]<br><span class="hljs-symbol">Output:</span> []<br></code></pre></td></tr></table></figure>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><p><a target="_blank" rel="noopener" href="https://leetcode.wang/leetCode-30-Substring-with-Concatenation-of-All-Words.html">参考链接</a></p>
+<h3 id="Code"><a href="#Code" class="headerlink" title="Code"></a>Code</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Solution</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> List&lt;Integer&gt; <span class="hljs-title">findSubstring</span><span class="hljs-params">(String s, String[] words)</span> </span>&#123;<br>        List&lt;Integer&gt; res = <span class="hljs-keyword">new</span> ArrayList&lt;Integer&gt;();<br>        <span class="hljs-keyword">if</span>(words.length == <span class="hljs-number">0</span>) <span class="hljs-keyword">return</span> res;<br>        <br>        Map&lt;String, Integer&gt; map1 = <span class="hljs-keyword">new</span> HashMap&lt;String, Integer&gt;();<br>        <span class="hljs-keyword">int</span> wordNum = words.length;<br>        <span class="hljs-keyword">int</span> wordLen = words[<span class="hljs-number">0</span>].length();<br>        <br>        <span class="hljs-keyword">for</span>(String str: words)<br>            map1.put(str,map1.getOrDefault(str, <span class="hljs-number">0</span>) + <span class="hljs-number">1</span>);<br>        <br>        <br>        <span class="hljs-keyword">for</span>(<span class="hljs-keyword">int</span> i = <span class="hljs-number">0</span>; i &lt; s.length() - wordNum * wordLen + <span class="hljs-number">1</span>; i++)&#123;<br>            Map&lt;String, Integer&gt; map2 = <span class="hljs-keyword">new</span> HashMap&lt;String, Integer&gt;();<br>            <span class="hljs-keyword">int</span> curNum = <span class="hljs-number">0</span>;<br>            <span class="hljs-keyword">while</span>(curNum &lt; wordNum)&#123;<br>              String subWord = s.substring(i + curNum * wordLen, i + (curNum + <span class="hljs-number">1</span>) * wordLen);<br>                <span class="hljs-keyword">if</span>(map1.containsKey(subWord))&#123;<br>                    map2.put(subWord, map2.getOrDefault(subWord, <span class="hljs-number">0</span>) + <span class="hljs-number">1</span>);<br>                    <span class="hljs-keyword">if</span>(map2.get(subWord) &gt; map1.get(subWord))<br>                        <span class="hljs-keyword">break</span>;<br>                &#125;<span class="hljs-keyword">else</span><br>                    <span class="hljs-keyword">break</span>;<br>                curNum ++;<br>            &#125;<br>            <span class="hljs-keyword">if</span>(curNum == wordNum)<br>                res.add(i);<br>        &#125;<br>        <span class="hljs-keyword">return</span> res;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
             </div>
             <hr>
             <div>
@@ -283,17 +250,10 @@ Reference:  Udemy, Spring & Hibernate for Beginners (including SpringBoot)
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Spring-Hibernate/">Spring & Hibernate</a>
+                      <a class="hover-with-bg" href="/categories/LeetCode/">LeetCode</a>
                     
                   </div>
                 
-                
-                  <div class="post-meta">
-                    <i class="iconfont icon-tags"></i>
-                    
-                      <a class="hover-with-bg" href="/tags/Spring/">Spring</a>
-                    
-                  </div>
                 
               </div>
               
@@ -302,9 +262,9 @@ Reference:  Udemy, Spring & Hibernate for Beginners (including SpringBoot)
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/01/05/envSetup/">
+                      <a href="/2020/05/29/184Sum-454-4SumII-Medium/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Setup Spring Environment</span>
+                        <span class="hidden-mobile">18 4 Sum + 454 4SumII</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -312,8 +272,8 @@ Reference:  Udemy, Spring & Hibernate for Beginners (including SpringBoot)
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/01/04/hello-world/">
-                        <span class="hidden-mobile">Hello World</span>
+                      <a href="/2020/05/17/23MergekSortedLists/">
+                        <span class="hidden-mobile">23 Merge k Sorted Lists</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
