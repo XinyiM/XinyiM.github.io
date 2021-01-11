@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Dependency Injection - XML Configuration - Xinyi Ashley Ma</title>
+  <title>Spring Bean Scopes and Lifecycle - Xinyi Ashley Ma</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Dependency Injection - XML Configuration">
+            <span class="h2" id="subtitle" title="Spring Bean Scopes and Lifecycle">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-06 16:14" pubdate>
-        January 6, 2021 pm
+      <time datetime="2021-01-11 14:16" pubdate>
+        January 11, 2021 pm
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      277 Words
+      94 Words
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      5
+      1
        min
     </span>
   
@@ -224,7 +224,7 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Dependency Injection - XML Configuration</h1>
+            <h1 style="display: none">Spring Bean Scopes and Lifecycle</h1>
             
               <p class="note note-info">
                 
@@ -233,31 +233,20 @@
               </p>
             
             <div class="markdown-body">
-              <h2 id="Dependency-Injection"><a href="#Dependency-Injection" class="headerlink" title="Dependency Injection"></a>Dependency Injection</h2><p>Dependency = Helper</p>
-<h3 id="How-Spring-Processes-the-Config-File"><a href="#How-Spring-Processes-the-Config-File" class="headerlink" title="How Spring Processes the Config  File"></a>How Spring Processes the Config  File</h3><p><img src="/img/howProcessConfigFile.png" srcset="/img/loading.gif" alt="How Spring processes Config File"></p>
-<h3 id="Injection-Types"><a href="#Injection-Types" class="headerlink" title="Injection Types"></a>Injection Types</h3><h4 id="Constructor-Injection"><a href="#Constructor-Injection" class="headerlink" title="Constructor Injection"></a>Constructor Injection</h4><h5 id="1-Define-the-dependency-interface-and-class"><a href="#1-Define-the-dependency-interface-and-class" class="headerlink" title="1. Define the dependency interface and class"></a>1. Define the dependency interface and class</h5><p><img src="/img/DI-interface.png" srcset="/img/loading.gif" alt="Dependency Injection Interface"></p>
-<p><img src="/img/DI-class.png" srcset="/img/loading.gif" alt="Dependency Injection Class"></p>
-<h5 id="2-Create-a-constructor-in-your-class-for-injections"><a href="#2-Create-a-constructor-in-your-class-for-injections" class="headerlink" title="2. Create a constructor in your class for injections"></a>2. Create a constructor in your class for injections</h5><p><img src="/img/createConstructor.png" srcset="/img/loading.gif" alt="Create Constructor"></p>
-<h5 id="3-Configure-the-dependency-injection-in-Spring-Config-File"><a href="#3-Configure-the-dependency-injection-in-Spring-Config-File" class="headerlink" title="3. Configure the dependency injection in Spring Config File"></a>3. Configure the dependency injection in Spring Config File</h5><p><img src="/img/setupConfigforDI.png" srcset="/img/loading.gif" alt="Set up Config File for DI"></p>
-<h4 id="Setter-Injection"><a href="#Setter-Injection" class="headerlink" title="Setter Injection"></a>Setter Injection</h4><p>Inject Dependencies by calling setter methods.</p>
-<h5 id="1-Create-setter-methods-in-your-class-for-injections"><a href="#1-Create-setter-methods-in-your-class-for-injections" class="headerlink" title="1.Create setter methods in your class for injections"></a>1.Create setter methods in your class for injections</h5><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmkd5lq6rgj30lp03waag.jpg" srcset="/img/loading.gif" alt="Create Setter Method"></p>
-<h5 id="2-Configure-the-dependency-injection-in-Spring-config-file"><a href="#2-Configure-the-dependency-injection-in-Spring-config-file" class="headerlink" title="2. Configure the dependency injection in Spring config file"></a>2. Configure the dependency injection in Spring config file</h5><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmkd5png8cj30mf0dgdhl.jpg" srcset="/img/loading.gif" alt="Config File"></p>
-<h5 id="SetterDemo"><a href="#SetterDemo" class="headerlink" title="SetterDemo"></a>SetterDemo</h5><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmkdvlwe3zj30nj07a754.jpg" srcset="/img/loading.gif" alt="Setter Demo"></p>
-<h4 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h4><p>For the CricketCoach example with Setter Injection, why do we use the CricketCoach class instead of the Coach interface?</p>
-<h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><p>When you retrieve a bean from the Spring container using the Coach interface:</p>
-<p>  <code>Coach theCricketCoach = context.getBean(&quot;myCricketCoach&quot;, Coach.class);</code> </p>
-<p>You only have access to the methods defined in the Coach interface: getDailyWorkout and getDailyFortune. Even though the actual implementation has additional methods, you only have visibility to methods that are defined at the Coach interface level.</p>
-<p>When you retrieve a bean from the Spring container using the CricketCoach class:</p>
-<p>  <code>CricketCoach theCricketCoach = context.getBean(&quot;myCricketCoach&quot;, CricketCoach.class);</code> </p>
-<p>You have access to the methods defined in the Coach interface: getDailyWorkout and getDailyFortune.</p>
-<p>ALSO, you have access to the additional methods defined in the CricketCoach class: getTeam, setTeam.</p>
-<h2 id="Injecting-Values-from-Properties-File"><a href="#Injecting-Values-from-Properties-File" class="headerlink" title="Injecting Values from Properties File"></a>Injecting Values from Properties File</h2><h4 id="1-Create-Properties-File"><a href="#1-Create-Properties-File" class="headerlink" title="1. Create Properties File"></a>1. Create Properties File</h4><p>Create file <code>sport.properties</code></p>
-<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">foo.email</span>=test@gmail.com<br><span class="hljs-attr">foo.team</span>=Royal Challenger Bangalore<br></code></pre></td></tr></table></figure>
-<h4 id="2-Load-Properties-File-in-Spring-Config-File"><a href="#2-Load-Properties-File-in-Spring-Config-File" class="headerlink" title="2. Load Properties File in Spring Config File"></a>2. Load Properties File in Spring Config File</h4><p>Load properties in <code>applicationContext.xml</code> </p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">context:property-placeholder</span> <span class="hljs-attr">location</span>=<span class="hljs-string">&#x27;classpath:sport.properties&#x27;</span>/&gt;</span><br></code></pre></td></tr></table></figure>
-<h4 id="3-Reference-values-from-Properties-File"><a href="#3-Reference-values-from-Properties-File" class="headerlink" title="3. Reference values from Properties File"></a>3. Reference values from Properties File</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;emailAddress&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;$&#123;foo.email&#125;&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;team&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;$&#123;foo.team&#125;&quot;</span>/&gt;</span><br></code></pre></td></tr></table></figure>
-
-
+              <h2 id="Spring-Bean-Scopes-and-Lifecycle"><a href="#Spring-Bean-Scopes-and-Lifecycle" class="headerlink" title="Spring Bean Scopes and Lifecycle"></a>Spring Bean Scopes and Lifecycle</h2><h3 id="Bean-Scopes"><a href="#Bean-Scopes" class="headerlink" title="Bean Scopes"></a>Bean Scopes</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;myCoach&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.luv2code.spring.demo.TrackCoach&quot;</span> </span><br><span class="hljs-tag">      <span class="hljs-attr">scope</span>=<span class="hljs-string">&quot;prototype&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h4 id="Singleton-Default"><a href="#Singleton-Default" class="headerlink" title="Singleton - Default"></a>Singleton - Default</h4><ul>
+<li>The Spring Container only creates only one instance of the bean.</li>
+<li>It’s cached in memory.</li>
+<li>All requests for the bean - will return a shared reference to the <strong>SAME</strong> bean.</li>
+</ul>
+<h4 id="Prototype"><a href="#Prototype" class="headerlink" title="Prototype"></a>Prototype</h4><p>Creates a new bean instance for each container request.</p>
+<h3 id="Bean-Lifecycle"><a href="#Bean-Lifecycle" class="headerlink" title="Bean Lifecycle"></a>Bean Lifecycle</h3><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmkjeiuc4lj30tw0f3dhu.jpg" srcset="/img/loading.gif" alt="Bean Lifecycle"></p>
+<h4 id="Custom-methods"><a href="#Custom-methods" class="headerlink" title="Custom methods"></a>Custom methods</h4><ol>
+<li><p>Defining init and destroy methods</p>
+</li>
+<li><p>Configure the method names in Spring config file</p>
+</li>
+</ol>
 <p class="note note-warning">
 Reference:  Udemy, Spring & Hibernate for Beginners (including SpringBoot)
 </p>
@@ -288,18 +277,12 @@ Reference:  Udemy, Spring & Hibernate for Beginners (including SpringBoot)
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/01/11/SpringBeanScopesAndLifecycle/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Spring Bean Scopes and Lifecycle</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/01/06/Inversion-of-Control-XML-Configuration/">
-                        <span class="hidden-mobile">Inversion of Control - XML Configuration</span>
+                      <a href="/2021/01/06/Dependency-Injection-XML-Configuration/">
+                        <span class="hidden-mobile">Dependency Injection - XML Configuration</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
