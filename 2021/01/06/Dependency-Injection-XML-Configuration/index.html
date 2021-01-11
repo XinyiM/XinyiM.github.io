@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      46 Words
+      277 Words
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      5
        min
     </span>
   
@@ -228,7 +228,7 @@
             
               <p class="note note-info">
                 
-                  Last Updated on: January 6, 2021 pm
+                  Last Updated on: January 11, 2021 pm
                 
               </p>
             
@@ -239,7 +239,26 @@
 <p><img src="/img/DI-class.png" srcset="/img/loading.gif" alt="Dependency Injection Class"></p>
 <h5 id="2-Create-a-constructor-in-your-class-for-injections"><a href="#2-Create-a-constructor-in-your-class-for-injections" class="headerlink" title="2. Create a constructor in your class for injections"></a>2. Create a constructor in your class for injections</h5><p><img src="/img/createConstructor.png" srcset="/img/loading.gif" alt="Create Constructor"></p>
 <h5 id="3-Configure-the-dependency-injection-in-Spring-Config-File"><a href="#3-Configure-the-dependency-injection-in-Spring-Config-File" class="headerlink" title="3. Configure the dependency injection in Spring Config File"></a>3. Configure the dependency injection in Spring Config File</h5><p><img src="/img/setupConfigforDI.png" srcset="/img/loading.gif" alt="Set up Config File for DI"></p>
-<h4 id="Setter-Injection"><a href="#Setter-Injection" class="headerlink" title="Setter Injection"></a>Setter Injection</h4><p class="note note-warning">
+<h4 id="Setter-Injection"><a href="#Setter-Injection" class="headerlink" title="Setter Injection"></a>Setter Injection</h4><p>Inject Dependencies by calling setter methods.</p>
+<h5 id="1-Create-setter-methods-in-your-class-for-injections"><a href="#1-Create-setter-methods-in-your-class-for-injections" class="headerlink" title="1.Create setter methods in your class for injections"></a>1.Create setter methods in your class for injections</h5><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmkd5lq6rgj30lp03waag.jpg" srcset="/img/loading.gif" alt="Create Setter Method"></p>
+<h5 id="2-Configure-the-dependency-injection-in-Spring-config-file"><a href="#2-Configure-the-dependency-injection-in-Spring-config-file" class="headerlink" title="2. Configure the dependency injection in Spring config file"></a>2. Configure the dependency injection in Spring config file</h5><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmkd5png8cj30mf0dgdhl.jpg" srcset="/img/loading.gif" alt="Config File"></p>
+<h5 id="SetterDemo"><a href="#SetterDemo" class="headerlink" title="SetterDemo"></a>SetterDemo</h5><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmkdvlwe3zj30nj07a754.jpg" srcset="/img/loading.gif" alt="Setter Demo"></p>
+<h4 id="Question"><a href="#Question" class="headerlink" title="Question"></a>Question</h4><p>For the CricketCoach example with Setter Injection, why do we use the CricketCoach class instead of the Coach interface?</p>
+<h4 id="Answer"><a href="#Answer" class="headerlink" title="Answer"></a>Answer</h4><p>When you retrieve a bean from the Spring container using the Coach interface:</p>
+<p>  <code>Coach theCricketCoach = context.getBean(&quot;myCricketCoach&quot;, Coach.class);</code> </p>
+<p>You only have access to the methods defined in the Coach interface: getDailyWorkout and getDailyFortune. Even though the actual implementation has additional methods, you only have visibility to methods that are defined at the Coach interface level.</p>
+<p>When you retrieve a bean from the Spring container using the CricketCoach class:</p>
+<p>  <code>CricketCoach theCricketCoach = context.getBean(&quot;myCricketCoach&quot;, CricketCoach.class);</code> </p>
+<p>You have access to the methods defined in the Coach interface: getDailyWorkout and getDailyFortune.</p>
+<p>ALSO, you have access to the additional methods defined in the CricketCoach class: getTeam, setTeam.</p>
+<h2 id="Injecting-Values-from-Properties-File"><a href="#Injecting-Values-from-Properties-File" class="headerlink" title="Injecting Values from Properties File"></a>Injecting Values from Properties File</h2><h4 id="1-Create-Properties-File"><a href="#1-Create-Properties-File" class="headerlink" title="1. Create Properties File"></a>1. Create Properties File</h4><p>Create file <code>sport.properties</code></p>
+<figure class="highlight ini"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ini"><span class="hljs-attr">foo.email</span>=test@gmail.com<br><span class="hljs-attr">foo.team</span>=Royal Challenger Bangalore<br></code></pre></td></tr></table></figure>
+<h4 id="2-Load-Properties-File-in-Spring-Config-File"><a href="#2-Load-Properties-File-in-Spring-Config-File" class="headerlink" title="2. Load Properties File in Spring Config File"></a>2. Load Properties File in Spring Config File</h4><p>Load properties in <code>applicationContext.xml</code> </p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">context:property-placeholder</span> <span class="hljs-attr">location</span>=<span class="hljs-string">&#x27;classpath:sport.properties&#x27;</span>/&gt;</span><br></code></pre></td></tr></table></figure>
+<h4 id="3-Reference-values-from-Properties-File"><a href="#3-Reference-values-from-Properties-File" class="headerlink" title="3. Reference values from Properties File"></a>3. Reference values from Properties File</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;emailAddress&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;$&#123;foo.email&#125;&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;team&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;$&#123;foo.team&#125;&quot;</span>/&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+<p class="note note-warning">
 Reference:  Udemy, Spring & Hibernate for Beginners (including SpringBoot)
 </p>
             </div>
