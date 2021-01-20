@@ -17,9 +17,25 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Tags - HelloWorld - Xinyi Ashley Ma</title>
+  <title>Hibernate - Xinyi Ashley Ma</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
 
 
 
@@ -47,7 +63,7 @@
 
 
 <body>
-  <header style="height: 80vh;">
+  <header style="height: 70vh;">
     <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
   <div class="container">
     <a class="navbar-brand"
@@ -146,17 +162,50 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Tag - HelloWorld">
+            <span class="h2" id="subtitle" title="Hibernate">
               
             </span>
 
             
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-01-19 21:27" pubdate>
+        January 19, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      178 Words
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      3
+       min
+    </span>
+  
+
+  
+  
+</div>
+
+            
           </div>
 
-          
-            <div class="scroll-down-bar">
-              <i class="iconfont icon-arrowdown"></i>
-            </div>
           
         </div>
       </div>
@@ -165,40 +214,114 @@
 
   <main>
     
-      <div class="container nopadding-x-md">
-        <div class="py-5" id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
-
-<div class="list-group">
-  <p class="h4">1 posts in total.</p>
-  <hr>
-  
-  
-    
       
-      <p class="h5">2021</p>
-    
-    <a href="/2021/01/04/hello-world/" class="list-group-item list-group-item-action">
-      <span class="archive-post-title">Hello World</span>
-      <time style="float: right;">01-04</time>
-    </a>
-  
-</div>
 
-
-
-
-
-              </div>
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Hibernate</h1>
+            
+              <p class="note note-info">
+                
+                  Last Updated on: January 19, 2021 pm
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="What-is-Hibernate"><a href="#What-is-Hibernate" class="headerlink" title="What is Hibernate?"></a>What is Hibernate?</h2><p>A framework for persisting / saving Java objects in a database.</p>
+<h2 id="Benefits-of-Hibernate"><a href="#Benefits-of-Hibernate" class="headerlink" title="Benefits of Hibernate"></a>Benefits of Hibernate</h2><ul>
+<li>Handles all of the low-level SQL.</li>
+<li>Minimizes the amount of JDBC code you have to develop.</li>
+<li>Provides the <strong>Object-to-Rational Mapping(ORM).</strong></li>
+</ul>
+<h2 id="Object-to-Rational-Mapping-ORM"><a href="#Object-to-Rational-Mapping-ORM" class="headerlink" title="Object-to-Rational Mapping(ORM)"></a>Object-to-Rational Mapping(ORM)</h2><p>Mapping between the Java class and database table.</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmtwywtq9qj31cm0c8k9h.jpg" srcset="/img/loading.gif" alt="ORM Example"></p>
+<h3 id="Save-Java-Object"><a href="#Save-Java-Object" class="headerlink" title="Save Java Object"></a>Save Java Object</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">Student theStudent = <span class="hljs-keyword">new</span> Student(<span class="hljs-string">&quot;John&quot;</span>,<span class="hljs-string">&quot;john@test.com&quot;</span>);<br><span class="hljs-comment">// save it to database</span><br><span class="hljs-keyword">int</span> theId = (Integer)session.save(theStudent);<br></code></pre></td></tr></table></figure>
+<p>Hibernate will store the data into the appropriate database - perform SQL insert. </p>
+<p>Then Hibernate will return the <strong>primary key</strong> - <code>theId</code>.</p>
+<h3 id="Retrieve-Java-Object"><a href="#Retrieve-Java-Object" class="headerlink" title="Retrieve Java Object"></a>Retrieve Java Object</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// now retrieve from the database using the primary key</span><br>Student myStudent = session.get(Student.class, theId);<br></code></pre></td></tr></table></figure>
+<h3 id="Query-for-Java-Object"><a href="#Query-for-Java-Object" class="headerlink" title="Query for Java Object"></a>Query for Java Object</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// retrieve all the student objects and store them in a list</span><br>Query query = session.create(<span class="hljs-string">&quot;from Student&quot;</span>);<br>List&lt;Student&gt; students = query.list();<br></code></pre></td></tr></table></figure>
+<p>Here, we use the <strong>Hibernate Query Language(HQL).</strong></p>
+<h2 id="Hibernate-and-JDBC"><a href="#Hibernate-and-JDBC" class="headerlink" title="Hibernate and JDBC"></a>Hibernate and JDBC</h2><ul>
+<li>Hibernate uses JDBC for all database communications.</li>
+<li>Configure Hibernate to make use of the JDBC driver.</li>
+</ul>
+<p class="note note-warning">
+Reference:  Udemy, Spring & Hibernate for Beginners (including SpringBoot)
+</p>
             </div>
-          </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Spring-Hibernate/">Spring & Hibernate</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Hibernate/">Hibernate</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/01/19/Hibernate-validation-problem/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Solved - Cannot find javax.validation Problem</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/15/Spring-MVC/">
+                        <span class="hidden-mobile">Spring MVC</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
         </div>
       </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
     
 
     
@@ -278,9 +401,15 @@
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
 
 
 
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
 
 
 
@@ -323,6 +452,13 @@
 
 
 
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize(null);
+    }
+  </script>
 
 
 

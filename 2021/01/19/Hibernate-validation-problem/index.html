@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Hello World - Xinyi Ashley Ma</title>
+  <title>Solved - Cannot find javax.validation Problem - Xinyi Ashley Ma</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Hello World">
+            <span class="h2" id="subtitle" title="Solved - Cannot find javax.validation Problem">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-04 14:53" pubdate>
-        January 4, 2021 pm
+      <time datetime="2021-01-19 21:27" pubdate>
+        January 19, 2021 pm
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      78 Words
+      122 Words
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      2
        min
     </span>
   
@@ -224,35 +224,54 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Hello World</h1>
+            <h1 style="display: none">Solved - Cannot find javax.validation Problem</h1>
             
               <p class="note note-info">
                 
-                  Last Updated on: January 5, 2021 pm
+                  Last Updated on: January 19, 2021 pm
                 
               </p>
             
             <div class="markdown-body">
-              <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start-about-Hello-world"><a href="#Quick-Start-about-Hello-world" class="headerlink" title="Quick Start about Hello world"></a>Quick Start about Hello world</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo new <span class="hljs-string">&quot;My New Post&quot;</span><br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo server<br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo generate<br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs bash">$ hexo deploy<br></code></pre></td></tr></table></figure>
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
-
+              <h2 id="Solved-Cannot-find-javax-validation-problem"><a href="#Solved-Cannot-find-javax-validation-problem" class="headerlink" title="[Solved]Cannot find javax.validation problem"></a>[Solved]Cannot find javax.validation problem</h2><h3 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h3><p>Having copied and pasted <strong>Hibernate Validation</strong> jar files into <code>WEB-INF/lib</code>, still cannot find <code>@NotNull</code> and <code>@Size</code>  annotations, and cannot resovle these jar files.</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs css"><span class="hljs-selector-tag">import</span> <span class="hljs-selector-tag">javax</span><span class="hljs-selector-class">.validation</span><span class="hljs-selector-class">.constraints</span><span class="hljs-selector-class">.NotNull</span>;<br><span class="hljs-selector-tag">import</span> <span class="hljs-selector-tag">javax</span><span class="hljs-selector-class">.validation</span><span class="hljs-selector-class">.constraints</span><span class="hljs-selector-class">.Size</span>;<br></code></pre></td></tr></table></figure>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmtm6lfx0fj30zo0rqtd7.jpg" srcset="/img/loading.gif"></p>
+<h3 id="Solution"><a href="#Solution" class="headerlink" title="Solution"></a>Solution</h3><ol>
+<li>File -&gt; Project Structure -&gt; Module -&gt; “+” -&gt; Hibernate</li>
+</ol>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmtlv62c1zj30wg0jcac8.jpg" srcset="/img/loading.gif"></p>
+<ol start="2">
+<li>Fix -&gt; Download -&gt; OK -&gt; Apply -&gt; OK</li>
+</ol>
+<p><strong>Note:</strong> Don’t forget to change the download path to <code>WEB-INF/lib</code></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmtm02lr3wj316l0u07ck.jpg" srcset="/img/loading.gif"></p>
+<ol start="3">
+<li>Copy and paste the required JAR files provided by the instructor to path <code>WEB-INF/lib</code></li>
+<li>Add these JAR Files to the Hibernate library.</li>
+</ol>
+<p>Library -&gt; Hibernate -&gt; “+” -&gt; select the JAR files in <code>WEB-INF/lib</code>  -&gt; Apply -&gt; OK</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmtm3mmetqj312i0u0qcf.jpg" srcset="/img/loading.gif"></p>
+<h3 id="Result"><a href="#Result" class="headerlink" title="Result"></a>Result</h3><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmtm9731mhj30y50u012r.jpg" srcset="/img/loading.gif"></p>
+<p class="note note-warning">
+Reference:  Udemy, Spring & Hibernate for Beginners (including SpringBoot)
+</p>
             </div>
             <hr>
             <div>
               <div class="post-metas mb-3">
                 
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Spring-Hibernate/">Spring & Hibernate</a>
+                    
+                  </div>
+                
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/HelloWorld/">HelloWorld</a>
+                      <a class="hover-with-bg" href="/tags/Hibernate/">Hibernate</a>
                     
                   </div>
                 
@@ -263,18 +282,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/01/05/J2EE&amp;Spring/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">J2EE and Spring Overview</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2020/10/20/java%E9%9B%86%E5%90%88%E7%B1%BB/">
-                        <span class="hidden-mobile">Java 集合类</span>
+                      <a href="/2021/01/19/Hibernate/">
+                        <span class="hidden-mobile">Hibernate</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

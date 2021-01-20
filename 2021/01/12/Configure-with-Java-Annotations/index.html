@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Spring Bean Scopes and Lifecycle - Xinyi Ashley Ma</title>
+  <title>Configure with Java Annotations - Xinyi Ashley Ma</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Spring Bean Scopes and Lifecycle">
+            <span class="h2" id="subtitle" title="Configure with Java Annotations">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-01-11 14:16" pubdate>
-        January 11, 2021 pm
+      <time datetime="2021-01-12 14:50" pubdate>
+        January 12, 2021 pm
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      94 Words
+      405 Words
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      1
+      8
        min
     </span>
   
@@ -224,32 +224,77 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Spring Bean Scopes and Lifecycle</h1>
+            <h1 style="display: none">Configure with Java Annotations</h1>
             
               <p class="note note-info">
                 
-                  Last Updated on: January 11, 2021 pm
+                  Last Updated on: January 13, 2021 pm
                 
               </p>
             
             <div class="markdown-body">
-              <h2 id="Spring-Bean-Scopes-and-Lifecycle"><a href="#Spring-Bean-Scopes-and-Lifecycle" class="headerlink" title="Spring Bean Scopes and Lifecycle"></a>Spring Bean Scopes and Lifecycle</h2><h3 id="Bean-Scopes"><a href="#Bean-Scopes" class="headerlink" title="Bean Scopes"></a>Bean Scopes</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;myCoach&quot;</span></span><br><span class="hljs-tag">      <span class="hljs-attr">class</span>=<span class="hljs-string">&quot;com.luv2code.spring.demo.TrackCoach&quot;</span> </span><br><span class="hljs-tag">      <span class="hljs-attr">scope</span>=<span class="hljs-string">&quot;prototype&quot;</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br></code></pre></td></tr></table></figure>
-<h4 id="Singleton-Default"><a href="#Singleton-Default" class="headerlink" title="Singleton - Default"></a>Singleton - Default</h4><ul>
-<li>The Spring Container only creates only one instance of the bean.</li>
-<li>It’s cached in memory.</li>
-<li>All requests for the bean - will return a shared reference to the <strong>SAME</strong> bean.</li>
-</ul>
-<h4 id="Prototype"><a href="#Prototype" class="headerlink" title="Prototype"></a>Prototype</h4><p>Creates a new bean instance for each container request.</p>
-<h3 id="Bean-Lifecycle"><a href="#Bean-Lifecycle" class="headerlink" title="Bean Lifecycle"></a>Bean Lifecycle</h3><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmkjeiuc4lj30tw0f3dhu.jpg" srcset="/img/loading.gif" alt="Bean Lifecycle"></p>
-<h4 id="Custom-methods"><a href="#Custom-methods" class="headerlink" title="Custom methods"></a>Custom methods</h4><ol>
-<li><p>Defining init and destroy methods</p>
-</li>
-<li><p>Configure the method names in Spring config file</p>
+              <h2 id="Java-Annotations"><a href="#Java-Annotations" class="headerlink" title="Java Annotations"></a>Java Annotations</h2><p>Meta-data about the class.</p>
+<p>Processed aannotations at compile time and run time.</p>
+<h2 id="Inversion-of-Control"><a href="#Inversion-of-Control" class="headerlink" title="Inversion of Control"></a>Inversion of Control</h2><h3 id="Development-Process"><a href="#Development-Process" class="headerlink" title="Development Process"></a>Development Process</h3><ol>
+<li><p>Enable component canning in Spring config file</p>
+<p>Spring will scan the package recursively.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">context:component-scan</span> <span class="hljs-attr">base-package</span>=<span class="hljs-string">&quot;com.luv2code.annotations&quot;</span>/&gt;</span><br></code></pre></td></tr></table></figure></li>
+<li><p>Add the @Component Annotation to your Java class.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span> <span class="hljs-comment">// use Default Bean Name</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TennisCoach</span> </span>&#123;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>Retrieve bean from Spring container.</p>
+<p>Same as before.</p>
 </li>
 </ol>
+<h2 id="Dependency-Injection"><a href="#Dependency-Injection" class="headerlink" title="Dependency Injection"></a>Dependency Injection</h2><h3 id="AutoWiring"><a href="#AutoWiring" class="headerlink" title="AutoWiring"></a>AutoWiring</h3><p>Spring wil look for a class that <em>matches</em> the property.</p>
+<blockquote>
+<p>Match by type: Class or Interface</p>
+</blockquote>
+<p>Spring will inject it automatically.</p>
+<hr>
+<h4 id="Constructor-Injection"><a href="#Constructor-Injection" class="headerlink" title="Constructor Injection"></a>Constructor Injection</h4><h5 id="Define-a-dependency-interface-and-class"><a href="#Define-a-dependency-interface-and-class" class="headerlink" title="Define a dependency interface and class"></a>Define a dependency interface and class</h5><p>Define <code>FortuneService</code> interface and <code>BadFortuneService</code> Class.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">BadFortuneService</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">FortuneService</span> </span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getFortune</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Today is your bad day!&#x27;&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h5 id="Create-a-constructor-for-injections"><a href="#Create-a-constructor-for-injections" class="headerlink" title="Create a constructor for injections"></a>Create a constructor for injections</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">TennisCoach</span> <span class="hljs-keyword">implements</span> <span class="hljs-title">Coach</span> </span>&#123;<br>    <span class="hljs-comment">// constructor injection</span><br>    <span class="hljs-keyword">private</span> FortuneService fortuneService;<br>    <span class="hljs-comment">// Spring will scan for a component that implements the fortuneService interface.</span><br>    <span class="hljs-meta">@Autowired</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span>  <span class="hljs-title">TennisCoach</span><span class="hljs-params">(FortuneService theFortuneService)</span></span>&#123;<br>        fortuneService = theFortuneService;<br>    &#125;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getDailyWorkout</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;Practice your back hand volley&quot;</span>;<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">getDailyFortune</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> fortuneService.getFortune();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h5 id="Configure-with-Autowired-annotation"><a href="#Configure-with-Autowired-annotation" class="headerlink" title="Configure with @Autowired annotation"></a>Configure with @Autowired annotation</h5><p>Add <code>@Autowired</code> annotation to the constructor.</p>
+<hr>
+<h4 id="Setter-Injection"><a href="#Setter-Injection" class="headerlink" title="Setter Injection"></a>Setter Injection</h4><ol>
+<li><p>Create setter methods in your class for injections.</p>
+</li>
+<li><p>Configure the dependency injection with Autowired  Annotation.</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Autowired</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setFortuneService</span><span class="hljs-params">(FortuneService theFortuneService)</span></span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;&gt;&gt; TennisCoach : inside setFortuneService() method!&quot;</span>);<br>        fortuneService = theFortuneService;<br>    &#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h4 id="Method-Injection"><a href="#Method-Injection" class="headerlink" title="Method Injection"></a>Method Injection</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Autowired</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">doSomeCrazyStuff</span><span class="hljs-params">(FortuneService theFortuneService)</span></span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;&gt;&gt; TennisCoach : inside doSomeCrazyStuff() method!&quot;</span>);<br>        fortuneService = theFortuneService;<br>    &#125;<br></code></pre></td></tr></table></figure>
+<hr>
+<h4 id="Field-Injection"><a href="#Field-Injection" class="headerlink" title="Field Injection"></a>Field Injection</h4><ol>
+<li>Configure the dependency injection with <code>@Autowired</code> , no need for setter method. </li>
+<li>Directly set the <code>@Autowired</code> annotation to the field. Spring will injection the <code>FortuneService</code> implementation directly to the class, using Java technology called Reflection.</li>
+</ol>
+<h4 id="Which-injection-should-I-use"><a href="#Which-injection-should-I-use" class="headerlink" title="Which injection should I use?"></a>Which injection should I use?</h4><p>Choose a style and stay consistent in your project.</p>
+<h3 id="Qualifiers-for-Dependency-Injection"><a href="#Qualifiers-for-Dependency-Injection" class="headerlink" title="Qualifiers for Dependency Injection"></a>Qualifiers for Dependency Injection</h3><ul>
+<li>What if there is more than one implemetations to choose when injecting?</li>
+<li>Use the <code>@Qualifier</code> with the <strong>Default Name</strong> of the implementation.</li>
+<li>For example, Class Name is <code>HappyFortuneService</code>, then the Default Name should be <code>happyFortuneService</code>.</li>
+</ul>
+<blockquote>
+<p>You can use <code>@Qualifier</code> to all kinds of injections.</p>
+</blockquote>
+<h2 id="Bean-Scope-and-Lifecycle"><a href="#Bean-Scope-and-Lifecycle" class="headerlink" title="Bean Scope and Lifecycle"></a>Bean Scope and Lifecycle</h2><h3 id="Scope"><a href="#Scope" class="headerlink" title="Scope"></a>Scope</h3><p><code>@Scope(&quot;Singleton&quot;) </code></p>
+<p><code>@Scope(&quot;Prototype&quot;)</code></p>
+<h3 id="Lifecycle-Methods"><a href="#Lifecycle-Methods" class="headerlink" title="Lifecycle Methods"></a>Lifecycle Methods</h3><ol>
+<li>Define your methods for initialization and destroy.</li>
+</ol>
+<p><code>@PostConstruct</code></p>
+<p><code>@PreDestroy</code></p>
+<ol start="2">
+<li>Add Annotations to these methods.</li>
+</ol>
+<p><strong>Note: For “prototype” scoped beans, Spring does not call the @PreDestroy method. Gasp!</strong></p>
 <p class="note note-warning">
 Reference:  Udemy, Spring & Hibernate for Beginners (including SpringBoot)
 </p>
+
+
             </div>
             <hr>
             <div>
@@ -277,9 +322,9 @@ Reference:  Udemy, Spring & Hibernate for Beginners (including SpringBoot)
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/01/12/Configure-with-Java-Annotations/">
+                      <a href="/2021/01/13/Configure-with-Java-Code/">
                         <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Configure with Java Annotations</span>
+                        <span class="hidden-mobile">Configure with Java Code</span>
                         <span class="visible-mobile">Previous</span>
                       </a>
                     
@@ -287,8 +332,8 @@ Reference:  Udemy, Spring & Hibernate for Beginners (including SpringBoot)
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/01/06/Dependency-Injection-XML-Configuration/">
-                        <span class="hidden-mobile">Dependency Injection - XML Configuration</span>
+                      <a href="/2021/01/11/SpringBeanScopesAndLifecycle/">
+                        <span class="hidden-mobile">Spring Bean Scopes and Lifecycle</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>

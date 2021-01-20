@@ -1,0 +1,822 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>Spring MVC - Xinyi Ashley Ma</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Xinyi Ashley Ma</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Spring MVC">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-01-15 10:00" pubdate>
+        January 15, 2021 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.6k Words
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      52
+       min
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Spring MVC</h1>
+            
+              <p class="note note-info">
+                
+                  Last Updated on: January 19, 2021 pm
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="Spring-MVC-Overview"><a href="#Spring-MVC-Overview" class="headerlink" title="Spring MVC Overview"></a>Spring MVC Overview</h2><ul>
+<li>Framework for building web application in Java.</li>
+<li>Based on Model-View-Controller design pattern.</li>
+<li>Leverages features of the Core Spring Framework (IoC, DI).</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmn55zy6bej30ji0d3wfc.jpg" srcset="/img/loading.gif" alt="MVC"></p>
+<h3 id="Components"><a href="#Components" class="headerlink" title="Components"></a>Components</h3><ul>
+<li>A set of web pages to layout UI Components</li>
+<li>A collection of Spring beans</li>
+<li>Spring Configuration (XML, Annotations or Java)</li>
+</ul>
+<h3 id="Front-Controller"><a href="#Front-Controller" class="headerlink" title="Front Controller"></a>Front Controller</h3><ul>
+<li>Known as <strong>DispatchServlet</strong></li>
+<li>Part of the Spring Framework</li>
+<li>Already developed by Spring Dev Team</li>
+</ul>
+<p>You need to create:</p>
+<ul>
+<li><strong>Model Objects</strong></li>
+<li><strong>View Templates</strong></li>
+<li><strong>Controller Classes</strong></li>
+</ul>
+<h3 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h3><ul>
+<li><p>Contains your business logic</p>
+<ul>
+<li>Handle the request</li>
+<li>Store/Retrieve data(db, web service)</li>
+<li>Place data in model</li>
+</ul>
+</li>
+<li><p>Send to appropriate view template</p>
+</li>
+</ul>
+<h3 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h3><ul>
+<li><p>Contains your data </p>
+</li>
+<li><p>Store/Retrieve data via backend systems</p>
+<ul>
+<li>Database, web service, etc…</li>
+<li>Use a Spring bean if you like</li>
+</ul>
+</li>
+<li><p>Place your data in a model</p>
+<ul>
+<li>Data can be Java Object or colletion.</li>
+</ul>
+</li>
+</ul>
+<p>Like your luggage.</p>
+<h3 id="View-Template"><a href="#View-Template" class="headerlink" title="View Template"></a>View Template</h3><p>Most common is JSP and JSTL.</p>
+<p>Developer creates a page.</p>
+<p>Display data.</p>
+<h2 id="Spring-MVC-Configuration-Process"><a href="#Spring-MVC-Configuration-Process" class="headerlink" title="Spring MVC Configuration Process"></a>Spring MVC Configuration Process</h2><h3 id="Preparation"><a href="#Preparation" class="headerlink" title="Preparation"></a>Preparation</h3><ol>
+<li>Create a <strong>Java EE Application</strong> in IntelliJ IDEA.</li>
+</ol>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmp4os0aw4j31790u0k8q.jpg" srcset="/img/loading.gif" alt="Create a Java EE Application"></p>
+<ol start="2">
+<li><p>Copy the two XML files to <strong>WEB-INF</strong> directory.</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmp5v9xctij30k60hswg4.jpg" srcset="/img/loading.gif" alt="Copy XMLs"></p>
+</li>
+<li><p>Open <strong>Project Structure</strong></p>
+</li>
+</ol>
+<img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmp5ttgwqdj30iy0xa0y5.jpg" srcset="/img/loading.gif" alt="Project Structure" style="zoom:33%;" />
+
+<ol start="4">
+<li>Add <strong>Spring Module</strong> to the project.</li>
+</ol>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmp5y78hr6j31kw0t4gut.jpg" srcset="/img/loading.gif" alt="Add Spring Module"></p>
+<ol start="5">
+<li>Download <strong>Spring Library</strong> to the project.</li>
+</ol>
+<img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmp6164xtgj316a0qk7be.jpg" srcset="/img/loading.gif" alt="Download Spring Library" style="zoom:67%;" />
+
+<ol start="6">
+<li>Do the same thing to the <strong>Spring MVC library. ** Click the **Apply</strong> and <strong>OK</strong>. </li>
+</ol>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmp61zqzdwj30qg0yggs9.jpg" srcset="/img/loading.gif" alt="Download Spring MVC"></p>
+<ol start="7">
+<li>Open the <strong>Project Structure</strong> again. Fix the problems in the <strong>Problems</strong> section. </li>
+</ol>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmp63qjuoyj31ks0go0w4.jpg" srcset="/img/loading.gif" alt="Fix the Problems"></p>
+<ol start="8">
+<li>Move the <strong>lib</strong> directory to the <strong>WEB-INF</strong>. Add two <strong>JSTL.jar</strong> to lib as well. </li>
+</ol>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmp64ne240j30jq0gajsv.jpg" srcset="/img/loading.gif" alt="Move lib"></p>
+<ol start="9">
+<li>Open <strong>Project Structure</strong> again and modify the version path of the two dependencies to <strong>./web/WEB-INF/lib</strong>. </li>
+</ol>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmp65xjei7j312e0u0ka4.jpg" srcset="/img/loading.gif" alt="Change path"></p>
+<ol start="10">
+<li>Create <strong>view</strong> directory.</li>
+</ol>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmp670e14rj30ja0b8aax.jpg" srcset="/img/loading.gif" alt="Create View dir to store the pages"></p>
+<h3 id="Part-1"><a href="#Part-1" class="headerlink" title="Part 1"></a>Part 1</h3><p>Add configuration to file: <strong>WEB-INF/web.xml</strong></p>
+<ol>
+<li><p>Configure Spring MVC Dispatch Servlet</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmp22x8dpbj30uk09cgn7.jpg" srcset="/img/loading.gif" alt="Configure Dispatch Servlet"></p>
+</li>
+<li><p>Set up URL mappings to Spring MVC Dispatcher Servlet</p>
+<p>For every URL coming, pass it off to the DispatchServlet.</p>
+<blockquote>
+<p>The Servlet-name here should match the servlet-name in the above Servlet.</p>
+</blockquote>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmp24gdwifj30rm04wwf5.jpg" srcset="/img/loading.gif"></p>
+</li>
+</ol>
+<h3 id="Part-2"><a href="#Part-2" class="headerlink" title="Part 2"></a>Part 2</h3><p>Add configuration to <strong>servlet.xml.</strong></p>
+<ol>
+<li>Add support for Spring component scanning.</li>
+</ol>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmp4d1llilj30py02ygm0.jpg" srcset="/img/loading.gif" alt="Add Component Scan"></p>
+<ol start="2">
+<li>Add support for conversion, formatting and validation.</li>
+</ol>
+<p>Spring can perform conversion, and also formatting data and perform validation by adding this support.</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmp4ebjjcvj30t6020gls.jpg" srcset="/img/loading.gif"></p>
+<ol start="3">
+<li>Configure Spring MVC View Resolver.</li>
+</ol>
+<p><strong>How do we display those pages? / Where are the pages located?</strong></p>
+<p><strong>Prefix:</strong> 前缀</p>
+<p><strong>Suffix:</strong> 后缀</p>
+<p><strong><em>Example:</em></strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmp4j3ai3pj311m07kqge.jpg" srcset="/img/loading.gif" alt="Prefix and Suffix"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmp4gl5n2fj30sk05gwfe.jpg" srcset="/img/loading.gif"></p>
+<h2 id="Create-Controllers-and-Views"><a href="#Create-Controllers-and-Views" class="headerlink" title="Create Controllers and Views"></a>Create Controllers and Views</h2><h3 id="Create-Controller-class"><a href="#Create-Controller-class" class="headerlink" title="Create Controller class"></a>Create Controller class</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HomeController</span> </span>&#123;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>Annotate class with <strong>@Controller.</strong></p>
+<p><strong>@Controller</strong> inherits from <strong>@Component</strong> and it supports scanning.</p>
+<h3 id="Define-Controller-Methods"><a href="#Define-Controller-Methods" class="headerlink" title="Define Controller Methods"></a>Define Controller Methods</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">showPage</span><span class="hljs-params">()</span></span>&#123;<br>  <br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="Add-Request-Mapping-to-Controller-method"><a href="#Add-Request-Mapping-to-Controller-method" class="headerlink" title="Add Request Mapping to Controller method"></a>Add Request Mapping to Controller method</h3> <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(&quot;/&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">showPage</span><span class="hljs-params">()</span></span>&#123;<br>  <br>&#125;<br></code></pre></td></tr></table></figure>
+<p><code>RequestMapping()</code> annotation maps a path to this given method, so you can define any method name. </p>
+<p>Here, this request mapping will handle all kinds of requests, including get post and so on.</p>
+<h3 id="Return-View-Name"><a href="#Return-View-Name" class="headerlink" title="Return View Name"></a>Return View Name</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(&quot;/&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">showPage</span><span class="hljs-params">()</span></span>&#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;main-menu&quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>Spring will find teh view page by appending the prefix and suffix. </p>
+<p><code>WEB-INF/view/main-menu.jsp</code></p>
+<h3 id="Develop-View-Page"><a href="#Develop-View-Page" class="headerlink" title="Develop View Page"></a>Develop View Page</h3><p><strong>main-menu.jsp</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs html">&lt;%@ page contentType=&quot;text/html;charset=UTF-8&quot; language=&quot;java&quot; %&gt;<br><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">title</span>&gt;</span>Spring MVC Demo - Page<span class="hljs-tag">&lt;/<span class="hljs-name">title</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span> Test<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span> Hello World<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+<h2 id="Read-Form-Data-from-Spring-MVC"><a href="#Read-Form-Data-from-Spring-MVC" class="headerlink" title="Read Form Data from Spring MVC"></a>Read Form Data from Spring MVC</h2><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmp8gb4l77j317s0m6e81.jpg" srcset="/img/loading.gif" alt="Application Flow"></p>
+<p>The browser goes to the website <code>/showForm</code>.</p>
+<p>This goes to the HelloWorld Controller.</p>
+<p>The main purpose of the controller is to show <code>helloworld-form.jsp</code></p>
+<blockquote>
+<p><strong>Key Point:</strong> use one <strong>HelloWorld Controller</strong> to process two <strong>RequestMapping</strong>s.</p>
+</blockquote>
+<h3 id="Development-Process"><a href="#Development-Process" class="headerlink" title="Development Process"></a>Development Process</h3><ol>
+<li>Create Controller Class</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HomeController</span> </span>&#123;<br><br>    <span class="hljs-meta">@RequestMapping(&quot;/&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">showPage</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;main-menu&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<ol start="2">
+<li>Show HTML form.</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloWorldController</span> </span>&#123;<br><br>    <span class="hljs-meta">@RequestMapping(&quot;/showForm&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">showForm</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;helloworld-form&quot;</span>;<br>    &#125;<br><br>    <span class="hljs-meta">@RequestMapping(&quot;/processForm&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">processForm</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;helloworld&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<ol start="3">
+<li>Process HTML form.</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;html&gt;<br>&lt;head&gt;<br>    &lt;title&gt;Hello World - Input Form&lt;/title&gt;<br>&lt;/head&gt;<br>&lt;body&gt;<br>&lt;form action=<span class="hljs-string">&quot;processForm&quot;</span> method=<span class="hljs-string">&quot;GET&quot;</span>&gt;<br>    &lt;input type=<span class="hljs-string">&quot;text&quot;</span> name=<span class="hljs-string">&quot;studentName&quot;</span> placeholder=<span class="hljs-string">&quot;What&#x27;s your name?&quot;</span>/&gt;<br>    &lt;input type=<span class="hljs-string">&quot;submit&quot;</span>/&gt;<br>&lt;/form&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="Add-Data-to-Spring-Model"><a href="#Add-Data-to-Spring-Model" class="headerlink" title="Add Data to Spring Model"></a>Add Data to Spring Model</h2><h3 id="Passing-model-to-your-controller"><a href="#Passing-model-to-your-controller" class="headerlink" title="Passing model to your controller"></a><strong>Passing model to your controller</strong></h3><p>Parameters in the Controller method:</p>
+<ul>
+<li><p><code>HttpServletRequest</code> - Holds HTML form data</p>
+</li>
+<li><p><code>Model</code> - Container for your form data</p>
+</li>
+<li><p><code>HttpServletResponse</code></p>
+</li>
+</ul>
+<h3 id="View-Template-JSP"><a href="#View-Template-JSP" class="headerlink" title="View Template - JSP"></a>View Template - JSP</h3><p>Add attribute name &amp; attribute value.</p>
+<p><code>model.addAttribute(&quot;message&quot;, result)</code></p>
+<h3 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h3><p>1.Build your controller method</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(&quot;/processFormVersionTwo&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">letsShoutDude</span><span class="hljs-params">(HttpServletRequest request, Model model)</span></span>&#123;<br>        <span class="hljs-comment">// read the request parameter from the html form</span><br>        String theName = request.getParameter(<span class="hljs-string">&quot;studentName&quot;</span>);<br>        <span class="hljs-comment">// convert the data to all caps</span><br>        theName = theName.toUpperCase();<br>        <span class="hljs-comment">// create the msg</span><br>        String result = <span class="hljs-string">&quot;Yo! Hello! &quot;</span> + theName;<br>        <span class="hljs-comment">// add the msg to the model</span><br>        model.addAttribute(<span class="hljs-string">&quot;msg&quot;</span>, result);<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;helloworld&quot;</span>;<br>    &#125;<br></code></pre></td></tr></table></figure>
+<ol start="2">
+<li>Add the attribute to the view page.</li>
+</ol>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;br&gt;&lt;br&gt;<br>Student Name: $&#123;param.studentName&#125;<br>&lt;br&gt;&lt;br&gt;<br>The message: $&#123;msg&#125; <br></code></pre></td></tr></table></figure>
+<p><strong>Note:</strong>  The attribute name <code>msg</code> has to match the one in the controller method. </p>
+<ol start="3">
+<li>Modify the JSP page name in the starting view page.</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;form action=<span class="hljs-string">&quot;processFormVersionTwo&quot;</span> method=<span class="hljs-string">&quot;GET&quot;</span>&gt;<br> ...<br>&lt;/form&gt;<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="Request-Params-and-Request-Mappings"><a href="#Request-Params-and-Request-Mappings" class="headerlink" title="Request Params and Request Mappings"></a>Request Params and Request Mappings</h2><h3 id="Bind-Request-Params"><a href="#Bind-Request-Params" class="headerlink" title="Bind Request Params"></a>Bind Request Params</h3><p>Instead of using <code>HttpServletRequest</code> , use a different technique to read the form data. - An annotation</p>
+<p><code>@RequestParam(&quot;paramName&quot;)</code></p>
+<h4 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h4><p>Spring will read the param from the form request: <code>studentName</code></p>
+<p>Bind it the the variable that is given this annotation.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(&quot;..&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">letsShoutDudeTwo</span><span class="hljs-params">(</span></span><br><span class="hljs-function"><span class="hljs-params">            <span class="hljs-meta">@RequestParam(&quot;studentName&quot;)</span></span></span><br><span class="hljs-function"><span class="hljs-params">  					String theName,</span></span><br><span class="hljs-function"><span class="hljs-params">            Model model)</span></span>&#123;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="Controller-Level-Request-Mapping"><a href="#Controller-Level-Request-Mapping" class="headerlink" title="Controller Level Request Mapping"></a>Controller Level Request Mapping</h3><p>Add a controller level mapping to resolve some mapping conflicts.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span><br><span class="hljs-meta">@RequestMapping(&quot;/hello&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">HelloWorldController</span> </span>&#123;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="Form-Tags-and-Data-Binding"><a href="#Form-Tags-and-Data-Binding" class="headerlink" title="Form Tags and Data Binding"></a>Form Tags and Data Binding</h2><h3 id="Form-Page-Structure"><a href="#Form-Page-Structure" class="headerlink" title="Form Page Structure"></a>Form Page Structure</h3><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">html</span>&gt;</span><br>  ... Regular html ...<br>  ... Spring MVC Form Tags ...<br>  ... More html ...<br><span class="hljs-tag">&lt;/<span class="hljs-name">html</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="Reference-Spring-MVC-Form-Tags"><a href="#Reference-Spring-MVC-Form-Tags" class="headerlink" title="Reference Spring MVC Form Tags"></a>Reference Spring MVC Form Tags</h3><p>Specify the namespace st beginning of the JSP file.</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">&lt;%@ taglib prefix=&quot;form&quot; uri=&quot;http://www.springframework.org/tags/form&quot; %&gt;<br></code></pre></td></tr></table></figure>
+<h3 id="Text-Fields"><a href="#Text-Fields" class="headerlink" title="Text Fields"></a>Text Fields</h3><h4 id="Show-Form"><a href="#Show-Form" class="headerlink" title="Show Form"></a>Show Form</h4><p>In Spring Controller:</p>
+<ul>
+<li>Before showing the form, we need to add a <strong>model attribute.</strong></li>
+<li>This is the <strong>bean</strong> that will hold form data for the <strong>data binding.</strong></li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmsgyctyimj316m0jk1kx.jpg" srcset="/img/loading.gif"></p>
+<h4 id="Development-Process-1"><a href="#Development-Process-1" class="headerlink" title="Development Process"></a>Development Process</h4><ol>
+<li>Create the student class and generate the getters and setters.</li>
+<li>Create the student controller class.</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span><br><span class="hljs-meta">@RequestMapping(&quot;/student&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">StudentController</span> </span>&#123;<br><br>    <span class="hljs-meta">@RequestMapping(&quot;/showForm&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">showForm</span><span class="hljs-params">(Model theModel)</span></span>&#123;<br>        <span class="hljs-comment">// create a new student object</span><br>        Student theStudent = <span class="hljs-keyword">new</span> Student();<br>        <span class="hljs-comment">// add the student object to model</span><br>        theModel.addAttribute(<span class="hljs-string">&quot;student&quot;</span>, theStudent);<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;student-form&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<ol start="3">
+<li>Create the HTML form. </li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form:form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;processForm&quot;</span> <span class="hljs-attr">modelAttribute</span>=<span class="hljs-string">&quot;student&quot;</span>&gt;</span><br>    First Name : <span class="hljs-tag">&lt;<span class="hljs-name">form:input</span> <span class="hljs-attr">path</span>=<span class="hljs-string">&quot;firstName&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><br>    Last Name : <span class="hljs-tag">&lt;<span class="hljs-name">form:input</span> <span class="hljs-attr">path</span>=<span class="hljs-string">&quot;lastName&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;submit&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Submit&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">form:select</span> <span class="hljs-attr">path</span>=<span class="hljs-string">&quot;country&quot;</span>&gt;</span><br>        <span class="hljs-tag">&lt;<span class="hljs-name">form:options</span> <span class="hljs-attr">items</span>=<span class="hljs-string">&quot;$&#123;student.countryOptions&#125;&quot;</span>/&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">form:select</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form:form</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<ol start="4">
+<li>Create form processing code.</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(&quot;/processForm&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">processForm</span><span class="hljs-params">(<span class="hljs-meta">@ModelAttribute(&quot;student&quot;)</span> Student theStudent)</span></span>&#123;<br>        <span class="hljs-comment">// log the input data</span><br>        System.out.println(<span class="hljs-string">&quot;The Student First Name: &quot;</span> + theStudent.getFirstName() + <span class="hljs-string">&quot; &quot;</span> + theStudent.getLastName());<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;student-confirmation&quot;</span>;<br>    &#125;<br></code></pre></td></tr></table></figure>
+<ol start="5">
+<li>Create confirmation page.</li>
+</ol>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">body</span>&gt;</span><br>&lt;%-- Calls the student.getFirstName() --%&gt;<br>The Student is Confirmed: $&#123;student.firstName&#125;  $&#123;student.lastName&#125;<br><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">br</span>&gt;</span><br>The Country: $&#123;student.country&#125;<br><span class="hljs-tag">&lt;/<span class="hljs-name">body</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="Use-properties-file-to-load-data"><a href="#Use-properties-file-to-load-data" class="headerlink" title="Use properties file to load data"></a>Use properties file to load data</h3><ol>
+<li>Create a properties file to store the countries. </li>
+</ol>
+<p>New text file:  <code>WEB-INF/countries.properties</code></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-attr">CN</span>=<span class="hljs-string">China</span><br><span class="hljs-attr">BR</span>=<span class="hljs-string">Brazil </span><br><span class="hljs-attr">FR</span>=<span class="hljs-string">France </span><br><span class="hljs-attr">CO</span>=<span class="hljs-string">Colombia </span><br><span class="hljs-attr">IN</span>=<span class="hljs-string">India</span><br></code></pre></td></tr></table></figure>
+<ol start="2">
+<li>Update header section for Spring config file. Replace the header content in the <code>spirng-mvc-demo-servlet.xml</code></li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-meta">&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">beans</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/beans&quot;</span> </span><br><span class="hljs-tag">        <span class="hljs-attr">xmlns:context</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/context&quot;</span> </span><br><span class="hljs-tag">        <span class="hljs-attr">xmlns:mvc</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/mvc&quot;</span> </span><br><span class="hljs-tag">        <span class="hljs-attr">xmlns:util</span>=<span class="hljs-string">&quot;http://www.springframework.org/schema/util&quot;</span> </span><br><span class="hljs-tag">        <span class="hljs-attr">xmlns:xsi</span>=<span class="hljs-string">&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span> </span><br><span class="hljs-tag">        <span class="hljs-attr">xsi:schemaLocation</span>=<span class="hljs-string">&quot;</span></span><br><span class="hljs-tag"><span class="hljs-string">            http://www.springframework.org/schema/beans     </span></span><br><span class="hljs-tag"><span class="hljs-string">            http://www.springframework.org/schema/beans/spring-beans.xsd     </span></span><br><span class="hljs-tag"><span class="hljs-string">            http://www.springframework.org/schema/context     </span></span><br><span class="hljs-tag"><span class="hljs-string">            http://www.springframework.org/schema/context/spring-context.xsd     </span></span><br><span class="hljs-tag"><span class="hljs-string">            http://www.springframework.org/schema/mvc         </span></span><br><span class="hljs-tag"><span class="hljs-string">            http://www.springframework.org/schema/mvc/spring-mvc.xsd </span></span><br><span class="hljs-tag"><span class="hljs-string">            http://www.springframework.org/schema/util     </span></span><br><span class="hljs-tag"><span class="hljs-string">            http://www.springframework.org/schema/util/spring-util.xsd&quot;</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<ol start="3">
+<li>Load country options properties in the config file. Bean id = countryOptions</li>
+</ol>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">util:properties</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;countryOptions&quot;</span> <span class="hljs-attr">location</span>=<span class="hljs-string">&quot;classpath:../countries.properties&quot;</span> /&gt;</span><br></code></pre></td></tr></table></figure>
+<ol start="4">
+<li>Import the <code>java.util.Map</code> in <code>StudentController.java</code>. And inject the properties into the <code>StudentController.java</code>. </li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Value(&quot;#&#123;countryOptions&#125;&quot;)</span><br><span class="hljs-keyword">private</span> Map&lt;String, String&gt; countryOptions; <br></code></pre></td></tr></table></figure>
+<ol start="5">
+<li>Add country Options to the Spring MVC model and specify the attribute name: <strong>theCountryOptions</strong></li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// add the country options to the model </span><br>theModel.addAttribute(<span class="hljs-string">&quot;theCountryOptions&quot;</span>, countryOptions);<br></code></pre></td></tr></table></figure>
+<ol start="6">
+<li>Update the JSP view page to use the model attribute for drop down list.</li>
+</ol>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;form:select select path=<span class="hljs-string">&quot;country&quot;</span>&gt;<br>  &lt;form:options items=<span class="hljs-string">&quot;$&#123;countryOptions&#125;&quot;</span>/&gt;<br>&lt;/form:select&gt;<br></code></pre></td></tr></table></figure>
+<h3 id="Radio-Buttons"><a href="#Radio-Buttons" class="headerlink" title="Radio Buttons"></a>Radio Buttons</h3><ol>
+<li>Update HTML form.</li>
+<li>Update Student Class - add getter and setter.</li>
+<li>Update confirmation page.</li>
+</ol>
+<p><strong>Example:</strong></p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs html">Java <span class="hljs-tag">&lt;<span class="hljs-name">form:radiobutton</span> <span class="hljs-attr">path</span>=<span class="hljs-string">&quot;favoriteLanguage&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;Java&quot;</span>/&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="Check-Box"><a href="#Check-Box" class="headerlink" title="Check Box"></a>Check Box</h3><p><strong>Example:</strong></p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs jsp">Linux &lt;form:checkbox path=<span class="hljs-string">&quot;operatingSystem&quot;</span> value=<span class="hljs-string">&quot;Linux&quot;</span>/&gt;<br>Mac OS &lt;form:checkbox path=<span class="hljs-string">&quot;operatingSystem&quot;</span> value=<span class="hljs-string">&quot;MacOS&quot;</span>/&gt;<br></code></pre></td></tr></table></figure>
+<p>Include <code>jstl.core.jar</code> in your lib. And display the String array using:</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;c:forEach <span class="hljs-keyword">var</span>=<span class="hljs-string">&quot;temp&quot;</span> items=<span class="hljs-string">&quot;$&#123;student.operatingSystem&#125;&quot;</span>&gt;<br>        &lt;li&gt;$&#123;temp&#125;&lt;/li&gt;<br>&lt;/c:forEach&gt;<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="Spring-MVC-Form-Validation"><a href="#Spring-MVC-Form-Validation" class="headerlink" title="Spring MVC Form Validation"></a>Spring MVC Form Validation</h2><h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><h4 id="Java’-Standard-Bean-Validation-API"><a href="#Java’-Standard-Bean-Validation-API" class="headerlink" title="Java’ Standard Bean Validation API"></a>Java’ Standard Bean Validation API</h4><p>Spring supports the Bean Validation API. - Preferred method.</p>
+<h4 id="Features"><a href="#Features" class="headerlink" title="Features"></a>Features</h4><ul>
+<li>Required</li>
+<li>Length</li>
+<li>Numbers</li>
+<li>Regular Expressions</li>
+<li>Custom Validation</li>
+</ul>
+<h4 id="Annotations"><a href="#Annotations" class="headerlink" title="Annotations"></a>Annotations</h4><ul>
+<li>@NotNull</li>
+<li>@Min</li>
+<li>@Max</li>
+<li>@Size</li>
+<li>@Pattern</li>
+<li>@Future / @Past</li>
+</ul>
+<h3 id="Setup-Dev-Env"><a href="#Setup-Dev-Env" class="headerlink" title="Setup Dev Env"></a>Setup Dev Env</h3><p>Go to <a target="_blank" rel="noopener" href="https://hibernate.org/">Hibernate</a> and click on <a target="_blank" rel="noopener" href="https://hibernate.org/validator/">Validator</a>.</p>
+<p>Download the zip file and unzip it.</p>
+<p>Copy and paste the three jar files in  <code>./dist</code>  and four jar files in <code>./dist/required</code> to <code>WEB-INF/lib</code></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmsqtoztq2j30qg0gw40l.jpg" srcset="/img/loading.gif" alt="Hibernate JARs"></p>
+<h3 id="Required-Field"><a href="#Required-Field" class="headerlink" title="Required Field"></a>Required Field</h3><ol>
+<li><p>Add validation rule to customer class.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> String firstName;<br><span class="hljs-meta">@NotNull(message=&quot;is required&quot;)</span><br><span class="hljs-meta">@Size(min = 1, message=&quot;is required&quot;)</span><br><span class="hljs-keyword">private</span> String lastName;<br></code></pre></td></tr></table></figure></li>
+<li><p>Display error msg to the HTML form.</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;br&gt;&lt;br&gt;<br><span class="hljs-function">Last <span class="hljs-title">Name</span><span class="hljs-params">(*)</span>: &lt;form:input path</span>=<span class="hljs-string">&quot;lastName&quot;</span>/&gt;<br>&lt;form:errors path=<span class="hljs-string">&quot;lastName&quot;</span> cssClass=<span class="hljs-string">&quot;error&quot;</span>/&gt;<br></code></pre></td></tr></table></figure></li>
+<li><p>Perform validation in Controller Class. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(&quot;/showForm&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">showForm</span><span class="hljs-params">(Model theModel)</span></span>&#123;<br>        theModel.addAttribute(<span class="hljs-string">&quot;customer&quot;</span>, <span class="hljs-keyword">new</span> Customer());<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;customer-form&quot;</span>;<br>    &#125;<br>    <span class="hljs-meta">@RequestMapping(&quot;/processForm&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">processForm</span><span class="hljs-params">(</span></span><br><span class="hljs-function"><span class="hljs-params">            // <span class="hljs-meta">@Valid</span> performs the validation rules on customer object</span></span><br><span class="hljs-function"><span class="hljs-params">            // Results of validation placed in the Binding Result.</span></span><br><span class="hljs-function"><span class="hljs-params">            <span class="hljs-meta">@Valid</span> <span class="hljs-meta">@ModelAttribute(&quot;customer&quot;)</span> Customer theCustomer,</span></span><br><span class="hljs-function"><span class="hljs-params">            BindingResult theBindingResult)</span></span>&#123;<br>        <span class="hljs-keyword">if</span>(theBindingResult.hasErrors())&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;customer-form&quot;</span>; <br>        &#125;<span class="hljs-keyword">else</span>&#123;<br>            <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;customer-confirmation&quot;</span>;<br>        &#125;<br>    &#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>Update Confirmation page.</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;body&gt;<br>The Customer is Confirmed: $&#123;customer.firstName&#125;  $&#123;customer.lastName&#125;<br>&lt;br&gt;&lt;br&gt;<br></code></pre></td></tr></table></figure>
+<h4 id="InitBinder"><a href="#InitBinder" class="headerlink" title="@InitBinder"></a>@InitBinder</h4></li>
+</ol>
+<p><code>@InitBinder</code> works as a pre-processor.</p>
+<p>It will pre-process each web request to the controller. </p>
+<p>Method with this annotation will be executed. </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// add an initbinder .. to convert trim input strings.</span><br><span class="hljs-comment">// remove the leading and trailing whitespace</span><br><span class="hljs-comment">// resolve issue for our validation</span><br><span class="hljs-meta">@InitBinder</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initBinder</span><span class="hljs-params">(WebDataBinder dataBinder)</span></span>&#123;<br>    StringTrimmerEditor stringTrimmerEditor = <span class="hljs-keyword">new</span> StringTrimmerEditor(<span class="hljs-keyword">true</span>);<br>    dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);<br>&#125;<br></code></pre></td></tr></table></figure>
+<ul>
+<li><code>WebDataBinder</code></li>
+<li><code>StringTrimmerEditor</code> - A class defined in the Spring API, removes the leading and trailing white space. </li>
+<li><code>new StringTrimmerEditor(true)</code> - Trim the String to <code>null</code> if it’s all white space.</li>
+<li><code>dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);</code> - for every String class, apply <code>StringTrimmerEditor</code> </li>
+</ul>
+<h3 id="Validate-Number-Range"><a href="#Validate-Number-Range" class="headerlink" title="Validate Number Range"></a>Validate Number Range</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Min(value = 0,message = &quot;must be greater than or equal to zero.&quot;)</span><br>    <span class="hljs-meta">@Max(value = 10, message = &quot;must be less than or equal to 10&quot;)</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> freePasses;<br></code></pre></td></tr></table></figure>
+<h3 id="Validate-Regular-Expression"><a href="#Validate-Regular-Expression" class="headerlink" title="Validate Regular Expression"></a>Validate Regular Expression</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Pattern(regexp = &quot;^[a-zA-Z0-9]&#123;5&#125;&quot;, message = &quot;only 5 chars/digits&quot;)</span><br>    <span class="hljs-keyword">private</span> String postalCode;<br></code></pre></td></tr></table></figure>
+<h4 id="How-to-make-the-Integer-Field-required"><a href="#How-to-make-the-Integer-Field-required" class="headerlink" title="How to make the Integer Field required"></a>How to make the Integer Field required</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> Integer freePasses;<br></code></pre></td></tr></table></figure>
+<p><strong>Solution:</strong> Convert the int variable to <code>Integer</code>, otherwise there will be a conversion error,</p>
+<p>The trimmer will trime the string to null string if it is all white spaces, so the string cannot be converted directly to primitive type <code>int</code>, and we should use <code>Integer</code> type, which can be converted from the <code>String</code> type.</p>
+<h4 id="How-to-handle-String-input-for-Integer-Field"><a href="#How-to-handle-String-input-for-Integer-Field" class="headerlink" title="How to handle String input for Integer Field"></a>How to handle String input for Integer Field</h4><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmtryea3qvj312y0cawg6.jpg" srcset="/img/loading.gif" alt="Problem"></p>
+<h5 id="Process-1"><a href="#Process-1" class="headerlink" title="Process"></a>Process</h5><ol>
+<li><p>Create custom error message.</p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">typeMismatch.customer.freePasses</span>=<span class="hljs-string">Invalid Number</span><br></code></pre></td></tr></table></figure>
+<p>Create a folder <code>resources</code> under <code>src</code> path, and create a <code>message.properties</code> file. </p>
+</li>
+<li><p>Load custom error message to the spring-servlet.xml config file.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!--	Load custom message resources--&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">bean</span> <span class="hljs-attr">id</span>=<span class="hljs-string">&quot;messageSource&quot;</span>	<span class="hljs-attr">class</span>=<span class="hljs-string">&quot;org.springframework.context.support.ResourceBundleMessageSource&quot;</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;basenames&quot;</span> <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;resources.message&quot;</span> /&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">bean</span>&gt;</span><br><br></code></pre></td></tr></table></figure>
+<h5 id="Deep-Dive"><a href="#Deep-Dive" class="headerlink" title="Deep Dive"></a>Deep Dive</h5></li>
+</ol>
+<p>Below is the <code>BindingResult</code> with Error Msg:</p>
+<figure class="highlight vhdl"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs vhdl">Binding Result: org.springframework.validation.BeanPropertyBindingResult: <span class="hljs-number">1</span> <span class="hljs-literal">error</span><br>Field <span class="hljs-literal">error</span> <span class="hljs-keyword">in</span> object <span class="hljs-symbol">&#x27;customer</span>&#x27; <span class="hljs-keyword">on</span> field <span class="hljs-symbol">&#x27;freePasses</span>&#x27;: rejected value [dfsdsfadf]; codes [typeMismatch.customer.freePasses,typeMismatch.freePasses,typeMismatch.java.lang.<span class="hljs-built_in">Integer</span>,typeMismatch]; arguments [org.springframework.<span class="hljs-keyword">context</span>.support.DefaultMessageSourceResolvable: codes [customer.freePasses,freePasses]; arguments []; <span class="hljs-keyword">default</span> message [freePasses]]; <span class="hljs-keyword">default</span> message [Failed <span class="hljs-keyword">to</span> convert <span class="hljs-keyword">property</span> value <span class="hljs-keyword">of</span> <span class="hljs-keyword">type</span> <span class="hljs-symbol">&#x27;java</span>.lang.<span class="hljs-built_in">String</span>&#x27; <span class="hljs-keyword">to</span> required <span class="hljs-keyword">type</span> <span class="hljs-symbol">&#x27;java</span>.lang.<span class="hljs-built_in">Integer</span>&#x27; <span class="hljs-keyword">for</span> <span class="hljs-keyword">property</span> <span class="hljs-symbol">&#x27;freePasses</span>&#x27;; nested exception <span class="hljs-keyword">is</span> java.lang.NumberFormatException: <span class="hljs-keyword">For</span> input <span class="hljs-built_in">string</span>: <span class="hljs-string">&quot;dfsdsfadf&quot;</span>]<br></code></pre></td></tr></table></figure>
+<p>According the Error Msg, we can custom different <code>typeMismatch</code> in the <code>messages.properties</code>:</p>
+<ul>
+<li><code>typeMismatch.customer.freePasses</code></li>
+<li><code>typeMismatch.freePasses</code></li>
+<li><code>typeMismatch.java.lang.Integer</code></li>
+<li><code>typeMismatch</code></li>
+<li>…</li>
+</ul>
+<h3 id="Custom-Validation"><a href="#Custom-Validation" class="headerlink" title="Custom Validation"></a>Custom Validation</h3><h4 id="Example-1"><a href="#Example-1" class="headerlink" title="Example"></a>Example</h4><ul>
+<li>Course Code must start with “LUV”</li>
+<li>Spring MVC calls the custom validation</li>
+<li>The validation returns a boolean value for pass or fail (T/F)</li>
+</ul>
+<h4 id="Custom-Java-Annotation"><a href="#Custom-Java-Annotation" class="headerlink" title="Custom Java Annotation"></a>Custom Java Annotation</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@CourseCode(value=&quot;LUV&quot;, message=&quot;must start with LUV&quot;)</span><br></code></pre></td></tr></table></figure>
+<h4 id="Process-2"><a href="#Process-2" class="headerlink" title="Process"></a>Process</h4><ol>
+<li><p>Create <strong>@CourseCode</strong> annotation.</p>
+<ul>
+<li>Some annotations of the custome Annotation.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Constraint(validatedBy = CourseCodeConstraintValidator.class)</span><br></code></pre></td></tr></table></figure>
+<p><code>CourseCodeConstraintValidator</code> - Helper class that contains business rules or validation logic.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Target(&#123;ElementType.METHOD, ElementType.FIELD &#125;)</span> <br></code></pre></td></tr></table></figure>
+<p>Can apply our annotation to a method or a field.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Retention(RetentionPolicy.RUNTIME)</span> <br></code></pre></td></tr></table></figure>
+<p>Retain this annotation in the Java class file. Process it at runtime.</p>
+<ul>
+<li>Define attribtues and set default values.</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// define default course code</span><br> <span class="hljs-function">String <span class="hljs-title">value</span><span class="hljs-params">()</span> <span class="hljs-keyword">default</span> &quot;LUV&quot;</span>;<br> <span class="hljs-comment">// define the default error msg</span><br> <span class="hljs-function">String <span class="hljs-title">message</span><span class="hljs-params">()</span> <span class="hljs-keyword">default</span> &quot;Must start with LUV&quot;</span>;<br> <span class="hljs-comment">// define default groups</span><br> Class&lt;?&gt;[] groups() <span class="hljs-keyword">default</span> &#123;&#125;;<br> <span class="hljs-comment">// define default payloads</span><br> Class&lt;? extends Payload&gt;[] payload() <span class="hljs-keyword">default</span> &#123;&#125;;<br></code></pre></td></tr></table></figure></li>
+<li><p>Develop <strong>CourseCodeConstraintValidator</strong>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">CourseCodeConstraintValidator</span></span><br><span class="hljs-class">        <span class="hljs-keyword">implements</span> <span class="hljs-title">ConstraintValidator</span>&lt;<span class="hljs-title">CourseCode</span>, <span class="hljs-title">String</span>&gt; </span>&#123;<br>&#125;<br></code></pre></td></tr></table></figure>
+<ul>
+<li><code>CourseCode</code> - Annotation Name</li>
+<li><code>String</code> - Type of data to validate against</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">private</span> String coursePrefix;<br>   <span class="hljs-meta">@Override</span><br>   <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">initialize</span><span class="hljs-params">(CourseCode theCourseCode)</span> </span>&#123;<br>       coursePrefix = theCourseCode.value();<br>   &#125;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br>  <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">boolean</span> <span class="hljs-title">isValid</span><span class="hljs-params">(String theCode, ConstraintValidatorContext theConstraintValidatorContext)</span> </span>&#123;<br>      <span class="hljs-keyword">if</span>(theCode != <span class="hljs-keyword">null</span>)&#123;<br>          <span class="hljs-keyword">return</span> theCode.startsWith(coursePrefix);<br>      &#125;<span class="hljs-keyword">else</span>&#123;<br>          <span class="hljs-keyword">return</span> <span class="hljs-keyword">true</span>;<br>      &#125;<br>  &#125;<br></code></pre></td></tr></table></figure>
+<ul>
+<li><p>Spring MVC will call the <code>isValid()</code> method at runtime. </p>
+</li>
+<li><p><code>theCode</code> - HTML form data entered by the user.</p>
+</li>
+<li><p><code>ConstraintValidatorContext</code> - Helper class for additional error messages.</p>
+</li>
+<li><p>Method Body - Validation logic - Test if the form data starts with the provided course prefix.</p>
+</li>
+</ul>
+</li>
+</ol>
+<p class="note note-warning">
+Reference:  Udemy, Spring & Hibernate for Beginners (including SpringBoot)
+</p>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Spring-Hibernate/">Spring & Hibernate</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Spring/">Spring</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/01/19/Hibernate/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Hibernate</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/13/Configure-with-Java-Code/">
+                        <span class="hidden-mobile">Configure with Java Code</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     © Xinyi Ma | Powered by  <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize(null);
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
