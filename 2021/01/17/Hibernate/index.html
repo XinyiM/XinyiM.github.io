@@ -1,0 +1,533 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>Hibernate - Xinyi Ashley Ma</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Xinyi Ashley Ma</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Hibernate">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-01-17 10:00" pubdate>
+        January 17, 2021 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      826 Words
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      16
+       min
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Hibernate</h1>
+            
+              <p class="note note-info">
+                
+                  Last Updated on: January 21, 2021 am
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h2 id="What-is-Hibernate"><a href="#What-is-Hibernate" class="headerlink" title="What is Hibernate?"></a>What is Hibernate?</h2><p>A framework for persisting / saving Java objects in a database.</p>
+<h2 id="Benefits-of-Hibernate"><a href="#Benefits-of-Hibernate" class="headerlink" title="Benefits of Hibernate"></a>Benefits of Hibernate</h2><ul>
+<li>Handles all of the low-level SQL.</li>
+<li>Minimizes the amount of JDBC code you have to develop.</li>
+<li>Provides the <strong>Object-to-Rational Mapping(ORM).</strong></li>
+</ul>
+<h2 id="Object-to-Rational-Mapping-ORM"><a href="#Object-to-Rational-Mapping-ORM" class="headerlink" title="Object-to-Rational Mapping(ORM)"></a>Object-to-Rational Mapping(ORM)</h2><p>Mapping between the Java class and database table.</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmtwywtq9qj31cm0c8k9h.jpg" srcset="/img/loading.gif" alt="ORM Example"></p>
+<h3 id="Save-Java-Object"><a href="#Save-Java-Object" class="headerlink" title="Save Java Object"></a>Save Java Object</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java">Student theStudent = <span class="hljs-keyword">new</span> Student(<span class="hljs-string">&quot;John&quot;</span>,<span class="hljs-string">&quot;john@test.com&quot;</span>);<br><span class="hljs-comment">// save it to database</span><br><span class="hljs-keyword">int</span> theId = (Integer)session.save(theStudent);<br></code></pre></td></tr></table></figure>
+<p>Hibernate will store the data into the appropriate database - perform SQL insert. </p>
+<p>Then Hibernate will return the <strong>primary key</strong> - <code>theId</code>.</p>
+<h3 id="Retrieve-Java-Object"><a href="#Retrieve-Java-Object" class="headerlink" title="Retrieve Java Object"></a>Retrieve Java Object</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// now retrieve from the database using the primary key</span><br>Student myStudent = session.get(Student.class, theId);<br></code></pre></td></tr></table></figure>
+<h3 id="Query-for-Java-Object"><a href="#Query-for-Java-Object" class="headerlink" title="Query for Java Object"></a>Query for Java Object</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// retrieve all the student objects and store them in a list</span><br>Query query = session.create(<span class="hljs-string">&quot;from Student&quot;</span>);<br>List&lt;Student&gt; students = query.list();<br></code></pre></td></tr></table></figure>
+<p>Here, we use the <strong>Hibernate Query Language(HQL).</strong></p>
+<h2 id="Hibernate-and-JDBC"><a href="#Hibernate-and-JDBC" class="headerlink" title="Hibernate and JDBC"></a>Hibernate and JDBC</h2><ul>
+<li>Hibernate uses JDBC for all database communications.</li>
+<li>Configure Hibernate to make use of the JDBC driver.</li>
+</ul>
+<h2 id="Configurations-with-Annotations"><a href="#Configurations-with-Annotations" class="headerlink" title="Configurations with Annotations"></a>Configurations with Annotations</h2><h3 id="Developement-Process"><a href="#Developement-Process" class="headerlink" title="Developement Process"></a>Developement Process</h3><h4 id="Add-Hibernate-Configuration-file"><a href="#Add-Hibernate-Configuration-file" class="headerlink" title="Add Hibernate Configuration file"></a>Add Hibernate Configuration file</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">hibernate-configuration</span>&gt;</span><br><br>  <span class="hljs-tag">&lt;<span class="hljs-name">session-factory</span>&gt;</span><br><br>    <span class="hljs-comment">&lt;!-- JDBC Database connection settings --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;connection.driver_class&quot;</span>&gt;</span>com.mysql.cj.jdbc.Driver<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;connection.url&quot;</span>&gt;</span>jdbc:mysql://localhost:3306/hb_student_tracker?useSSL=false<span class="hljs-symbol">&amp;amp;</span>serverTimezone=UTC<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;connection.username&quot;</span>&gt;</span>hbstudent<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;connection.password&quot;</span>&gt;</span>hbstudent<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><br>    <span class="hljs-comment">&lt;!-- JDBC connection pool settings ... using built-in test pool --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;connection.pool_size&quot;</span>&gt;</span>1<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><br>    <span class="hljs-comment">&lt;!-- Select our SQL dialect --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;dialect&quot;</span>&gt;</span>org.hibernate.dialect.MySQLDialect<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><br>    <span class="hljs-comment">&lt;!-- Echo the SQL to stdout --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;show_sql&quot;</span>&gt;</span>true<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br><br>    <span class="hljs-comment">&lt;!-- Set the current session context --&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">property</span> <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;current_session_context_class&quot;</span>&gt;</span>thread<span class="hljs-tag">&lt;/<span class="hljs-name">property</span>&gt;</span><br>    <br>  <span class="hljs-tag">&lt;/<span class="hljs-name">session-factory</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">hibernate-configuration</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h4 id="Annotate-Java-class"><a href="#Annotate-Java-class" class="headerlink" title="Annotate Java class"></a>Annotate Java class</h4><p><strong>Entity Class</strong> - Java class that is mapped to a database table / plain old Java Class</p>
+<ol>
+<li><p>Map class to database table</p>
+</li>
+<li><p>Map fields to database columns</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Entity</span><br><span class="hljs-meta">@Table(name=&quot;student&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Student</span> </span>&#123;<br><br>    <span class="hljs-meta">@Id</span><br>    <span class="hljs-meta">@Column(name = &quot;id&quot;)</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> id;<br><br>    <span class="hljs-meta">@Column(name = &quot;first_name&quot;)</span><br>    <span class="hljs-keyword">private</span> String firstName;<br><br>    <span class="hljs-meta">@Column(name = &quot;last_name&quot;)</span><br>    <span class="hljs-keyword">private</span> String lastName;<br><br>    <span class="hljs-meta">@Column(name = &quot;email&quot;)</span><br>    <span class="hljs-keyword">private</span> String email;<br></code></pre></td></tr></table></figure>
+<p><strong>Note:</strong> Be sure to use <code>import javax.persistence.*.</code></p>
+<p>JPA is a standard specification. Hibernate is an implementation of the JPA specification.</p>
+<p>Hibernate implements all of the JPA annotations.</p>
+<h4 id="Develop-Code-to-perform-database-operations"><a href="#Develop-Code-to-perform-database-operations" class="headerlink" title="Develop Code to perform database operations"></a>Develop Code to perform database operations</h4><ol>
+<li><p><strong>SessionFactory</strong> </p>
+<ul>
+<li>Reads the Hi-config file</li>
+<li>Creates session object</li>
+<li><strong>Heavy-weight</strong> object</li>
+<li>Only create <strong>once</strong> in your app</li>
+</ul>
+</li>
+<li><p><strong>Session</strong></p>
+<ul>
+<li>Wraps JDBC connection</li>
+<li>Main object to save/retrieve objects</li>
+<li>Short-lived object</li>
+<li>Retrived from the sessionFactory</li>
+</ul>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">//  Create session factory</span><br>SessionFactory factory = <span class="hljs-keyword">new</span> Configuration()<br>  .configure(<span class="hljs-string">&quot;hibernate.cfg.xml&quot;</span>)<br>  .addAnnotatedClass(Student.class)<br>  .buildSessionFactory();<br></code></pre></td></tr></table></figure>
+<p>If the name of the config file is not given, Hibernate will automatically look for a file on your class path called <code>hibernate.cfg.xml</code>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java">Session session = factory.getCurrentSession();<br><span class="hljs-keyword">try</span>&#123;<br>  <span class="hljs-comment">// use the session objection to save Java Object</span><br>  System.out.println(<span class="hljs-string">&quot;Creating a new student object...&quot;</span>);<br>  Student tempStudent = <span class="hljs-keyword">new</span> Student(<span class="hljs-string">&quot;Paul&quot;</span>, <span class="hljs-string">&quot;Wall&quot;</span>, <span class="hljs-string">&quot;Paul@test.com&quot;</span>);<br><br>  <span class="hljs-comment">//  Create the student object</span><br>  session.beginTransaction();<br><br>  <span class="hljs-comment">//  save the student object</span><br>  System.out.println(<span class="hljs-string">&quot;Saving a student...&quot;</span>);<br>  session.save(tempStudent);<br><br>  <span class="hljs-comment">//  commit transaction</span><br>  session.getTransaction().commit();<br>  System.out.println(<span class="hljs-string">&quot;Done!&quot;</span>);<br>&#125; <span class="hljs-keyword">finally</span> &#123;<br>  factory.close();<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>Note:</strong> There is also a rollback method.</p>
+<h2 id="CRUD-Features"><a href="#CRUD-Features" class="headerlink" title="CRUD Features"></a>CRUD Features</h2><h3 id="Create-and-Save"><a href="#Create-and-Save" class="headerlink" title="Create and Save"></a>Create and Save</h3><p>Stated in the last section.</p>
+<h3 id="Primary-Keys"><a href="#Primary-Keys" class="headerlink" title="Primary Keys"></a>Primary Keys</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@GeneratedValue(strategy=GenerationType.IDENTITY)</span><br></code></pre></td></tr></table></figure>
+<h4 id="ID-Generation-Strategies"><a href="#ID-Generation-Strategies" class="headerlink" title="ID Generation Strategies"></a>ID Generation Strategies</h4><ul>
+<li><code>GenerationType.AUTO</code></li>
+<li><code>GenerationType.IDENTITY</code> - Most commonly used in MySQL, leverage the <strong>AUTO_INCREMENT</strong> feature of MySQL.</li>
+<li><code>GenerationType.SEQUENCE</code></li>
+<li><code>GenerationType.TABLE</code></li>
+</ul>
+<h4 id="Custom-Strategy"><a href="#Custom-Strategy" class="headerlink" title="Custom Strategy"></a>Custom Strategy</h4><ul>
+<li>Create a implementation of <code>org.hibernate.id.IdentifierGenerator</code></li>
+<li>Override the method: <code>public Serializable generate()</code></li>
+</ul>
+<h4 id="Changing-the-Starting-Index"><a href="#Changing-the-Starting-Index" class="headerlink" title="Changing the Starting Index"></a>Changing the Starting Index</h4> <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">ALTER</span> <span class="hljs-keyword">TABLE</span> hb_student_tracker.student AUTO_INCREMENT<span class="hljs-operator">=</span><span class="hljs-number">3000</span>;<br></code></pre></td></tr></table></figure>
+<p>The index of the object will start from 3000.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">TRUNCATE</span> hb_student_tracker.student;<br></code></pre></td></tr></table></figure>
+<p>Clean up the table and the index will start from 1.</p>
+<h3 id="Read-Objects"><a href="#Read-Objects" class="headerlink" title="Read Objects"></a>Read Objects</h3><p>Retrieve from the database using the PK.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// get a new session and start a transaction</span><br>session = factory.getCurrentSession();<br>session.beginTransaction();<br><br><span class="hljs-comment">// retrieve a student based on the PK</span><br>System.out.println(<span class="hljs-string">&quot;\nGetting Student with id: &quot;</span>+ tempStudent.getId());<br>Student myStudent = session.get(Student.class, tempStudent.getId());<br>System.out.println(<span class="hljs-string">&quot;Get Completed:&quot;</span> + myStudent);<br><br><span class="hljs-comment">// commit the transaction</span><br>session.getTransaction().commit();<br></code></pre></td></tr></table></figure>
+<h3 id="Querying-Objects"><a href="#Querying-Objects" class="headerlink" title="Querying Objects"></a>Querying Objects</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">List&lt;Student&gt; theStudents = session.createQuery(<span class="hljs-string">&quot;from Student s where s.lastName = &#x27;Zhang&#x27;&quot;</span>).getResultList();<br></code></pre></td></tr></table></figure>
+<h3 id="Update-Objects"><a href="#Update-Objects" class="headerlink" title="Update Objects"></a>Update Objects</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">session.createQuery(<span class="hljs-string">&quot;update Student set email=&#x27;dylan@gmail.com&#x27; where  firstName=&#x27;Dylan&#x27;&quot;</span>).executeUpdate();<br></code></pre></td></tr></table></figure>
+<h3 id="Delete-Objects"><a href="#Delete-Objects" class="headerlink" title="Delete Objects"></a>Delete Objects</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// retrieve a student</span><br><span class="hljs-keyword">int</span> studentId = <span class="hljs-number">5</span>;<br>Student myStudent = session.get(Student.class, studentId);<br><br><span class="hljs-comment">// delete</span><br>session.delete(myStudent);<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">session.createQuery(<span class="hljs-string">&quot;delete from Student where id=1&quot;</span>).executeUpdate();<br></code></pre></td></tr></table></figure>
+<p class="note note-warning">
+  Reference: Udemy, Spring & Hibernate for Beginners (including SpringBoot)
+</p>
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Spring-Hibernate/">Spring & Hibernate</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Hibernate/">Hibernate</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/01/19/Hibernate-validation-problem/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Solved - Cannot find javax.validation Problem</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/15/Spring-MVC/">
+                        <span class="hidden-mobile">Spring MVC</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     © Xinyi Ma | Powered by  <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize(null);
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
