@@ -1,0 +1,590 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>Spring Security - Xinyi Ashley Ma</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Xinyi Ashley Ma</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Spring Security">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-08 16:26" pubdate>
+        February 8, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2.3k Words
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      45
+       min
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Spring Security</h1>
+            
+              <p class="note note-info">
+                
+                  Last Updated on: February 8, 2021 pm
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="Spring-Security-Overview"><a href="#Spring-Security-Overview" class="headerlink" title="Spring Security - Overview"></a>Spring Security - Overview</h1><h2 id="Model"><a href="#Model" class="headerlink" title="Model"></a>Model</h2><ul>
+<li>Spring Security defines a framework for Security.</li>
+<li>Implmented using Servlet filters in the background.</li>
+<li>Two methods of securing a Web app: Declarative and Programmatic.</li>
+</ul>
+<h2 id="Big-Pic"><a href="#Big-Pic" class="headerlink" title="Big Pic"></a>Big Pic</h2><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gna8lbscsgj318k0i4x30.jpg" srcset="/img/loading.gif" alt="Big Picture"></p>
+<h2 id="Flow-Chart-in-Action"><a href="#Flow-Chart-in-Action" class="headerlink" title="Flow Chart in Action"></a>Flow Chart in Action</h2><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gna8ofhvyhj31fv0u0kjl.jpg" srcset="/img/loading.gif" alt="Flowchar in Action"></p>
+<h2 id="Security-Concepts"><a href="#Security-Concepts" class="headerlink" title="Security Concepts"></a>Security Concepts</h2><ul>
+<li>Authentication - Check user id or password with credentials stored in App/db.</li>
+<li>Authorization - Check to see if user has an authorized role.</li>
+</ul>
+<h2 id="Declarative-Security"><a href="#Declarative-Security" class="headerlink" title="Declarative Security"></a>Declarative Security</h2><p>Defines application’s security constraints in configuration. </p>
+<ul>
+<li>All Java config </li>
+<li>Or Spring XML Config</li>
+</ul>
+<h2 id="Programmatic-Security"><a href="#Programmatic-Security" class="headerlink" title="Programmatic Security"></a>Programmatic Security</h2><ul>
+<li><p>Provides an API for custom application coding.</p>
+</li>
+<li><p>Provides greater customization for specific app requirements.</p>
+</li>
+</ul>
+<h2 id="Login-Methods"><a href="#Login-Methods" class="headerlink" title="Login Methods"></a>Login Methods</h2><ul>
+<li>HTTP</li>
+<li>Default Login Form</li>
+<li>Custom Login Form</li>
+</ul>
+<h1 id="Spring-MVC-Java-Config"><a href="#Spring-MVC-Java-Config" class="headerlink" title="Spring MVC - Java Config"></a>Spring MVC - Java Config</h1><h2 id="Add-Maven-Dependencies"><a href="#Add-Maven-Dependencies" class="headerlink" title="Add Maven Dependencies"></a>Add Maven Dependencies</h2><p>Import existing maven project into IntelliJ.</p>
+<p>Since we are not using <code>web.xml</code>, customize Maven build and must add Maven WAR plugin.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-comment">&lt;!-- <span class="hljs-doctag">TODO:</span> Add support for Maven WAR Plugin --&gt;</span><br>	<span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">finalName</span>&gt;</span>spring-security-demo<span class="hljs-tag">&lt;/<span class="hljs-name">finalName</span>&gt;</span><br>		<span class="hljs-tag">&lt;<span class="hljs-name">pluginManagement</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span><br>				<span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>					<span class="hljs-comment">&lt;!-- Add Maven Coordinates--&gt;</span><br>					<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>					<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>maven-war-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>					<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>3.3.1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>				<span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br>			<span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span><br>		<span class="hljs-tag">&lt;/<span class="hljs-name">pluginManagement</span>&gt;</span><br>	<span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h2 id="Create-Spring-Configuration"><a href="#Create-Spring-Configuration" class="headerlink" title="Create Spring @Configuration"></a>Create Spring @Configuration</h2><p>Create a DemoAppConfig.java file in the source directory.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@EnableWebMvc</span><br><span class="hljs-meta">@ComponentScan(basePackages = &quot;com.luv2code.springsecurity.demo&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DemoAppConfig</span> </span>&#123;<br>    <span class="hljs-comment">// define a bean for view resolver</span><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> ViewResolver <span class="hljs-title">viewResolver</span><span class="hljs-params">()</span></span>&#123;<br>        InternalResourceViewResolver viewResolver = <span class="hljs-keyword">new</span> InternalResourceViewResolver();<br>        viewResolver.setPrefix(<span class="hljs-string">&quot;/WEB-INF/view/&quot;</span>);<br>        viewResolver.setSuffix(<span class="hljs-string">&quot;.jsp&quot;</span>);<br>        <span class="hljs-keyword">return</span> viewResolver;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="Create-Spring-Dispatcher-Servlet-Initializer"><a href="#Create-Spring-Dispatcher-Servlet-Initializer" class="headerlink" title="Create Spring Dispatcher Servlet Initializer"></a>Create Spring Dispatcher Servlet Initializer</h2><p>Spring MVC provides support for web app initialization.</p>
+<p>Your code is used to initialize the servlet container.</p>
+<h4 id="AbstractAnnotationConfigDispatcherServletInitializer"><a href="#AbstractAnnotationConfigDispatcherServletInitializer" class="headerlink" title="AbstractAnnotationConfigDispatcherServletInitializer"></a>AbstractAnnotationConfigDispatcherServletInitializer</h4><ul>
+<li>Extend the abstract base class</li>
+<li>Override some required methods</li>
+<li>Specify  servlet mapping and location of your app config</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MySpringMvcDispatcherServletInitializer</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractAnnotationConfigDispatcherServletInitializer</span> </span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">protected</span> Class&lt;?&gt;[] getRootConfigClasses() &#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Class[<span class="hljs-number">0</span>];<br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">protected</span> Class&lt;?&gt;[] getServletConfigClasses() &#123; <span class="hljs-comment">// Dispatcher Servlet</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Class[]&#123; DemoAppConfig.class &#125;; <span class="hljs-comment">// ContextConfigLocation</span><br>    &#125;<br><br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-keyword">protected</span> String[] getServletMappings() &#123; <span class="hljs-comment">// dispatcher and url pattern</span><br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> String[] &#123; <span class="hljs-string">&quot;/&quot;</span> &#125;; <span class="hljs-comment">// map</span><br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="Develop-Spring-Controller"><a href="#Develop-Spring-Controller" class="headerlink" title="Develop Spring Controller"></a>Develop Spring Controller</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DemoController</span> </span>&#123;<br>    <span class="hljs-meta">@GetMapping(&quot;/&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">showHome</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;home&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="Develop-JSP-View-Page"><a href="#Develop-JSP-View-Page" class="headerlink" title="Develop JSP View Page"></a>Develop JSP View Page</h2><p>Create a test.jsp file and run the tomcat server to test the demo.</p>
+<h1 id="Configure-Basic-Security"><a href="#Configure-Basic-Security" class="headerlink" title="Configure Basic Security"></a>Configure Basic Security</h1><h2 id="Create-Spring-Security-Initializer"><a href="#Create-Spring-Security-Initializer" class="headerlink" title="Create Spring Security Initializer"></a>Create Spring Security Initializer</h2><h3 id="AbstractSecurityWebApplicationInitializer"><a href="#AbstractSecurityWebApplicationInitializer" class="headerlink" title="AbstractSecurityWebApplicationInitializer"></a>AbstractSecurityWebApplicationInitializer</h3><p>A special class to register the <strong><u>Spring Security Filters.</u></strong></p>
+<p><strong><u>TODO List</u></strong>: Just extends the abstract class! No methods to override!</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SecurityWebApplicationInitializer</span></span><br><span class="hljs-class">        <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractSecurityWebApplicationInitializer</span> </span>&#123;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="Create-Spring-Security-Configuration"><a href="#Create-Spring-Security-Configuration" class="headerlink" title="Create Spring Security Configuration"></a>Create Spring Security Configuration</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@EnableWebSecurity</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DemoSecurityConfig</span></span><br><span class="hljs-class">        <span class="hljs-keyword">extends</span> <span class="hljs-title">WebSecurityConfigurerAdapter</span> </span>&#123;<br>    <span class="hljs-meta">@Override</span><br>    <span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">configure</span><span class="hljs-params">(AuthenticationManagerBuilder auth)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>       <br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="Add-Users-Passwords-and-Roles"><a href="#Add-Users-Passwords-and-Roles" class="headerlink" title="Add Users Passwords and Roles"></a>Add Users Passwords and Roles</h2><p>Add users in <code>DemoSecurityConfig.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// add our users for in memory authentication</span><br>UserBuilder users = User.withDefaultPasswordEncoder();<br>auth.inMemoryAuthentication()<br>  .withUser(users.username(<span class="hljs-string">&quot;John&quot;</span>).password(<span class="hljs-string">&quot;test123&quot;</span>).roles(<span class="hljs-string">&quot;EMPLOYEE&quot;</span>))<br>  .withUser(users.username(<span class="hljs-string">&quot;Mary&quot;</span>).password(<span class="hljs-string">&quot;test123&quot;</span>).roles(<span class="hljs-string">&quot;MANAGER&quot;</span>))<br>  .withUser(users.username(<span class="hljs-string">&quot;Susan&quot;</span>).password(<span class="hljs-string">&quot;test123&quot;</span>).roles(<span class="hljs-string">&quot;ADMIN&quot;</span>));<br></code></pre></td></tr></table></figure>
+<h1 id="Add-Custom-LogIn-Form"><a href="#Add-Custom-LogIn-Form" class="headerlink" title="Add Custom LogIn Form"></a>Add Custom LogIn Form</h1><h2 id="Modify-Spring-Security-Configuration"><a href="#Modify-Spring-Security-Configuration" class="headerlink" title="Modify Spring Security Configuration"></a>Modify Spring Security Configuration</h2><p>To reference custom login form.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">configure</span><span class="hljs-params">(HttpSecurity http)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>  http.authorizeRequests()<br>    .anyRequest().authenticated()<br>    .and()<br>    .formLogin()<br>    .loginPage(<span class="hljs-string">&quot;/showMyLoginPage&quot;</span>)<br>    .loginProcessingUrl(<span class="hljs-string">&quot;/authenticateTheUser&quot;</span>)<br>    .permitAll();<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>Override the configure method.</p>
+<h2 id="Develop-a-Controller"><a href="#Develop-a-Controller" class="headerlink" title="Develop a Controller"></a>Develop a Controller</h2><p>To show the custom login form.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Controller</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">LoginController</span> </span>&#123;<br>    <span class="hljs-meta">@GetMapping(&quot;/showMyLoginPage&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">showMyLoginPage</span><span class="hljs-params">()</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;plain-login&quot;</span>;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="Create-custom-login-form"><a href="#Create-custom-login-form" class="headerlink" title="Create custom login form"></a>Create custom login form</h2><ul>
+<li>HTML</li>
+<li>Spring MVC form tag </li>
+</ul>
+<h3 id="Why-use-Context-Path"><a href="#Why-use-Context-Path" class="headerlink" title="Why use Context Path?"></a>Why use Context Path?</h3><ul>
+<li>Allows us to dynamically reference context path of application.</li>
+<li>Helps to keep links relative to application context path.LL</li>
+<li>If you change context path of app, then links will still work.</li>
+<li>Much better than hard-coding the context path.</li>
+</ul>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;body&gt;<br>&lt;h3&gt; My Custom Login Page&lt;/h3&gt;<br>&lt;form:form action=<span class="hljs-string">&quot;$&#123;pageContext.request.contextPath&#125;/authenticateTheUser&quot;</span> method=<span class="hljs-string">&quot;post&quot;</span>&gt;<br>    &lt;p&gt;User Name: &lt;input type=&quot;text&quot; name=&quot;username&quot;/&gt;&lt;/p&gt;<br>    &lt;p&gt;Password: &lt;input type=&quot;password&quot; name=&quot;password&quot;/&gt;&lt;/p&gt;<br>    &lt;input type=<span class="hljs-string">&quot;submit&quot;</span> value=<span class="hljs-string">&quot;Login&quot;</span>/&gt;<br>&lt;/form:form&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></code></pre></td></tr></table></figure>
+<h2 id="Add-Error-Message"><a href="#Add-Error-Message" class="headerlink" title="Add Error Message"></a>Add Error Message</h2><h3 id="Modify-the-Login-Form-Check-for-error"><a href="#Modify-the-Login-Form-Check-for-error" class="headerlink" title="Modify the Login Form - Check for error"></a>Modify the Login Form - Check for error</h3><figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;%@ taglib prefix=<span class="hljs-string">&quot;c&quot;</span> uri=<span class="hljs-string">&quot;http://java.sun.com/jsp/jstl/core&quot;</span> %&gt;<br><br>&lt;body&gt;<br>&lt;h3&gt; My Custom Login Page&lt;/h3&gt;<br>&lt;form:form action=<span class="hljs-string">&quot;$&#123;pageContext.request.contextPath&#125;/authenticateTheUser&quot;</span> method=<span class="hljs-string">&quot;post&quot;</span>&gt;<br>    &lt;c:<span class="hljs-keyword">if</span> test=<span class="hljs-string">&quot;$&#123;param.error != null&#125;&quot;</span>&gt;<br>    &lt;i class=&quot;failed&quot;&gt;Sorry, you entered wrong credentials.&lt;/i&gt;<br>    &lt;/c:if&gt;<br>    &lt;p&gt;User Name: &lt;input type=&quot;text&quot; name=&quot;username&quot;/&gt;&lt;/p&gt;<br>    &lt;p&gt;Password: &lt;input type=&quot;password&quot; name=&quot;password&quot;/&gt;&lt;/p&gt;<br>    &lt;input type=<span class="hljs-string">&quot;submit&quot;</span> value=<span class="hljs-string">&quot;Login&quot;</span>/&gt;<br>&lt;/form:form&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br><br></code></pre></td></tr></table></figure>
+<p><strong>Note:</strong> Change <code>http://java.sun.com/jstl/core</code> to <code>http://java.sun.com/jsp/jstl/core</code>, unless you will get <strong>Error:</strong> <code>attribute test does not accept any expressions</code>.</p>
+<h2 id="Add-Logout-Support"><a href="#Add-Logout-Support" class="headerlink" title="Add Logout Support"></a>Add Logout Support</h2><h3 id="Add-Logout-to-Configuration"><a href="#Add-Logout-to-Configuration" class="headerlink" title="Add Logout to Configuration"></a>Add Logout to Configuration</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">configure</span><span class="hljs-params">(HttpSecurity http)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>  http.authorizeRequests()<br>    .anyRequest().authenticated()<br>    .and()<br>    .formLogin()<br>    .loginPage(<span class="hljs-string">&quot;/showMyLoginPage&quot;</span>)<br>    .loginProcessingUrl(<span class="hljs-string">&quot;/authenticateTheUser&quot;</span>)<br>    .permitAll()<br>    .and()<br>    .logout().permitAll();<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>Note:</strong> This will add logout support for default URL <code>/logout</code></p>
+<h3 id="Add-Logout-Button-to-JSP"><a href="#Add-Logout-Button-to-JSP" class="headerlink" title="Add Logout Button to JSP"></a>Add Logout Button to JSP</h3><p>The button needs to send data to the default URL <code>/logout</code></p>
+<p>Logout URL will be handled by Spring Security Fileters - No coding required.   </p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;form:form action=<span class="hljs-string">&quot;$&#123;pageContext.request.contextPath&#125;/logout&quot;</span> method=<span class="hljs-string">&quot;post&quot;</span>&gt;<br>    &lt;input type=<span class="hljs-string">&quot;submit&quot;</span> value=<span class="hljs-string">&quot;Logout&quot;</span>&gt;<br>&lt;/form:form&gt;<br></code></pre></td></tr></table></figure>
+<h3 id="Update-Form"><a href="#Update-Form" class="headerlink" title="Update Form"></a>Update Form</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;c:<span class="hljs-keyword">if</span> test=<span class="hljs-string">&quot;$&#123;param.logout != null&#125;&quot;</span>&gt;<br>  &lt;div <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;alert alert-success col-xs-offset-1 col-xs-10&quot;</span>&gt;<br>    You have been logged out.<br>  &lt;/div&gt;<br>&lt;/c:if&gt;<br></code></pre></td></tr></table></figure>
+<h1 id="Cross-Site-Request-Forgery-CSRF"><a href="#Cross-Site-Request-Forgery-CSRF" class="headerlink" title="Cross Site Request Forgery(CSRF)"></a>Cross Site Request Forgery(CSRF)</h1><p><a target="_blank" rel="noopener" href="https://zhuanlan.zhihu.com/p/22521378">What is CSRF?</a></p>
+<blockquote>
+<p>CSRF(Cross Site Request Forgery)即跨站请求伪造。就是利用后台有规律的接口，例如 localhost<a href="http://link.zhihu.com/?target=http://www.baidu.com/deleteAriticle.php?id=3&username=xiaoxiao">/deleteAriticle.php?id=3&amp;username=xiaoxiao</a> ，攻击者在被攻击的网站页面嵌入这样的代码，当用户xiaoxiao访问该网站的时候，会发起这条请求。服务器会删除id为3的数据。<br>客户端防范：对于数据库的修改请求，全部使用POST提交，禁止使用GET请求。<br>服务器端防范：一般的做法是在表单里面添加一段隐藏的唯一的token(请求令牌)。</p>
+</blockquote>
+<h2 id="Spring-Security-CSRF-Protection"><a href="#Spring-Security-CSRF-Protection" class="headerlink" title="Spring Security CSRF Protection"></a>Spring Security CSRF Protection</h2><p>Spring Security uses the <strong>Synchronizer Token Pattern</strong>.</p>
+<ul>
+<li>Each request includes <strong>a session cookie and randomly generated token.</strong></li>
+</ul>
+<p>For request processing, Spring Security verifies token before processing.</p>
+<p>All of this is handled by Spring Security Filters automatically.</p>
+<h3 id="When-to-use-CSRF-Protection"><a href="#When-to-use-CSRF-Protection" class="headerlink" title="When to use CSRF Protection?"></a>When to use CSRF Protection?</h3><p>Use CSRF protection for any normal browser web requests.</p>
+<h3 id="How-to-use-CSRF-Protection"><a href="#How-to-use-CSRF-Protection" class="headerlink" title="How to use CSRF Protection?"></a>How to use CSRF Protection?</h3><p>For form submissions use <strong>POST</strong> instead of <strong>GET</strong>.</p>
+<p>Just use <strong>Spring MVC Form Tags.</strong></p>
+<p><code>&lt;form:form&gt;</code> will automatically adds CSRF token.</p>
+<h4 id="Manually-Add-CSRF-Token"><a href="#Manually-Add-CSRF-Token" class="headerlink" title="Manually Add CSRF Token"></a>Manually Add CSRF Token</h4><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs html"><span class="hljs-tag">&lt;<span class="hljs-name">form</span> <span class="hljs-attr">action</span>=<span class="hljs-string">&quot;&quot;</span> <span class="hljs-attr">method</span>=<span class="hljs-string">&quot;&quot;</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">input</span> <span class="hljs-attr">type</span>=<span class="hljs-string">&quot;hidden&quot;</span></span><br><span class="hljs-tag">         <span class="hljs-attr">name</span>=<span class="hljs-string">&quot;$&#123;_csrf.parameterName&#125;&quot;</span></span><br><span class="hljs-tag">         <span class="hljs-attr">value</span>=<span class="hljs-string">&quot;$&#123;_csrf.token&#125;&quot;</span>/&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">form</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>If you use plain <code>&lt;form&gt;</code> tag, then you need to manually add CSRF token authentication in the form submission.</p>
+<h3 id="Break-It"><a href="#Break-It" class="headerlink" title="Break It"></a>Break It</h3><p>Use plain <code>&lt;form&gt;</code> tag rather than Spring MVC <code>&lt;form:form&gt;</code> tag.</p>
+<figure class="highlight jsp"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;form action=<span class="hljs-string">&quot;$&#123;pageContext.request.contextPath&#125;/authenticateTheUser&quot;</span> method=<span class="hljs-string">&quot;POST&quot;</span> <span class="hljs-class"><span class="hljs-keyword">class</span></span>=<span class="hljs-string">&quot;form-horizontal&quot;</span>&gt;<br></code></pre></td></tr></table></figure>
+<p>Then, we will get an ugly <code>403 - Forbidden</code> error message. </p>
+<blockquote>
+<p>The server understood the request but refused to authorize it.</p>
+</blockquote>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gndbb4we4ij313g0awt9u.jpg" srcset="/img/loading.gif"></p>
+<h3 id="Fix-It"><a href="#Fix-It" class="headerlink" title="Fix It"></a>Fix It</h3><p>Add token manually like mentioned above.</p>
+<h2 id="Display-Username-and-Roles"><a href="#Display-Username-and-Roles" class="headerlink" title="Display Username and Roles"></a>Display Username and Roles</h2><h3 id="Add-new-Dependency-in-pom-xml"><a href="#Add-new-Dependency-in-pom-xml" class="headerlink" title="Add new Dependency in pom.xml"></a>Add new Dependency in pom.xml</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.security<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-security-taglibs<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>			<span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>$&#123;springsecurity.version&#125;<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>		<span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h3 id="Update-JSP-Page"><a href="#Update-JSP-Page" class="headerlink" title="Update JSP Page"></a>Update JSP Page</h3><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;%@ taglib prefix=<span class="hljs-string">&quot;security&quot;</span> uri=<span class="hljs-string">&quot;http://www.springframework.org/security/tags&quot;</span> %&gt;<br>&lt;p&gt;<br>    Users: &lt;security:authentication property=<span class="hljs-string">&quot;principal.username&quot;</span>/&gt;<br>    Roles: &lt;security:authentication property=<span class="hljs-string">&quot;principal.authorities&quot;</span>/&gt;<br>&lt;/p&gt;<br></code></pre></td></tr></table></figure>
+<h1 id="Restrict-Access-based-on-Role"><a href="#Restrict-Access-based-on-Role" class="headerlink" title="Restrict Access based on Role"></a>Restrict Access based on Role</h1><h2 id="Create-Controller-and-Views"><a href="#Create-Controller-and-Views" class="headerlink" title="Create Controller and Views"></a>Create Controller and Views</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@GetMapping(&quot;/leader&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">showLeaders</span><span class="hljs-params">()</span></span>&#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;leader&quot;</span>;<br>&#125;<br><br><span class="hljs-meta">@GetMapping(&quot;/system&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> String <span class="hljs-title">showSystem</span><span class="hljs-params">()</span></span>&#123;<br>  <span class="hljs-keyword">return</span> <span class="hljs-string">&quot;system&quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="Update-Roles"><a href="#Update-Roles" class="headerlink" title="Update Roles"></a>Update Roles</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">auth.inMemoryAuthentication()<br>  .withUser(users.username(<span class="hljs-string">&quot;John&quot;</span>).password(<span class="hljs-string">&quot;test123&quot;</span>).roles(<span class="hljs-string">&quot;EMPLOYEE&quot;</span>))<br>  .withUser(users.username(<span class="hljs-string">&quot;Mary&quot;</span>).password(<span class="hljs-string">&quot;test123&quot;</span>).roles(<span class="hljs-string">&quot;EMPLOYEE&quot;</span>,<span class="hljs-string">&quot;MANAGER&quot;</span>))<br>  .withUser(users.username(<span class="hljs-string">&quot;Susan&quot;</span>).password(<span class="hljs-string">&quot;test123&quot;</span>).roles(<span class="hljs-string">&quot;EMPLOYEE&quot;</span>,<span class="hljs-string">&quot;ADMIN&quot;</span>));<br></code></pre></td></tr></table></figure>
+<h2 id="Authorize-Access-to-Roles"><a href="#Authorize-Access-to-Roles" class="headerlink" title="Authorize Access to Roles"></a>Authorize Access to Roles</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java">http.authorizeRequests()<br>  .antMatchers(<span class="hljs-string">&quot;/&quot;</span>).hasRole(<span class="hljs-string">&quot;EMPLOYEE&quot;</span>)<br>  .antMatchers(<span class="hljs-string">&quot;/leader/**&quot;</span>).hasRole(<span class="hljs-string">&quot;MANAGER&quot;</span>)<br>  .antMatchers(<span class="hljs-string">&quot;/system/**&quot;</span>).hasRole(<span class="hljs-string">&quot;ADMIN&quot;</span>)<br>  .and()<br>  .exceptionHandling().accessDeniedPage(<span class="hljs-string">&quot;/access-denied&quot;</span>);<br></code></pre></td></tr></table></figure>
+<h2 id="Create-the-Access-Denied-Page"><a href="#Create-the-Access-Denied-Page" class="headerlink" title="Create the Access-Denied Page"></a>Create the Access-Denied Page</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;body&gt;<br>&lt;h1&gt;<br>    Access Denied!<br>&lt;/h1&gt;<br>&lt;p&gt;<br>    &lt;a href=&quot;$&#123;pageContext.request.contextPath&#125;/&quot;&gt;Back To Home Page&lt;/a&gt;<br>&lt;/p&gt;<br>&lt;/body&gt;<br>&lt;/html&gt;<br></code></pre></td></tr></table></figure>
+<h2 id="Display-Content-Based-on-Roles"><a href="#Display-Content-Based-on-Roles" class="headerlink" title="Display Content Based on Roles"></a>Display Content Based on Roles</h2><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs jsp">&lt;security:authorize access=<span class="hljs-string">&quot;hasRole(&#x27;MANAGER&#x27;)&quot;</span>&gt;<br>  &lt;p&gt;<br>    &lt;a href=&quot;$&#123;pageContext.request.contextPath&#125;/leader&quot;&gt;Leadership Meeting&lt;/a&gt; (Only for Managers)<br>  &lt;/p&gt;<br>&lt;/security:authorize&gt;<br><br>&lt;security:authorize access=<span class="hljs-string">&quot;hasRole(&#x27;ADMIN&#x27;)&quot;</span>&gt;<br>  &lt;p&gt;<br>    &lt;a href=&quot;$&#123;pageContext.request.contextPath&#125;/system&quot;&gt;Admin &lt;/a&gt; (Only for Admins)<br>  &lt;/p&gt;<br>&lt;/security:authorize&gt;<br></code></pre></td></tr></table></figure>
+<h1 id="Add-JDBC-Database-Authentication"><a href="#Add-JDBC-Database-Authentication" class="headerlink" title="Add JDBC Database Authentication"></a>Add JDBC Database Authentication</h1><h2 id="Run-SQL-Scripts"><a href="#Run-SQL-Scripts" class="headerlink" title="Run SQL Scripts"></a>Run SQL Scripts</h2><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">INSERT</span> <span class="hljs-keyword">INTO</span> `users` <br><span class="hljs-keyword">VALUES</span> <br>(<span class="hljs-string">&#x27;john&#x27;</span>,<span class="hljs-string">&#x27;&#123;noop&#125;test123&#x27;</span>,<span class="hljs-number">1</span>),<br>(<span class="hljs-string">&#x27;mary&#x27;</span>,<span class="hljs-string">&#x27;&#123;noop&#125;test123&#x27;</span>,<span class="hljs-number">1</span>),<br>(<span class="hljs-string">&#x27;susan&#x27;</span>,<span class="hljs-string">&#x27;&#123;noop&#125;test123&#x27;</span>,<span class="hljs-number">1</span>);<br></code></pre></td></tr></table></figure>
+<p><strong>Note:</strong> <code>noop</code> is the encoding algorithm of the password.</p>
+<h2 id="Add-Database-Support-to-pom-xml"><a href="#Add-Database-Support-to-pom-xml" class="headerlink" title="Add Database Support to pom.xml"></a>Add Database Support to pom.xml</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>mysql<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>mysql-connector-java<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>5.1.45<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>com.mchange<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>c3p0<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>0.9.5.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h2 id="Create-JDBC-Properties-File"><a href="#Create-JDBC-Properties-File" class="headerlink" title="Create JDBC Properties File"></a>Create JDBC Properties File</h2><p><code>src/main/resources/persistence-mysql.properties</code></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-comment">#</span><br><span class="hljs-comment"># JDBC connection properties</span><br><span class="hljs-comment">#</span><br><span class="hljs-meta">jdbc.driver</span>=<span class="hljs-string">com.mysql.jdbc.Driver</span><br><span class="hljs-meta">jdbc.url</span>=<span class="hljs-string">jdbc:mysql://localhost:3306/spring_security_demo_plaintext?useSSL=false&amp;serverTimezone=UTC</span><br><span class="hljs-meta">jdbc.user</span>=<span class="hljs-string">springstudent</span><br><span class="hljs-meta">jdbc.password</span>=<span class="hljs-string">springstudent</span><br><br><span class="hljs-comment">#</span><br><span class="hljs-comment"># Connection pool properties</span><br><span class="hljs-comment">#</span><br><span class="hljs-meta">connection.pool.initialPoolSize</span>=<span class="hljs-string">5</span><br><span class="hljs-meta">connection.pool.minPoolSize</span>=<span class="hljs-string">5</span><br><span class="hljs-meta">connection.pool.maxPoolSize</span>=<span class="hljs-string">20</span><br><span class="hljs-meta">connection.pool.maxIdleTime</span>=<span class="hljs-string">3000</span><br></code></pre></td></tr></table></figure>
+<h2 id="Define-DataSource-in-Spring-Config"><a href="#Define-DataSource-in-Spring-Config" class="headerlink" title="Define DataSource in Spring Config"></a>Define DataSource in Spring Config</h2><p>Introduce the <code>Environment</code> variable, this will hold data from the properties file. </p>
+<p>Add the <code>@Autowired</code> annotation.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// set up a variable to store the properties</span><br><span class="hljs-meta">@Autowired</span><br><span class="hljs-keyword">private</span> Environment env; <br><br><span class="hljs-comment">// set up a logger for diagnostics</span><br><span class="hljs-keyword">private</span> Logger logger = Logger.getLogger(getClass().getName());<br></code></pre></td></tr></table></figure>
+<p>Define a Bean for the security data source.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Bean</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> DataSource <span class="hljs-title">securityDataSource</span><span class="hljs-params">()</span></span>&#123;<br>  <span class="hljs-comment">// create a connection pool</span><br>  ComboPooledDataSource securityDataSource;<br>  <span class="hljs-keyword">try</span> &#123;<br>    securityDataSource = <span class="hljs-keyword">new</span> ComboPooledDataSource();<br>  &#125; <span class="hljs-keyword">catch</span> (Exception e)&#123;<br>    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(e);<br>  &#125;<br><br>  <span class="hljs-comment">// set the jdbc driver class</span><br>  <span class="hljs-comment">// Read the db configs from the properties file</span><br>  <span class="hljs-keyword">try</span> &#123;<br>    securityDataSource.setDriverClass(env.getProperty(<span class="hljs-string">&quot;jdbc.driver&quot;</span>));<br>  &#125; <span class="hljs-keyword">catch</span> (PropertyVetoException e) &#123;<br>    <span class="hljs-keyword">throw</span> <span class="hljs-keyword">new</span> RuntimeException(e);<br>  &#125;<br>  <span class="hljs-comment">// log the connection props</span><br>  logger.info(<span class="hljs-string">&quot;&gt;&gt;&gt; jdbc.url=&quot;</span>+env.getProperty(<span class="hljs-string">&quot;jdbc.url&quot;</span>));<br>  logger.info(<span class="hljs-string">&quot;&gt;&gt;&gt; jdbc.user=&quot;</span>+env.getProperty(<span class="hljs-string">&quot;jdbc.user&quot;</span>));<br><br>  <span class="hljs-comment">// set the database connection props</span><br>  securityDataSource.setJdbcUrl(env.getProperty(<span class="hljs-string">&quot;jdbc.url&quot;</span>));<br>  securityDataSource.setUser(env.getProperty(<span class="hljs-string">&quot;jdbc.user&quot;</span>));<br>  securityDataSource.setPassword(env.getProperty(<span class="hljs-string">&quot;jdbc.password&quot;</span>));<br><br>  <span class="hljs-comment">// set the connection pool props</span><br>  securityDataSource.setInitialPoolSize(getIntProperties(<span class="hljs-string">&quot;connection.pool.initialPoolSize&quot;</span>));<br>  securityDataSource.setInitialPoolSize(getIntProperties(<span class="hljs-string">&quot;connection.pool.minPoolSize&quot;</span>));<br>  securityDataSource.setInitialPoolSize(getIntProperties(<span class="hljs-string">&quot;connection.pool.maxPoolSize&quot;</span>));<br>  securityDataSource.setInitialPoolSize(getIntProperties(<span class="hljs-string">&quot;connection.pool.maxIdleTime&quot;</span>));<br><br>  <span class="hljs-keyword">return</span> securityDataSource;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>Define a helper method to read the env properties and convert them to integer.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// need a helper method</span><br><span class="hljs-comment">// read env properties and convert to int</span><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> <span class="hljs-title">getIntProperties</span><span class="hljs-params">(String propsName)</span></span>&#123;<br>  String propVal = env.getProperty(propsName);<br>  <span class="hljs-keyword">int</span> intPropVal = Integer.parseInt(propVal);<br>  <span class="hljs-keyword">return</span> intPropVal;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="Add-JDBC-Configuration"><a href="#Add-JDBC-Configuration" class="headerlink" title="Add JDBC Configuration"></a>Add JDBC Configuration</h2><p>Retrieve a <code>securityDataSource</code> Bean from the factory and inject into <code>DemoSecurityConfig.java</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Autowired</span><br><span class="hljs-keyword">private</span> DataSource securityDataSource;<br><br><span class="hljs-meta">@Override</span><br><span class="hljs-function"><span class="hljs-keyword">protected</span> <span class="hljs-keyword">void</span> <span class="hljs-title">configure</span><span class="hljs-params">(AuthenticationManagerBuilder auth)</span> <span class="hljs-keyword">throws</span> Exception </span>&#123;<br>  auth.jdbcAuthentication().dataSource(securityDataSource);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="Diagram"><a href="#Diagram" class="headerlink" title="Diagram"></a>Diagram</h2><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gngxri84qxj30zq0kiadj.jpg" srcset="/img/loading.gif" alt="demoSecurityConfig Diagram"></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gngxrgcgkoj30ps0gudhi.jpg" srcset="/img/loading.gif" alt="demoAppConfig Diagram"></p>
+<h1 id="Password-Encryption"><a href="#Password-Encryption" class="headerlink" title="Password Encryption"></a>Password Encryption</h1><h2 id="Run-SQL-Scripts-1"><a href="#Run-SQL-Scripts-1" class="headerlink" title="Run SQL Scripts"></a>Run SQL Scripts</h2><p>Change the DDL to <code>Bcrypt</code> hashing.</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">DROP</span> <span class="hljs-keyword">TABLE</span> IF <span class="hljs-keyword">EXISTS</span> `users`;<br><span class="hljs-keyword">CREATE</span> <span class="hljs-keyword">TABLE</span> `users` (<br>  `username` <span class="hljs-type">varchar</span>(<span class="hljs-number">50</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>  `password` <span class="hljs-type">char</span>(<span class="hljs-number">68</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>  `enabled` tinyint(<span class="hljs-number">1</span>) <span class="hljs-keyword">NOT</span> <span class="hljs-keyword">NULL</span>,<br>  <span class="hljs-keyword">PRIMARY</span> <span class="hljs-keyword">KEY</span> (`username`)<br>) ENGINE<span class="hljs-operator">=</span>InnoDB <span class="hljs-keyword">DEFAULT</span> CHARSET<span class="hljs-operator">=</span>latin1;<br></code></pre></td></tr></table></figure>
+<p>Password must be <strong>68</strong> chars.</p>
+<ul>
+<li><code>&#123;bcrypt&#125;</code> - 8 chars.</li>
+<li><code>&#123;encodedPassword&#125;</code> - 60 chars.</li>
+</ul>
+<h2 id="Modify-db-Properties"><a href="#Modify-db-Properties" class="headerlink" title="Modify db Properties"></a>Modify db Properties</h2><figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">jdbc.url</span>=<span class="hljs-string">jdbc:mysql://localhost:3306/spring_security_demo_bcrypt?useSSL=false&amp;serverTimezone=UTC</span><br></code></pre></td></tr></table></figure>
+<h2 id="Behind-the-Scenes"><a href="#Behind-the-Scenes" class="headerlink" title="Behind the Scenes"></a>Behind the Scenes</h2><ol>
+<li>Retrieve the password from db for the user</li>
+<li>Read the encoding algorithm id</li>
+<li>For case of bcrypt, encrypt the plaintext password from the login form</li>
+<li>Compare the encrypted password from login from WITH encrypted password from db.</li>
+<li>If there is a matc, then login successful.</li>
+</ol>
+<p><strong>Note:</strong> The password from db is <strong>NEVER</strong> decrypted. Because <strong>Bcrypt</strong> is a <strong>one way</strong> encryption algorithm. </p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Spring-Hibernate/">Spring & Hibernate</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/SpringSecurity/">SpringSecurity</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/08/Solved%20-%20Static%20Resources%20Not%20Found(404)/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">Solved - Static Resources(css/js/images) Not Found(404)</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/01/21/Maven-Overview/">
+                        <span class="hidden-mobile">Maven Overview</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     © Xinyi Ma | Powered by  <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize(null);
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

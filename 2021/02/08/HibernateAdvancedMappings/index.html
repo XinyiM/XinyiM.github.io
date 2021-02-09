@@ -1,0 +1,536 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>Hibernate Advanced Mappings - Xinyi Ashley Ma</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Xinyi Ashley Ma</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Hibernate Advanced Mappings">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-08 16:26" pubdate>
+        February 8, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      851 Words
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      17
+       min
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Hibernate Advanced Mappings</h1>
+            
+              <p class="note note-info">
+                
+                  Last Updated on: February 8, 2021 pm
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="Hibernate-Advanced-Mappings"><a href="#Hibernate-Advanced-Mappings" class="headerlink" title="Hibernate Advanced Mappings"></a>Hibernate Advanced Mappings</h1><h2 id="OneToOne"><a href="#OneToOne" class="headerlink" title="@OneToOne"></a>@OneToOne</h2><h3 id="Entity-Lifecycle"><a href="#Entity-Lifecycle" class="headerlink" title="Entity Lifecycle"></a>Entity Lifecycle</h3><ul>
+<li><strong>Detach</strong> - not associated with a Hibernate session</li>
+<li><strong>Merge</strong> </li>
+<li><strong>Persist</strong></li>
+<li><strong>Refresh</strong> - sync object with db</li>
+</ul>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gmvy47bvqvj30w60i8awx.jpg" srcset="/img/loading.gif" alt="Entity Lifecycle"></p>
+<h3 id="Cascade-Type"><a href="#Cascade-Type" class="headerlink" title="Cascade Type"></a>Cascade Type</h3><ul>
+<li><strong>PERSIST</strong> - Related entity will also be persisted</li>
+<li><strong>REMOVE</strong> - </li>
+<li><strong>REFRESH</strong></li>
+<li><strong>DETACH</strong></li>
+<li><strong>REMOVE</strong></li>
+<li><strong>ALL</strong></li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@OneToOne(cascade=CascadeType.ALL)</span><br></code></pre></td></tr></table></figure>
+<p><strong>Note:</strong> By default, no operations are cascaded.</p>
+<h4 id="Configure-Multiple-Cascade-Types"><a href="#Configure-Multiple-Cascade-Types" class="headerlink" title="Configure Multiple Cascade Types"></a>Configure Multiple Cascade Types</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@OneToOne(cascade=&#123;CascadeType.DETACH,</span><br><span class="hljs-meta">  CascadeType.MERGE&#125;)</span><br></code></pre></td></tr></table></figure>
+<h3 id="Uni-Directional-Example"><a href="#Uni-Directional-Example" class="headerlink" title="Uni-Directional Example"></a>Uni-Directional Example</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@OneToOne(cascade = CascadeType.ALL)</span><br><span class="hljs-meta">@JoinColumn(name = &quot;instructor_detail_id&quot;)</span><br><span class="hljs-keyword">private</span> InstructorDetail instructorDetail;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-comment">//  Create session factory</span><br>        SessionFactory factory = <span class="hljs-keyword">new</span> Configuration()<br>                .configure(<span class="hljs-string">&quot;hibernate.cfg.xml&quot;</span>)<br>                .addAnnotatedClass(Instructor.class)<br>                .addAnnotatedClass(InstructorDetail.class)<br>                .buildSessionFactory();<br><br>        Session session = factory.getCurrentSession();<br>        <span class="hljs-keyword">try</span>&#123;<br>            <span class="hljs-comment">// create</span><br>            Instructor instructor = <span class="hljs-keyword">new</span> Instructor(<span class="hljs-string">&quot;Dylan&quot;</span>, <span class="hljs-string">&quot;Zhang&quot;</span>, <span class="hljs-string">&quot;dylan@test.com&quot;</span>);<br>            InstructorDetail instructorDetail = <span class="hljs-keyword">new</span> InstructorDetail(<span class="hljs-string">&quot;http://github.com&quot;</span>, <span class="hljs-string">&quot;Wine&quot;</span>);<br><br>            <span class="hljs-comment">// associate</span><br>            instructor.setInstructorDetail(instructorDetail);<br><br>            <span class="hljs-comment">//start</span><br>            session.beginTransaction();<br><br>            <span class="hljs-comment">// This will ALSO save the detail object</span><br>            <span class="hljs-comment">// because of the CascadeType.ALL</span><br>            System.out.println(<span class="hljs-string">&quot;Saving instructor: &quot;</span>+instructor);<br>            session.save(instructor);<br><br>            <span class="hljs-comment">//  commit transaction</span><br>            session.getTransaction().commit();<br><br>            System.out.println(<span class="hljs-string">&quot;Done!&quot;</span>);<br>        &#125; <span class="hljs-keyword">finally</span> &#123;<br>            factory.close();<br>        &#125;<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="Bi-Directional-Example"><a href="#Bi-Directional-Example" class="headerlink" title="Bi-Directional Example"></a>Bi-Directional Example</h3><p>If we load an <strong>InstructorDetail</strong>, we want to get the associated <strong>Instructor</strong>.</p>
+<h4 id="Process"><a href="#Process" class="headerlink" title="Process"></a>Process</h4><ol>
+<li><p>Make updates to <code>InstructorDetail</code> class.</p>
+<ol>
+<li>Add new field to reference <strong>Instructor.</strong></li>
+<li>Add getter and setter method.</li>
+<li>Add <code>@OneToOne</code> annotation.</li>
+</ol>
+</li>
+<li><p>Create <code>Main</code> App.</p>
+</li>
+</ol>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@OneToOne(mappedBy=&quot;instructorDetail&quot;, cascade=CascadeType.ALL)</span><br><span class="hljs-keyword">private</span> Instructor instructor;<br></code></pre></td></tr></table></figure>
+<p><strong>MappedBy</strong> tells Hibernate:</p>
+<ul>
+<li><p>Look at the <strong>instructorDetail</strong> property in the <strong>Instructor</strong> class. </p>
+<p><u>Use property name!</u></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Instructor</span></span>&#123;<br>  <span class="hljs-meta">@OneToOne(cascade=CascadeType.ALL)</span><br>  <span class="hljs-meta">@JoinColumn(name=&quot;instructor_detail_id&quot;)</span> <span class="hljs-comment">// link to the db</span><br>  <span class="hljs-keyword">private</span> InstructorDetail instructorDetail;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>Use the info from the <strong>Instructor</strong> class <code>@JoinColumn</code></p>
+</li>
+<li><p>To help to find the associated instructor.</p>
+</li>
+</ul>
+<h4 id="Exception-Handling"><a href="#Exception-Handling" class="headerlink" title="Exception Handling"></a>Exception Handling</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">try</span>&#123;<br>&#125; <span class="hljs-keyword">catch</span> (Exception e)&#123;<br>  e.printStackTrace();<br>&#125;<span class="hljs-keyword">finally</span> &#123;<br>  session.close();<br>  factory.close();<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="Delete-Only-InstructionDetail"><a href="#Delete-Only-InstructionDetail" class="headerlink" title="Delete Only InstructionDetail"></a>Delete Only InstructionDetail</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">int</span> theId = <span class="hljs-number">4</span>;<br><br><span class="hljs-comment">// look for the associated</span><br>InstructorDetail instructorDetail = session.get(InstructorDetail.class, theId);<br><br>System.out.println(<span class="hljs-string">&quot;The Instructor Detail: &quot;</span> + instructorDetail);<br>System.out.println(<span class="hljs-string">&quot;The associated Instructor: &quot;</span> + instructorDetail.getInstructor());<br><br><span class="hljs-comment">// break teh bi-directional link</span><br><span class="hljs-comment">// remove the associated object reference</span><br>instructorDetail.getInstructor().setInstructorDetail(<span class="hljs-keyword">null</span>);<br><br><span class="hljs-comment">// Delete the instructor detail and cascade delete the instructor</span><br>System.out.println(<span class="hljs-string">&quot;Deleting &quot;</span> + instructorDetail);<br>session.delete(instructorDetail);<br><br><span class="hljs-comment">//  commit transaction</span><br>session.getTransaction().commit();<br>System.out.println(<span class="hljs-string">&quot;Done!&quot;</span>); <br></code></pre></td></tr></table></figure>
+<p><strong>Note:</strong> After selecting the instructor and instructorDetail, you should remove the association between those two and then perform deleting operation.</p>
+<h2 id="OneToMany"><a href="#OneToMany" class="headerlink" title="@OneToMany"></a>@OneToMany</h2><h3 id="Bi-Directional"><a href="#Bi-Directional" class="headerlink" title="Bi-Directional"></a>Bi-Directional</h3><p><strong>Do not apply cascading deletes!</strong></p>
+<p>Course.class</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@ManyToOne</span><br><span class="hljs-meta">@JoinColumn(name=&quot;instructor_id&quot;)</span><br><span class="hljs-keyword">private</span> Instructor instructor;<br></code></pre></td></tr></table></figure>
+<p>Instructor.class</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@OneToMany(mappedBy=&quot;instructor&quot;)</span> <br><span class="hljs-comment">// refers to the &quot;instructor&quot; property in the &quot;Course&quot; class</span><br><span class="hljs-keyword">private</span> List&lt;Course&gt; courses;<br></code></pre></td></tr></table></figure>
+<p><strong>Note:</strong> Apply <strong>ALL</strong> the cascading types except <strong>REMOVE</strong>!</p>
+<h3 id="Uni-Directional"><a href="#Uni-Directional" class="headerlink" title="Uni-Directional"></a>Uni-Directional</h3><h4 id="Use-Case"><a href="#Use-Case" class="headerlink" title="Use Case"></a>Use Case</h4><p>We have <strong>Course</strong> Entity and <strong>Review</strong> Entity. But a review without a course is meaningless, so if the course is deleted, then the related reviews should apply cascading deletes.</p>
+<h4 id="Example"><a href="#Example" class="headerlink" title="Example"></a>Example</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL)</span><br><span class="hljs-meta">@JoinColumn(name = &quot;course_id&quot;)</span><br><span class="hljs-keyword">private</span> List&lt;Review&gt; reviews;<br></code></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> Review&#123;<br>    <span class="hljs-meta">@Id</span><br>    <span class="hljs-meta">@GeneratedValue(strategy = GenerationType.IDENTITY)</span><br>    <span class="hljs-meta">@Column(name = &quot;id&quot;)</span><br>    <span class="hljs-keyword">private</span> <span class="hljs-keyword">int</span> id;<br><br>    <span class="hljs-meta">@Column(name = &quot;comment&quot;)</span><br>    <span class="hljs-keyword">private</span> String comment;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="ManyToMany"><a href="#ManyToMany" class="headerlink" title="@ManyToMany"></a>@ManyToMany</h2><h3 id="JoinTable"><a href="#JoinTable" class="headerlink" title="@JoinTable"></a>@JoinTable</h3><p>Mapping between two tables. Use the foreign keys to maintain relationship.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@JoinTable(</span><br><span class="hljs-meta">	name=&quot;course_student&quot;,</span><br><span class="hljs-meta">	joinColumns=@JoinColumn(name=&quot;course_id&quot;),</span><br><span class="hljs-meta">	inverseJoinColumn=@JoinColumn(name=&quot;student_id&quot;)</span><br><span class="hljs-meta">)</span><br></code></pre></td></tr></table></figure>
+<ol>
+<li>Look at the <code>course_id</code> in the <code>course_student</code> table</li>
+<li>Inversely, look at the <code>student_id</code> column in the <code>course_student</code> table.</li>
+</ol>
+<p><strong>Note:</strong> Do not apply cascading deletes!</p>
+<h2 id="Eager-vs-Lazy-Loading"><a href="#Eager-vs-Lazy-Loading" class="headerlink" title="Eager vs Lazy Loading"></a>Eager vs Lazy Loading</h2><h3 id="Eager-Loading"><a href="#Eager-Loading" class="headerlink" title="Eager Loading"></a>Eager Loading</h3><p>It will retrieve everything and load all entites.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@OneToMany(fetch = FetchType.EAGER,</span><br><span class="hljs-meta">            mappedBy = &quot;instructor&quot;)</span> <span class="hljs-comment">//refers the instructor property in the course.class</span><br>    <span class="hljs-keyword">private</span> List&lt;Course&gt; courses;<br></code></pre></td></tr></table></figure>
+<h3 id="Lazy-Loading"><a href="#Lazy-Loading" class="headerlink" title="Lazy Loading"></a>Lazy Loading</h3><p>It will retrieve on request.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@OneToMany(fetch = FetchType.LAZY,</span><br><span class="hljs-meta">            mappedBy = &quot;instructor&quot;)</span> <span class="hljs-comment">//refers the instructor property in the course.class</span><br>    <span class="hljs-keyword">private</span> List&lt;Course&gt; courses;<br></code></pre></td></tr></table></figure>
+<h3 id="Use-Cases"><a href="#Use-Cases" class="headerlink" title="Use Cases"></a>Use Cases</h3><h4 id="Master-View"><a href="#Master-View" class="headerlink" title="Master View"></a>Master View</h4><p>we use the lazy loading.</p>
+<h4 id="Detail-View"><a href="#Detail-View" class="headerlink" title="Detail View"></a>Detail View</h4><p>we retrieve the entity and necessary dependent entities.</p>
+<h4 id="Default-Fetch-Types"><a href="#Default-Fetch-Types" class="headerlink" title="Default Fetch Types"></a>Default Fetch Types</h4><p><strong>@OneToOne</strong> - EAGER</p>
+<p><strong>@OneToMany</strong> - LAZY</p>
+<p><strong>@ManyToOne</strong> - EAGER</p>
+<p><strong>@ManyToMany</strong> - LAZY</p>
+<h3 id="Resolve-LAZY-Loading-Issue"><a href="#Resolve-LAZY-Loading-Issue" class="headerlink" title="Resolve LAZY Loading Issue"></a>Resolve LAZY Loading Issue</h3><h4 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h4><p>If we close the session before the accessing LAZY data, what will we get?</p>
+<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs stylus">INFO: HHH10001008: Cleaning up connection pool [jdbc:mysql:<span class="hljs-comment">//localhost:3306/hb-03-one-to-many?useSSL=false&amp;serverTimezone=UTC]</span><br>Exception <span class="hljs-keyword">in</span> thread <span class="hljs-string">&quot;main&quot;</span> org<span class="hljs-selector-class">.hibernate</span><span class="hljs-selector-class">.LazyInitializationException</span>: failed to lazily initialize <span class="hljs-selector-tag">a</span> collection of role: com<span class="hljs-selector-class">.luv2code</span><span class="hljs-selector-class">.hibernate</span><span class="hljs-selector-class">.demo</span><span class="hljs-selector-class">.entity</span><span class="hljs-selector-class">.Instructor</span><span class="hljs-selector-class">.courses</span>, could not initialize proxy - no Session<br></code></pre></td></tr></table></figure>
+<p>How can we access the LAZY data after the session is closed? </p>
+<h4 id="Solution1"><a href="#Solution1" class="headerlink" title="Solution1"></a>Solution1</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">System.out.println(<span class="hljs-string">&quot;luv2Code: The Courses: &quot;</span>+ instructor.getCourses());<br></code></pre></td></tr></table></figure>
+<p>Retrieve the LAZY data before the session is closed. And the LAZY data is stored in memory to access.</p>
+<h4 id="Solution2"><a href="#Solution2" class="headerlink" title="Solution2"></a>Solution2</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-comment">// get the instructor from db</span><br><span class="hljs-keyword">int</span> theId = <span class="hljs-number">1</span>;<br><br>Query&lt;Instructor&gt; query =<br>  session.createQuery(<span class="hljs-string">&quot;select i from Instructor i &quot;</span><br>                      + <span class="hljs-string">&quot;JOIN FETCH i.courses &quot;</span><br>                      + <span class="hljs-string">&quot;where i.id =:theInstructorId&quot;</span>,<br>                      Instructor.class);<br><br><span class="hljs-comment">// set the parameter on query</span><br>query.setParameter(<span class="hljs-string">&quot;theInstructorId&quot;</span>, theId);<br><br><span class="hljs-comment">// execute the query and get instructor</span><br>Instructor tempInstructor = query.getSingleResult();<br></code></pre></td></tr></table></figure>
+<p>Use <strong>FETCH JOIN</strong> to generate and execute HQL Query. Retrive the LAZY data.</p>
+<p class="note note-warning">
+  Reference: Udemy, Spring & Hibernate for Beginners (including SpringBoot)
+</p>
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Spring-Hibernate/">Spring & Hibernate</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Hibernate/">Hibernate</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/02/08/AOP-Add-Logging-to-Spring-MVC-Project/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">AOP:Add Logging to Spring MVC Project</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/08/SpringMVCandHibernateProject/">
+                        <span class="hidden-mobile">Spring MVC and Hibernate Project</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     © Xinyi Ma | Powered by  <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize(null);
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>

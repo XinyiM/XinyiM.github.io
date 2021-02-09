@@ -1,0 +1,619 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>AOP:Aspect-Oriented-Programming Overview - Xinyi Ashley Ma</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Xinyi Ashley Ma</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="AOP:Aspect-Oriented-Programming Overview">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-08 16:26" pubdate>
+        February 8, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      2k Words
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      38
+       min
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">AOP:Aspect-Oriented-Programming Overview</h1>
+            
+              <p class="note note-info">
+                
+                  Last Updated on: February 8, 2021 pm
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="AOP-Overview"><a href="#AOP-Overview" class="headerlink" title="AOP Overview"></a>AOP Overview</h1><p>AOP, at its core, lets you implement individual concerns in a <strong>loosely coupled</strong> fashion, and combine these implementations to form the final system. Indeed, AOP creates systems using loosely coupled, modularized implementations of <strong><em>crosscutting</em></strong> <strong>concerns</strong>. OOP, in contrast, creates systems using loosely coupled, modularized implementations of <strong><em>common</em></strong> <strong>concerns</strong>. </p>
+<h2 id="AOP-Development-Steps"><a href="#AOP-Development-Steps" class="headerlink" title="AOP Development Steps"></a>AOP Development Steps</h2><h3 id="Aspectual-Decomposition"><a href="#Aspectual-Decomposition" class="headerlink" title="Aspectual Decomposition"></a>Aspectual Decomposition</h3><p>Identify <strong>Cross-cutting Concerns</strong> from common concerns. </p>
+<p>There are two kinds of concerns: module-level concerns and crosscutting system-level concerns.</p>
+<p>For example, in a credit card payment system, there should be three modules:</p>
+<ul>
+<li>Core Credit Card Payment Process - Module level</li>
+<li>Logging Module - Crosscutting</li>
+<li>Authentication - Crosscutting</li>
+</ul>
+<h3 id="Concern-Implementation"><a href="#Concern-Implementation" class="headerlink" title="Concern Implementation"></a>Concern Implementation</h3><p>In this step, you should implement each concern seperately.</p>
+<h3 id="Aspectual-Recomposition"><a href="#Aspectual-Recomposition" class="headerlink" title="Aspectual Recomposition"></a>Aspectual Recomposition</h3><p>You need an aspect integrator to specify recomposition rules by creating <strong>aspects</strong>. The recomposition is known as <strong>weaving or integrating.</strong> This infomation is used to integrate the modules of the final system.</p>
+<h2 id="Terms-in-AOP"><a href="#Terms-in-AOP" class="headerlink" title="Terms in AOP"></a>Terms in AOP</h2><h3 id="Cross-Cutting-Concerns"><a href="#Cross-Cutting-Concerns" class="headerlink" title="Cross-Cutting Concerns"></a>Cross-Cutting Concerns</h3><p class="note note-warning">
+  Concerns = Functionality = Logic
+</p>
+
+<p>Example: Loggin Concern. It always crosscuts every module in the system level. In other words, it should be applied to every module that needs loggin function. </p>
+<p>Meanwhile, the normal concern’s implementation remains unware that other <strong>crosscutting concerns</strong> logging is <strong>“aspecting”</strong> it. For exanmple, the credit card processing module doesn’t know that other concerns are logging or authenticating its operations. The <strong>crosscutting concerns</strong> are like <strong>a proxy</strong> or some good spies that are monitoring on the operations and maintaining security of the entire system.</p>
+<h3 id="Proxy-Design-Pattern"><a href="#Proxy-Design-Pattern" class="headerlink" title="Proxy Design Pattern"></a>Proxy Design Pattern</h3><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gn33uh88vqj31jw0h4qt1.jpg" srcset="/img/loading.gif"></p>
+<p>通过代理，控制对对象的访问。</p>
+<p><strong>定义一个抽象角色，让代理角色和真实角色分别去实现它。</strong></p>
+<ul>
+<li>真实角色 - <code>implements AbstractRole</code> 定义真正的业务逻辑，供代理角色使用。</li>
+<li>代理角色 - <code>implements AbstractRole</code> 通过真实角色的业务逻辑来实现抽象方法，并在抽象方法前后附加自己的代理操作。</li>
+</ul>
+<p>Spring AOP 采用<strong>JDK动态代理和CGLIB动态代理。</strong></p>
+<p>如果目标对象实现了接口，默认情况下会采用 JDK 的动态代理实现 AOP；如果目标对象没有实现了接口，则采用 CGLIB 库，Spring 会自动在 JDK 动态代理和 CGLIB 动态代理之间转换。</p>
+<h3 id="Weaving"><a href="#Weaving" class="headerlink" title="Weaving"></a>Weaving</h3><p>The weaver assembles an individual concerns in the process of <strong>weaving.</strong></p>
+<p>In other words, the weaver interlaces different fragments based on some rules - <strong>weaving rules</strong> - applied to it.</p>
+<h4 id="Compile-time"><a href="#Compile-time" class="headerlink" title="Compile-time"></a>Compile-time</h4><p>AspectJ is based on <strong>Bytecode Manipulation.</strong></p>
+<h4 id="Load-time"><a href="#Load-time" class="headerlink" title="Load-time"></a>Load-time</h4><p>AspectJ</p>
+<h4 id="Run-time"><a href="#Run-time" class="headerlink" title="Run-time"></a>Run-time</h4><p><strong>Slowest.</strong></p>
+<p>Spring AOP - minor performance cost for aspect execution because of run-time weaving. It is based on <strong>Proxying.</strong></p>
+<h3 id="Aspects"><a href="#Aspects" class="headerlink" title="Aspects"></a>Aspects</h3><p>Module of code for cross-cutting concerns. (Eg. logging, transaction, security, …)</p>
+<h3 id="Advice"><a href="#Advice" class="headerlink" title="Advice"></a>Advice</h3><p>What action is taken and when it should be applied. </p>
+<p>Advice defines pieces of an aspect implementation to be executed at pointcuts</p>
+<h4 id="Before"><a href="#Before" class="headerlink" title="Before"></a>Before</h4><p>run before the method</p>
+<h4 id="After-finally"><a href="#After-finally" class="headerlink" title="After finally"></a>After finally</h4><p>run after the method - just like the <strong>Finally</strong> in try-catch block.</p>
+<h4 id="After-returning"><a href="#After-returning" class="headerlink" title="After returning"></a>After returning</h4><p>run after the method’s successful execution  </p>
+<h4 id="After-throwing"><a href="#After-throwing" class="headerlink" title="After throwing"></a>After throwing</h4><p>run after the method throws an exception.</p>
+<h4 id="Around"><a href="#Around" class="headerlink" title="Around"></a>Around</h4><p>run before and after the method. </p>
+<h3 id="Join-Points"><a href="#Join-Points" class="headerlink" title="Join Points"></a>Join Points</h3><p>Join points define specific <strong>points</strong> in a <strong>program’s execution</strong>.</p>
+<p>It refers when to apply the code during the whole execution.</p>
+<h3 id="Point-Cuts"><a href="#Point-Cuts" class="headerlink" title="Point Cuts"></a>Point Cuts</h3><p>A pointcut is the <strong>language construct</strong> that specifies join points.</p>
+<p>A predicate expression for where the advice should be applied.</p>
+<h2 id="Benefits-of-AOP"><a href="#Benefits-of-AOP" class="headerlink" title="Benefits of AOP"></a>Benefits of AOP</h2><p>AOP helps overcome the aforementioned problems caused by code tangling and code scattering. </p>
+<ol>
+<li><strong>Modularized implementation of crosscutting concerns.</strong> - Code of Aspects is defined in a single class. AOP minimizes coupling and addresses <strong>cross-cutting concerns</strong> seperately. In general, it represents a higher reused of the Aspect code.</li>
+<li><strong>Easier-to-evolve systems</strong> - Easier to add new aspect because the aspected modules are unaware of crosscutting concerns. And when you add a new  functionality, the existinig aspects will also crosscut it. </li>
+</ol>
+<h1 id="Advice-Type"><a href="#Advice-Type" class="headerlink" title="Advice Type"></a>Advice Type</h1><h2 id="Before-Advice-Type"><a href="#Before-Advice-Type" class="headerlink" title="@Before Advice Type"></a>@Before Advice Type</h2><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gn414twcn9j31hi0pee81.jpg" srcset="/img/loading.gif"></p>
+<ol>
+<li><p>Create a Target Object:  <strong>AccountDAO.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AccountDAO</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addAccount</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(getClass() + <span class="hljs-string">&quot; : DOING MY DB WORK : ADDING ACCOUNT&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>Create a spring Java Config class - Pure Java Code</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@EnableAspectJAutoProxy</span><br><span class="hljs-meta">@ComponentScan(&quot;com.luv2code.aopdemo&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">DemoConfig</span> </span>&#123;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>Create main APP</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MainDemoApp</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        <span class="hljs-comment">// read spring config java class</span><br>        AnnotationConfigApplicationContext context =<br>                <span class="hljs-keyword">new</span> AnnotationConfigApplicationContext(DemoConfig.class);<br>        <span class="hljs-comment">// get the bean from the bean factory</span><br>        AccountDAO theAccountDAO = context.getBean(<span class="hljs-string">&quot;accountDAO&quot;</span>, AccountDAO.class);<br>        <span class="hljs-comment">// call the business method in the component</span><br>        theAccountDAO.addAccount();<br>       <span class="hljs-comment">// close the spring context</span><br>        context.close();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure></li>
+<li><p>Create an Aspect with <code>@Before</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Aspect</span><br><span class="hljs-meta">@Component</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyDemoLoggingAspect</span> </span>&#123;<br>    <span class="hljs-comment">// this is where we add all the related advices for logging</span><br>    <span class="hljs-comment">// @Before advice</span><br>    <span class="hljs-meta">@Before(&quot;execution(public void addAccount())&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">beforeAddAccountAdvice</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;\n =====&gt;&gt;&gt; Executing @Before advice on addAccount() method!&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="AfterReturning-Advice-Type"><a href="#AfterReturning-Advice-Type" class="headerlink" title="@AfterReturning Advice Type"></a>@AfterReturning Advice Type</h2></li>
+</ol>
+<p>Successful Execution(No Exception).</p>
+<h3 id="Add-new-method-in-AccountDAO"><a href="#Add-new-method-in-AccountDAO" class="headerlink" title="Add new method in AccountDAO"></a>Add new method in AccountDAO</h3><p>Add new Method called <code>findAccounts()</code> in <code>AccountDAO</code>.</p>
+<h3 id="Update-Main-app"><a href="#Update-Main-app" class="headerlink" title="Update Main app"></a>Update Main app</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">AccountDAO theAccountDAO = context.getBean(<span class="hljs-string">&quot;accountDAO&quot;</span>, AccountDAO.class);<br>List&lt;Account&gt; theAccounts = theAccountDAO.findAccounts();<br>System.out.println(<span class="hljs-string">&quot;\n\nMain Program: AfterReturningDemoApp:\n---------&quot;</span>);<br>System.out.println(theAccounts);<br></code></pre></td></tr></table></figure>
+<h3 id="Add-AfterReturning-Advice"><a href="#Add-AfterReturning-Advice" class="headerlink" title="Add @AfterReturning Advice"></a>Add @AfterReturning Advice</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@AfterReturning(</span><br><span class="hljs-meta">  pointcut = &quot;execution(* com.luv2code.aopdemo.dao.AccountDAO.findAccounts(..))&quot;,</span><br><span class="hljs-meta">  returning = &quot;result&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">afterReturnFindAccountsAdvice</span><span class="hljs-params">(JoinPoint joinPoint, List&lt;Account&gt; result)</span></span>&#123;<br>  <span class="hljs-comment">// print which method we are advising on</span><br>  String method = joinPoint.getSignature().toShortString();<br>  System.out.println(<span class="hljs-string">&quot;\n=======&gt;&gt;&gt; Executing @AfterReturning on method: &quot;</span> + method);<br>  <span class="hljs-comment">// print out the results of the method call</span><br>  System.out.println(<span class="hljs-string">&quot;=======&gt;&gt;&gt; Result is: &quot;</span> +result);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="Use-Case-Post-processing-Data"><a href="#Use-Case-Post-processing-Data" class="headerlink" title="Use Case - Post-processing Data"></a>Use Case - Post-processing Data</h3><ul>
+<li>Post-processing the data before returning to the caller </li>
+<li>Format the data or enrich the data.</li>
+</ul>
+<p>**Be careful when you modify the data! **</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gn8mw1gldsj313a0jw1kx.jpg" srcset="/img/loading.gif"></p>
+<p><strong>Convert every first name to Upper Case</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@AfterReturning(</span><br><span class="hljs-meta">  pointcut = &quot;execution(* com.luv2code.aopdemo.dao.AccountDAO.findAccounts(..))&quot;,</span><br><span class="hljs-meta">  returning = &quot;result&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">afterReturnFindAccountsAdvice</span><span class="hljs-params">(JoinPoint joinPoint, List&lt;Account&gt; result)</span></span>&#123;<br>  System.out.println(<span class="hljs-string">&quot;\n=======&gt;&gt;&gt; The result is: &quot;</span>+result);<br>  convertAccountNamesToUpperCase(result);<br>  System.out.println((<span class="hljs-string">&quot;\n======&gt;&gt;&gt; The result is: &quot;</span>+result));<br>&#125;<br><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">convertAccountNamesToUpperCase</span><span class="hljs-params">(List&lt;Account&gt; result)</span> </span>&#123;<br>  <span class="hljs-keyword">for</span>(Account account : result)<br>    account.setName(account.getName().toUpperCase());<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="AfterThrowing-Advice-Type"><a href="#AfterThrowing-Advice-Type" class="headerlink" title="@AfterThrowing Advice Type"></a>@AfterThrowing Advice Type</h2><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gn8op47kxvj31qd0u04qp.jpg" srcset="/img/loading.gif"></p>
+<h3 id="Use-Case"><a href="#Use-Case" class="headerlink" title="Use Case"></a>Use Case</h3><ul>
+<li>Log the exception</li>
+<li>Perform auditing on the exception</li>
+<li>Notify DevOps team via email or SMS</li>
+<li>Encapsulate this functionality in AOP aspect for easy reuse</li>
+</ul>
+<h3 id="Modify-Main-App"><a href="#Modify-Main-App" class="headerlink" title="Modify Main App"></a>Modify Main App</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">try</span>&#123;<br>            theAccounts = theAccountDAO.findAccounts(<span class="hljs-keyword">true</span>);<br>        &#125;<span class="hljs-keyword">catch</span> (Exception exc)&#123;<br>            System.out.println(<span class="hljs-string">&quot;\n\n Main Program... Catch Exception:&quot;</span> + exc);<br>        &#125;<br></code></pre></td></tr></table></figure>
+<h3 id="Add-AfterThrowing-Advice"><a href="#Add-AfterThrowing-Advice" class="headerlink" title="Add @AfterThrowing Advice"></a>Add @AfterThrowing Advice</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@AfterThrowing(</span><br><span class="hljs-meta">            value = &quot;execution(* com.luv2code.aopdemo.dao.AccountDAO.findAccounts(..))&quot;,</span><br><span class="hljs-meta">            throwing = &quot;theExc&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">afterThrowingFindAccountAdvice</span><span class="hljs-params">(JoinPoint joinPoint, Throwable theExc)</span></span>&#123;<br>        String methodName = joinPoint.getSignature().toShortString();<br>        System.out.println(<span class="hljs-string">&quot;Executing @AfterThrowing advice...&quot;</span> + methodName);<br>        System.out.println(<span class="hljs-string">&quot;\n======&gt;&gt;&gt; The exception is:&quot;</span>+ theExc);<br>    &#125;<br></code></pre></td></tr></table></figure>
+<p><strong>Note:</strong> Make sure the parameter name <code>theExc</code> and the throwing value name are matched.</p>
+<h2 id="After-Advice-Type"><a href="#After-Advice-Type" class="headerlink" title="@After Advice Type"></a>@After Advice Type</h2><p><strong>@After will run for success or failure(finally).</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gn8rqqkoiwj31ot0u0kjl.jpg" srcset="/img/loading.gif"></p>
+<h3 id="Sequence-Diagram"><a href="#Sequence-Diagram" class="headerlink" title="Sequence Diagram"></a>Sequence Diagram</h3><p>@After will execute <strong>before</strong> @AfterThrowing.</p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gn8ui6xc9pj320g0poh5q.jpg" srcset="/img/loading.gif"></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@After(&quot;execution(* com.luv2code.aopdemo.dao.AccountDAO.findAccounts(..))&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">afterFinallyFindAccountsAdvice</span><span class="hljs-params">(JoinPoint joinPoint)</span></span>&#123;<br>  String methodName = joinPoint.getSignature().toShortString();<br>  System.out.println(<span class="hljs-string">&quot;Executing @After Finally advice...&quot;</span><br>                     + methodName);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="Around-Advice-Type"><a href="#Around-Advice-Type" class="headerlink" title="@Around Advice Type"></a>@Around Advice Type</h2><h3 id="Use-Cases"><a href="#Use-Cases" class="headerlink" title="Use Cases"></a>Use Cases</h3><ul>
+<li><p>Pre-processing and post-processing data</p>
+</li>
+<li><p>Instrumentation / profiling code</p>
+</li>
+<li><p>How long does it take for a section of code to run?</p>
+</li>
+<li><p>Managing Exception - Swallow / Handle / Stop Exceptions</p>
+</li>
+</ul>
+<h3 id="Proceeding-Join-Point"><a href="#Proceeding-Join-Point" class="headerlink" title="Proceeding Join Point"></a>Proceeding Join Point</h3><p><strong>Example:</strong></p>
+<p>Find out how long does it take to run the <code>getFortune()</code> method?</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Around(value = &quot;execution(* com.luv2code.aopdemo.service.*.getFortune(..))&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> Object <span class="hljs-title">afterGetFortune</span><span class="hljs-params">(ProceedingJoinPoint theProceedingJoinPoint)</span> <span class="hljs-keyword">throws</span> Throwable </span>&#123;<br>  String methodName = theProceedingJoinPoint.getSignature().toShortString();<br>  System.out.println(<span class="hljs-string">&quot;Executing @Around Finally advice...&quot;</span><br>                     + methodName);<br>  <span class="hljs-keyword">long</span> begin = System.currentTimeMillis();<br>  Object res = theProceedingJoinPoint.proceed(); <span class="hljs-comment">// Handle to target method, Execute the target method.</span><br>  <span class="hljs-keyword">long</span> end = System.currentTimeMillis();<br>  <span class="hljs-keyword">long</span> duration = end - begin;<br>  System.out.println(<span class="hljs-string">&quot;\n======&gt; Duration: &quot;</span> + duration + <span class="hljs-string">&quot; milliseconds.&quot;</span>);<br>  <span class="hljs-keyword">return</span> res;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="Resolve-Order-Issue"><a href="#Resolve-Order-Issue" class="headerlink" title="Resolve Order Issue"></a>Resolve Order Issue</h3><p>Replace <code>System.out.println</code> with <code>logger.info()</code></p>
+<p><code>private static Logger myLogger = Logger.getLogger(AroundDemoApp.class.getName());</code></p>
+<h3 id="Handling-Exception"><a href="#Handling-Exception" class="headerlink" title="Handling Exception"></a>Handling Exception</h3><p>For an exception thrown from proceeding join point,</p>
+<ul>
+<li>You can handle / swallow / stop the exception</li>
+<li>Or you can simply rethrow the exception.</li>
+</ul>
+<h4 id="Handle-Swallow-Stop-the-Exception"><a href="#Handle-Swallow-Stop-the-Exception" class="headerlink" title="Handle / Swallow / Stop the Exception"></a>Handle / Swallow / Stop the Exception</h4><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gn9x2njh36j312c0l24af.jpg" srcset="/img/loading.gif"></p>
+<ol>
+<li><code>@Around</code> advice calls the target method - <code>getFortuneService</code></li>
+<li>There is an exception, go back to the <code>@Around</code> advice. </li>
+<li><strong><code>@Around</code> advice handles the exception</strong> and sends back a regular <code>result</code> steam to the calling program.</li>
+<li>The <code>result</code> stream makes it back to the AOP proxy and to main application.</li>
+<li>The Main App never knows that exception is thrown because it is handle in the <code>@Around</code> advice.</li>
+</ol>
+<p><strong>Note:</strong> Do not hide the exceptions all the time. <strong>Use with caution.</strong> If it is a serious problem, just throw an exception to let everyone know.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><code class="hljs java">Object res = <span class="hljs-keyword">null</span>;<br><span class="hljs-keyword">try</span> &#123;<br>  res = theProceedingJoinPoint.proceed(); <br>&#125; <span class="hljs-keyword">catch</span> (Exception e)&#123;<br>  myLogger.warning(e.getMessage());<br>  res = <span class="hljs-string">&quot;Major Accident! No worries! Fly you to the work.&quot;</span>;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="Rethrow-the-Exception"><a href="#Rethrow-the-Exception" class="headerlink" title="Rethrow the Exception"></a>Rethrow the Exception</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">catch</span>(Exception e) &#123;<br>	myLogger.warning(e.getMessage());<br>	<span class="hljs-keyword">throw</span> e;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h1 id="PointCut"><a href="#PointCut" class="headerlink" title="PointCut"></a>PointCut</h1><h2 id="PointCut-Expression"><a href="#PointCut-Expression" class="headerlink" title="PointCut Expression"></a>PointCut Expression</h2><p><strong>PointCut:</strong> a predicate expression for where advice should be applied.</p>
+<h3 id="Match-Method-and-Return-Types"><a href="#Match-Method-and-Return-Types" class="headerlink" title="Match Method and Return Types"></a>Match Method and Return Types</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">execution(modifier-pattern? <span class="hljs-keyword">return</span>-type-pattern declaring-type-pattern? method-name-pattern(param-pattern) <span class="hljs-keyword">throws</span>-pattern?)<br></code></pre></td></tr></table></figure>
+<ul>
+<li>Patterns with “?” is optional.</li>
+<li>Patterns can use wildcards - <code>*</code> - matches everything</li>
+</ul>
+<p><strong>Match any addAccount() method that returns void in AccountDAO:</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gn45v1qzklj315i0bydy8.jpg" srcset="/img/loading.gif"></p>
+<p><strong>Match any addAccount() method in any class</strong></p>
+<p><code>@Before(&quot;execution(public void addAccount())&quot;)</code></p>
+<p><strong>Match methods starting with add returning void in any class</strong></p>
+<p><code>@Before(&quot;execution(public void add*())&quot;)</code></p>
+<p><strong>Match methods starting with add in any class</strong></p>
+<p><code>@Before(&quot;execution(* add*())&quot;)</code></p>
+<h3 id="Match-Method-Parameter-Types"><a href="#Match-Method-Parameter-Types" class="headerlink" title="Match Method Parameter Types"></a>Match Method Parameter Types</h3><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gn47mte4smj310s0bu4dh.jpg" srcset="/img/loading.gif"></p>
+<p><strong>Match methods starting with add in any class with at least an Account para</strong></p>
+<p><code>@Before(&quot;execution(* add*(com.luv2code.aopdemo.Account, ..))&quot;)</code></p>
+<p><strong>Match all methods in a given class</strong></p>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gn47x9j3ezj31780hsndn.jpg" srcset="/img/loading.gif"></p>
+<h2 id="PointCut-Declarations"><a href="#PointCut-Declarations" class="headerlink" title="PointCut Declarations"></a>PointCut Declarations</h2><ul>
+<li>Easily reuse pointcut expressions</li>
+<li>Update pointcut in one location </li>
+<li>Can also share and combine pointcut expressions</li>
+</ul>
+<h3 id="Create-a-pointcut-declaration"><a href="#Create-a-pointcut-declaration" class="headerlink" title="Create a pointcut declaration"></a>Create a pointcut declaration</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Poinitcut(&quot;execution(* add*(com.luv2code.aopdemo.Account, ..))&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">forDaoPackage</span><span class="hljs-params">()</span> </span>&#123;&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="Apply-pointcut-declaration-to-advices"><a href="#Apply-pointcut-declaration-to-advices" class="headerlink" title="Apply pointcut declaration to advices"></a>Apply pointcut declaration to advices</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Before(&quot;forDaoPackage()&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">method1</span><span class="hljs-params">()</span></span>&#123;<br>  <span class="hljs-comment">//...</span><br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="Combine-Pointcut-Declarations"><a href="#Combine-Pointcut-Declarations" class="headerlink" title="Combine Pointcut Declarations"></a>Combine Pointcut Declarations</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Pointcut(&quot;forDaoPackage() &amp;&amp; !(setter() || getter())&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">allMethodsExceptGetterAndSetter</span><span class="hljs-params">()</span></span>&#123;&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="Apply-to-all-method-except-“getter-setter”"><a href="#Apply-to-all-method-except-“getter-setter”" class="headerlink" title="Apply to all method except “getter/setter”"></a>Apply to all method except “getter/setter”</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Pointcut(&quot;execution(* com.luv2code.aopdemo.dao.*.*(..))&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">forDaoPackage</span><span class="hljs-params">()</span></span>&#123;&#125;<br><br><span class="hljs-meta">@Pointcut(&quot;execution(* com.luv2code.aopdemo.dao.*.set*(..))&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">setter</span><span class="hljs-params">()</span></span>&#123;&#125;<br><br><span class="hljs-meta">@Pointcut(&quot;execution(* com.luv2code.aopdemo.dao.*.get*(..))&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">getter</span><span class="hljs-params">()</span></span>&#123;&#125;<br><br><span class="hljs-meta">@Pointcut(&quot;forDaoPackage() &amp;&amp; !(setter() || getter())&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">private</span> <span class="hljs-keyword">void</span> <span class="hljs-title">allMethodsExceptGetterAndSetter</span><span class="hljs-params">()</span></span>&#123;&#125;<br><br><span class="hljs-meta">@Before(&quot;allMethodsExceptGetterAndSetter()&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">beforeAddAccountAdvice</span><span class="hljs-params">()</span></span>&#123;<br>  System.out.println(<span class="hljs-string">&quot;\n =====&gt;&gt;&gt; Executing @Before advice on addAccount() method!&quot;</span>);<br>&#125;<br></code></pre></td></tr></table></figure>
+<h2 id="Ordering-Aspects"><a href="#Ordering-Aspects" class="headerlink" title="Ordering Aspects"></a>Ordering Aspects</h2><p><strong>Refactor the advices into seperate Aspects and add <code>@Order()</code> annotation.</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Aspect</span><br><span class="hljs-meta">@Component</span><br><span class="hljs-meta">@Order(1)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MyDemoLoggingAspect</span> </span>&#123;<br>    <span class="hljs-meta">@Before(&quot;com.luv2code.aopdemo.aspect.LuvAopExpressions.allMethodsExceptGetterAndSetter()&quot;)</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">beforeAddAccountAdvice</span><span class="hljs-params">()</span></span>&#123;<br>        System.out.println(<span class="hljs-string">&quot;\n =====&gt;&gt;&gt; Executing @Before advice on addAccount() method!&quot;</span>);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><strong>Note:</strong> smaller number represents higher level of execution. <code>-40 &gt; -10 &gt; 100</code></p>
+<h2 id="Read-Method-Arguments-with-JoinPoints"><a href="#Read-Method-Arguments-with-JoinPoints" class="headerlink" title="Read Method Arguments with JoinPoints"></a>Read Method Arguments with JoinPoints</h2><h3 id="1-Access-and-display-Method-Signature"><a href="#1-Access-and-display-Method-Signature" class="headerlink" title="1. Access and display Method Signature"></a>1. Access and display Method Signature</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">MethodSignature methodSignature = (MethodSignature)joinPoint.getSignature();<br>System.out.println(<span class="hljs-string">&quot;Method Signature:&quot;</span>+methodSignature);<br></code></pre></td></tr></table></figure>
+<h3 id="2-Access-and-display-Method-Arguments"><a href="#2-Access-and-display-Method-Arguments" class="headerlink" title="2. Access and display Method Arguments"></a>2. Access and display Method Arguments</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java">Object[] args = joinPoint.getArgs();<br><span class="hljs-keyword">for</span>(Object o: args)&#123;<br>  <span class="hljs-comment">// loop through the args</span><br>&#125;<br></code></pre></td></tr></table></figure>
+
+
+
+
+<p class="note note-warning">
+  Reference: 
+  [1]Udemy, Spring & Hibernate for Beginners (including SpringBoot)
+  [2][I want my AOP](https://www.infoworld.com/article/2073918/i-want-my-aop---part-1.html)
+  [3][SpringAOP & Proxy Pattern](https://blog.csdn.net/eson_15/article/details/84933442?utm_medium=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.not_use_machine_learn_pai&depth_1-utm_source=distribute.pc_relevant_t0.none-task-blog-BlogCommendFromMachineLearnPai2-1.not_use_machine_learn_pai)
+</p>
+
+
+
+
+
+
+
+
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Spring-Hibernate/">Spring & Hibernate</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/AOP/">AOP</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/08/AOP-Add-Logging-to-Spring-MVC-Project/">
+                        <span class="hidden-mobile">AOP:Add Logging to Spring MVC Project</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     © Xinyi Ma | Powered by  <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize(null);
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
