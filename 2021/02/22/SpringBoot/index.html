@@ -1,0 +1,602 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>SpringBoot - Xinyi Ashley Ma</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Xinyi Ashley Ma</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="SpringBoot">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-02-22 14:46" pubdate>
+        February 22, 2021 pm
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      967 Words
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      19
+       min
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">SpringBoot</h1>
+            
+              <p class="note note-info">
+                
+                  Last Updated on: February 22, 2021 pm
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="Spring-Initializer"><a href="#Spring-Initializer" class="headerlink" title="Spring Initializer"></a>Spring Initializer</h1><p>Enter <a target="_blank" rel="noopener" href="https://start.spring.io/">Spring Initializer</a> and generate a new SpringBoot Project. </p>
+<p>Import project into IDE.</p>
+<h2 id="SpringBoot-Solution"><a href="#SpringBoot-Solution" class="headerlink" title="SpringBoot Solution"></a>SpringBoot Solution</h2><ol>
+<li><p>Make it easier to get started with Spring development</p>
+</li>
+<li><p>Minimize the amount of manual configuration</p>
+<ul>
+<li>Perform auto-configuration based on props file and JAR classpath.</li>
+</ul>
+</li>
+<li><p>Help to resolve the dependency conflicts (Maven or Gradle)</p>
+</li>
+<li><p>Provide an embedded HTTP server so you can get started quickly</p>
+<ul>
+<li>Tomcat, Jetty, Undertow…</li>
+</ul>
+</li>
+</ol>
+<h2 id="SpringBoot-Project-Structure"><a href="#SpringBoot-Project-Structure" class="headerlink" title="SpringBoot Project Structure"></a>SpringBoot Project Structure</h2><h3 id="Maven-Wrapper-Files"><a href="#Maven-Wrapper-Files" class="headerlink" title="Maven Wrapper Files"></a>Maven Wrapper Files</h3><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnr4tjyp22j30kc0ocq50.jpg" srcset="/img/loading.gif"></p>
+<p><strong>mvnw</strong> allows you to run a Maven Project.</p>
+<ul>
+<li>No need to have maven installed or present on your path.</li>
+<li>If correct version of Maven is NOT found on your computer, it will <strong>Automatically</strong> downloads correct version.</li>
+</ul>
+<p>Two files are provided.</p>
+<ul>
+<li><strong>mvnw.cmd</strong> is for Windows - <code>mvnw clean compile test</code></li>
+<li><strong>mvnw</strong> is for Linux/Mac - <code>./mvnw clean compile test</code></li>
+</ul>
+<h3 id="Maven-POM-File"><a href="#Maven-POM-File" class="headerlink" title="Maven POM File"></a>Maven POM File</h3><p><strong>Spring Boot Maven plugin</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">build</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">plugins</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">plugin</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>      <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;/<span class="hljs-name">plugin</span>&gt;</span><br>  <span class="hljs-tag">&lt;/<span class="hljs-name">plugins</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">build</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>To package a executable JAR file or create a <strong>war archive file.</strong> </p>
+<p>You can also run the app like this:</p>
+<figure class="highlight ada"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs ada">$ ./mvnw <span class="hljs-keyword">package</span><br>$ ./mvnw spring-boot:run<br></code></pre></td></tr></table></figure>
+<h3 id="Java-Source-Code"><a href="#Java-Source-Code" class="headerlink" title="Java Source Code"></a>Java Source Code</h3><p><strong>MycoolappApplication.java</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">package</span> com.luv2code.springboot.demo.mycoolapp;<br><br><span class="hljs-keyword">import</span> org.springframework.boot.SpringApplication;<br><span class="hljs-keyword">import</span> org.springframework.boot.autoconfigure.SpringBootApplication;<br><br><span class="hljs-meta">@SpringBootApplication</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">MycoolappApplication</span> </span>&#123;<br>	<span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>		SpringApplication.run(MycoolappApplication.class, args);<br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="SpringBootApplication"><a href="#SpringBootApplication" class="headerlink" title="@SpringBootApplication"></a>@SpringBootApplication</h4><p>It enables </p>
+<ul>
+<li> Auto configuration</li>
+<li>Component scanning</li>
+<li>Additional Configuration</li>
+</ul>
+<p>Composed of the following annotations:</p>
+<ul>
+<li><code>@EnableAutoConfiguration</code>  - Enable Spring Boot auto-configuration support</li>
+<li> <code>@ComponentScan</code>  - Enables component scanning of current package, also recursively scans sub-packages</li>
+<li> <code>@Configuration</code> - Able to register extra beans with <code>@Bean</code> or import other configuration classes </li>
+</ul>
+<h4 id="SpringApplication-Class"><a href="#SpringApplication-Class" class="headerlink" title="SpringApplication Class"></a>SpringApplication Class</h4><ul>
+<li>Creates application context and register all beans.</li>
+<li>Starts the embedded server Tomcat etc…</li>
+</ul>
+<h3 id="More-on-Component-Scan"><a href="#More-on-Component-Scan" class="headerlink" title="More on Component Scan"></a>More on Component Scan</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@SpringBootApplication(</span><br><span class="hljs-meta">	scanBasePackage=&#123;&quot;com.luv2code.springboot.demo.mycoolapp&quot;,</span><br><span class="hljs-meta">                   &quot;org.acme.iot.utils&quot;,</span><br><span class="hljs-meta">                  &quot;edu.cmu.wean&quot;&#125;)</span><br></code></pre></td></tr></table></figure>
+<p>You need to explicitly list the base packages to scan, if you got other packages.</p>
+<h3 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h3><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnr5ff1qmaj30iu05wt95.jpg" srcset="/img/loading.gif"></p>
+<h4 id="Application-Properties"><a href="#Application-Properties" class="headerlink" title="Application Properties"></a>Application Properties</h4><p>You can add Spring Boot properties.<br><code>server.port=8585</code></p>
+<p>You can add your own custom properties.</p>
+<p><code>coach.name=Mickey</code></p>
+<h5 id="Read-Data-from-the-properties-File"><a href="#Read-Data-from-the-properties-File" class="headerlink" title="Read Data from the properties File"></a>Read Data from the properties File</h5><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RestController</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">FunRestController</span></span>&#123;<br>  <span class="hljs-meta">@Value(&quot;$&#123;coach.name&#125;&quot;)</span><br>  <span class="hljs-keyword">private</span> String coachName;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="Static-Content"><a href="#Static-Content" class="headerlink" title="Static Content"></a>Static Content</h4><p>Examples of static resources HTML, css, JavaScript, Images, etc…</p>
+<p class="note note-warning">
+  <p>
+    Do not use the /src/main/webapp directory if your application is packaged as a JAR.
+</p>
+<p>
+   Although it is a standard Maven Directory, it works only with WAR packaging.
+</p>
+ <p>
+   It is sliently ignored by most build tools if you generate a JAR.
+</p>
+</p>
+
+<h4 id="Templates"><a href="#Templates" class="headerlink" title="Templates"></a>Templates</h4><p>SpringBoot includes auto-configurations for the following template engines.</p>
+<ul>
+<li>FreeMarker</li>
+<li>Thymeleaf</li>
+<li>Mustache</li>
+</ul>
+<h2 id="SpringBoot-Starters"><a href="#SpringBoot-Starters" class="headerlink" title="SpringBoot Starters"></a>SpringBoot Starters</h2><p>A  curated list of Maven Dependencies.</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>   <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnr6hmx303j31mi0mwkjl.jpg" srcset="/img/loading.gif"></p>
+<h3 id="What-is-in-the-Starter"><a href="#What-is-in-the-Starter" class="headerlink" title="What is in the Starter?"></a>What is in the Starter?</h3><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnr6jk7o1cj31320ogq7u.jpg" srcset="/img/loading.gif"></p>
+<h2 id="Starter-Parent"><a href="#Starter-Parent" class="headerlink" title="Starter Parent"></a>Starter Parent</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">parent</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.5.0-M1<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">relativePath</span>/&gt;</span> <span class="hljs-comment">&lt;!-- lookup parent from repository --&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">parent</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p>For the Spring Boot Starters, no need for version.</p>
+<p>Basically, only specify the version of <strong>Spring Boot Parent.</strong></p>
+<p>Then for the actual dependencies, simply inherit version from Starter Parent.</p>
+<p>No need to list individual versions, great for maintenance and make sure all the dependencies are compatible.</p>
+<h3 id="Benefits-of-SpringBoot-Starter-Parent"><a href="#Benefits-of-SpringBoot-Starter-Parent" class="headerlink" title="Benefits of SpringBoot Starter Parent"></a>Benefits of SpringBoot Starter Parent</h3><ul>
+<li><p>Default Maven configuration: Java version, UTF-encoding etc…</p>
+</li>
+<li><p>Dependency management</p>
+<ul>
+<li>User version on parent only</li>
+</ul>
+</li>
+<li><p>Default configuration of Boot plugin</p>
+</li>
+</ul>
+<h2 id="Spring-Boot-Actuator"><a href="#Spring-Boot-Actuator" class="headerlink" title="Spring Boot Actuator"></a>Spring Boot Actuator</h2><p>Exposes endpoints to monitor and manage your application.</p>
+<p>Get DevOps functionality out-of-box.</p>
+<p>Simply add the dependency to your POM file.</p>
+<p>REST endpoints are automatically added to your application.</p>
+<ul>
+<li><code>/health</code>  - Health information about your application</li>
+<li><code>/info</code> - Information about your project</li>
+</ul>
+<p>By default, only <code>health</code> and <code>info</code> are exposed.</p>
+<h3 id="Applying-Security"><a href="#Applying-Security" class="headerlink" title="Applying Security"></a>Applying Security</h3><p><strong>Add Dependency</strong></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-actuator<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<p><strong>Add Properties in the application.properties file</strong></p>
+<figure class="highlight properties"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs properties"><span class="hljs-meta">info.app.name</span>=<span class="hljs-string">My Super Cool App</span><br><span class="hljs-meta">info.app.version</span>=<span class="hljs-string">1.0.0</span><br><span class="hljs-meta">management.endpoints.web.exposure.include</span>=<span class="hljs-string">*</span><br><span class="hljs-meta">spring.security.user.name</span>=<span class="hljs-string">d</span><br><span class="hljs-meta">spring.security.user.password</span>=<span class="hljs-string">d</span><br><span class="hljs-comment">#management.endpoints.web.exposure.exclude=health,info</span><br></code></pre></td></tr></table></figure>
+<h2 id="Running-from-the-Command-Line"><a href="#Running-from-the-Command-Line" class="headerlink" title="Running from the Command Line"></a>Running from the Command Line</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs plain">&gt; .&#x2F;mvnw package<br>&gt; cd target<br>&gt; java -jar jarname.jar<br></code></pre></td></tr></table></figure>
+<p>OR</p>
+<figure class="highlight dockerfile"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs dockerfile">&gt; ./mvnw spring-boot:<span class="hljs-keyword">run</span><br></code></pre></td></tr></table></figure>
+<h1 id="JPA"><a href="#JPA" class="headerlink" title="JPA"></a>JPA</h1><p><strong>Java Persistence API - JPA</strong></p>
+<ul>
+<li>Only a specification</li>
+<li>Defines a set of interfaces</li>
+<li>Requires an implementation to be usable</li>
+</ul>
+<h2 id="Benefits"><a href="#Benefits" class="headerlink" title="Benefits"></a>Benefits</h2><p>You are not locked to vendor’s implmentation.</p>
+<p>Maintain portable, flexible code by coding to JPA spec(interface).</p>
+<h1 id="Spring-Data-JPA"><a href="#Spring-Data-JPA" class="headerlink" title="Spring Data JPA"></a>Spring Data JPA</h1><h2 id="JPA-Repository"><a href="#JPA-Repository" class="headerlink" title="JPA Repository"></a>JPA Repository</h2><p>Spring Data JPA provides the interface: <strong>JpaRepository</strong></p>
+<ul>
+<li>findAll()</li>
+<li>findById()</li>
+<li>Save()</li>
+<li>deleteById()</li>
+<li>…</li>
+</ul>
+<h2 id="Create-a-JPA-Repository-Interface"><a href="#Create-a-JPA-Repository-Interface" class="headerlink" title="Create a JPA Repository Interface"></a>Create a JPA Repository Interface</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">import</span> com.luv2code.springboot.curddemo.entity.Employee;<br><span class="hljs-keyword">import</span> org.springframework.data.jpa.repository.JpaRepository;<br><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">interface</span> <span class="hljs-title">EmployeeRepository</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">JpaRepository</span>&lt;<span class="hljs-title">Employee</span>,<span class="hljs-title">Integer</span>&gt; </span>&#123;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>Then you can use the CRUD operations of the interface for free.</p>
+<h1 id="Spring-Data-REST"><a href="#Spring-Data-REST" class="headerlink" title="Spring Data REST"></a>Spring Data REST</h1><p>Create the REST API using the existing JPA repository. </p>
+<p>Add new dependency to the<code>pom.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs xml"><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>org.springframework.boot<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>  <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>spring-boot-starter-data-rest<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+
+
+<h1 id="Problem"><a href="#Problem" class="headerlink" title="Problem"></a>Problem</h1><blockquote>
+<p>2021-02-17 10:52:52.396 ERROR 27449 — [ main] o.s.b.d.LoggingFailureAnalysisReporter :</p>
+<p><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong><strong>* APPLICATION FAILED TO START *</strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong></strong> </p>
+<p>Description: Web server failed to start. Port 8080 was already in use. </p>
+<p>Action: Identify and stop the process that’s listening on port 8080 or configure this application to listen on another port.</p>
+</blockquote>
+<h2 id="Solution1"><a href="#Solution1" class="headerlink" title="Solution1"></a>Solution1</h2><p><code>lsof -i:8080</code> check the process using port 8080.</p>
+<p><code>kill pid</code> kill the process of the id.</p>
+<h2 id="Solution2"><a href="#Solution2" class="headerlink" title="Solution2"></a>Solution2</h2><p><img src="https://tva1.sinaimg.cn/large/008eGmZEly1gnr4iw47d8j31bn0u0454.jpg" srcset="/img/loading.gif"></p>
+<p>Do not allow parallel run, otherwise there will be more than one instance running on the same server port. </p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Spring-Hibernate/">Spring & Hibernate</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/SpringBoot/">SpringBoot</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2021/07/27/JavaScript%20Fundamentals%20-%20Part%201%20/">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile">JavaScript Fundamentals - Part 1</span>
+                        <span class="visible-mobile">Previous</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/02/17/Spring-REST/">
+                        <span class="hidden-mobile">Spring REST</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     © Xinyi Ma | Powered by  <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize(null);
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
