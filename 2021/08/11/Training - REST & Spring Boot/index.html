@@ -1,0 +1,528 @@
+
+
+<!DOCTYPE html>
+<html lang="en" data-default-color-scheme=&#34;auto&#34;>
+
+
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/favicon.png">
+  <link rel="icon" type="image/png" href="/img/favicon.png">
+  <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="description" content="">
+  <meta name="author" content="John Doe">
+  <meta name="keywords" content="">
+  <title>Training - REST &amp; Spring Boot - Xinyi Ashley Ma</title>
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
+
+
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/github-markdown-css@4.0.0/github-markdown.min.css" />
+  <link  rel="stylesheet" href="/lib/hint/hint.min.css" />
+
+  
+    
+    
+      
+      <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/highlight.js@10.4.0/styles/github-gist.min.css" />
+    
+  
+
+  
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.css" />
+  
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_ba1fz6golrf.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_kmeydafke9r.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+<!-- 自定义样式保持在最底部 -->
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    var CONFIG = {"hostname":"example.com","root":"/","version":"1.8.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"right","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"copy_btn":true,"image_zoom":{"enable":true},"toc":{"enable":true,"headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"onlypost":false},"web_analytics":{"enable":false,"baidu":null,"google":null,"gtag":null,"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null}}};
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+<meta name="generator" content="Hexo 5.3.0"></head>
+
+
+<body>
+  <header style="height: 70vh;">
+    <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand"
+       href="/">&nbsp;<strong>Xinyi Ashley Ma</strong>&nbsp;</a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/">
+                <i class="iconfont icon-home-fill"></i>
+                Home
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/">
+                <i class="iconfont icon-user-fill"></i>
+                About
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/">
+                <i class="iconfont icon-archive-fill"></i>
+                Archives
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/">
+                <i class="iconfont icon-category-fill"></i>
+                Categories
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/tags/">
+                <i class="iconfont icon-tags-fill"></i>
+                Tags
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" data-toggle="modal" data-target="#modalSearch">&nbsp;<i
+                class="iconfont icon-search"></i>&nbsp;</a>
+          </li>
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" href="javascript:">&nbsp;<i
+                class="iconfont icon-dark" id="color-toggle-icon"></i>&nbsp;</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+    <div class="banner" id="banner" parallax=true
+         style="background: url('/img/default.png') no-repeat center center;
+           background-size: cover;">
+      <div class="full-bg-img">
+        <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+          <div class="page-header text-center fade-in-up">
+            <span class="h2" id="subtitle" title="Training - REST & Spring Boot">
+              
+            </span>
+
+            
+              <div class="mt-3">
+  
+  
+    <span class="post-meta">
+      <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+      <time datetime="2021-08-11 07:50" pubdate>
+        August 11, 2021 am
+      </time>
+    </span>
+  
+</div>
+
+<div class="mt-1">
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-chart"></i>
+      938 Words
+    </span>
+  
+
+  
+    
+    <span class="post-meta mr-2">
+      <i class="iconfont icon-clock-fill"></i>
+      
+      
+      18
+       min
+    </span>
+  
+
+  
+  
+</div>
+
+            
+          </div>
+
+          
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="d-none d-lg-block col-lg-2"></div>
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div class="py-5" id="board">
+          <article class="post-content mx-auto">
+            <!-- SEO header -->
+            <h1 style="display: none">Training - REST &amp; Spring Boot</h1>
+            
+              <p class="note note-info">
+                
+                  Last Updated on: August 11, 2021 pm
+                
+              </p>
+            
+            <div class="markdown-body">
+              <h1 id="REST-amp-Spring-Boot"><a href="#REST-amp-Spring-Boot" class="headerlink" title="REST &amp; Spring Boot"></a>REST &amp; Spring Boot</h1><h2 id="Spring-Enterprise-Web-Architecture"><a href="#Spring-Enterprise-Web-Architecture" class="headerlink" title="Spring Enterprise Web Architecture"></a>Spring Enterprise Web Architecture</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtdasaoe55j61490fwacu02.jpg" srcset="/img/loading.gif"></p>
+<h2 id="REST"><a href="#REST" class="headerlink" title="REST"></a>REST</h2><h3 id="Introducing-REST"><a href="#Introducing-REST" class="headerlink" title="Introducing REST"></a>Introducing REST</h3><p>REST stands for <strong>Representational State Transfer</strong> </p>
+<p>REST is a style of architecture</p>
+<ul>
+<li>The Web is a large set of resources</li>
+<li>As a client selects a resource, they are then in a particular state</li>
+<li>The client can then select a different resource, and be in a different state as they now have a different resource</li>
+</ul>
+<h3 id="Resources"><a href="#Resources" class="headerlink" title="Resources"></a>Resources</h3><p>A resource always has a <strong>simple URL</strong></p>
+<p>At the end of the URL will be URLs for other resources allowing you to get more information (and therefore change state)</p>
+<p>URLs are <strong>logical names for resources.</strong></p>
+<p>The actual location should be resolved by technology on the server </p>
+<ul>
+<li>Such as a Spring MVC Controller</li>
+</ul>
+<h3 id="REST-and-Web-Services"><a href="#REST-and-Web-Services" class="headerlink" title="REST and Web Services"></a>REST and Web Services</h3><ul>
+<li>Clients send HTTP <strong>requests</strong> using the four HTTP methods</li>
+<li>Simple parameters can be passed in the URL</li>
+<li>Complex parameters are passed in the <strong>header as XML or JSON</strong></li>
+</ul>
+<h3 id="The-Richardson-Maturity-Model"><a href="#The-Richardson-Maturity-Model" class="headerlink" title="The Richardson Maturity Model"></a>The Richardson Maturity Model</h3><p><a target="_blank" rel="noopener" href="http://martinfowler.com/articles/richardsonMaturityModel.html">For more information</a></p>
+<h2 id="Spring-RESTful-Service"><a href="#Spring-RESTful-Service" class="headerlink" title="Spring RESTful Service"></a>Spring RESTful Service</h2><p><img src="https://prod-acb5.kxcdn.com/wp-content/uploads/2018/02/spring-mvc-architecture.png" srcset="/img/loading.gif"></p>
+<h2 id="Controller"><a href="#Controller" class="headerlink" title="Controller"></a>Controller</h2><h3 id="GET-All-Person"><a href="#GET-All-Person" class="headerlink" title="GET All Person"></a>GET All Person</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(method = RequestMethod.GET)</span><br><span class="hljs-comment">//@GetMapping</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> Collection&lt;Person&gt; <span class="hljs-title">getPeople</span><span class="hljs-params">()</span> </span>&#123; <br>	<span class="hljs-keyword">return</span> people.values();<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>Controller methods are annotated using @RequestMapping to specify</p>
+<ul>
+<li>Which <strong>URL</strong> (in this case /people as this was placed on the whole class)</li>
+<li>Which <strong>HTTP method</strong> (in this case GET)</li>
+</ul>
+<h3 id="Find-Person-by-Id"><a href="#Find-Person-by-Id" class="headerlink" title="Find Person by Id"></a>Find Person by Id</h3><h4 id="Use-PathVariable"><a href="#Use-PathVariable" class="headerlink" title="Use @PathVariable"></a>Use <code>@PathVariable</code></h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@GetMapping(value=&quot;/&#123;id&#125;&quot;)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> Person <span class="hljs-title">getPersonById</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(&quot;id&quot;)</span> <span class="hljs-keyword">int</span> id)</span> </span>&#123;<br>	<span class="hljs-keyword">return</span> people.get(id); <br>&#125;<br></code></pre></td></tr></table></figure>
+<p><code>http://localhost:8080/people/3</code></p>
+<h4 id="Query-String-Parameters"><a href="#Query-String-Parameters" class="headerlink" title="Query String Parameters"></a>Query String Parameters</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> Person <span class="hljs-title">getPersonById</span><span class="hljs-params">(<span class="hljs-meta">@RequestParam(&quot;id&quot;)</span> <span class="hljs-keyword">int</span> id)</span></span>&#123;<br>	<span class="hljs-keyword">return</span> people.get(id);<br>&#125;<br></code></pre></td></tr></table></figure>
+<p><code>http://localhost:8080/people?id=3</code></p>
+<h3 id="Create-a-Person"><a href="#Create-a-Person" class="headerlink" title="Create a Person"></a>Create a Person</h3><h4 id="PostMapping-consumes-”-”"><a href="#PostMapping-consumes-”-”" class="headerlink" title="@PostMapping(consumes=”..”)"></a>@PostMapping(consumes=”..”)</h4><p><code>@PostMapping(consumes=&quot;application/json&quot;, produce=&quot;application/json&quot;)</code></p>
+<ul>
+<li>The <code>consumes</code> attribute specifies the <strong>data type</strong> of the data being submitted, defaulting to application/json</li>
+<li>The <code>produce</code> attribute specifies the MIME type of the return value in our case, defaulting to application/json</li>
+</ul>
+<h4 id="RequestBody"><a href="#RequestBody" class="headerlink" title="@RequestBody"></a>@RequestBody</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addPerson</span><span class="hljs-params">(<span class="hljs-meta">@RequestBody</span> Person p)</span> </span>&#123;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>The <strong>@RequestBody</strong> attribute means that the JSON submitted will be automatically marshalled into a Person object</p>
+<h3 id="How-to-Return-a-404"><a href="#How-to-Return-a-404" class="headerlink" title="How to Return a 404"></a>How to Return a 404</h3><p>Use a <strong>ResponseEntity</strong> return type, and set its <strong>status</strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@RequestMapping(value=&quot;/with404/&#123;id&#125;&quot;, method=RequestMethod.GET)</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> ResponseEntity&lt;Person&gt; <span class="hljs-title">getPersonByIdHandling404</span><span class="hljs-params">(<span class="hljs-meta">@PathVariable(&quot;id&quot;)</span> <span class="hljs-keyword">int</span> id)</span> </span>&#123;<br>	Person personToReturn = people.get(id); <span class="hljs-keyword">if</span> (personToReturn ==<span class="hljs-keyword">null</span>) &#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ResponseEntity&lt;Person&gt;(HttpStatus.NOT_FOUND); <br>	&#125;<br>	<span class="hljs-keyword">else</span> &#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ResponseEntity&lt;Person&gt;(personToReturn, HttpStatus.OK);<br>	&#125; <br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="Spring-Java-Configuration"><a href="#Spring-Java-Configuration" class="headerlink" title="Spring Java Configuration"></a>Spring Java Configuration</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-meta">@EnableWebMvc</span><br><span class="hljs-meta">@ComponentScan(basePackages=&quot;com....&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AppConfig</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">WebMvcConfigurerAdapter</span></span>&#123;<br><br>&#125;<br></code></pre></td></tr></table></figure>
+<p>The <strong>WebMvcConfigurerAdapter</strong> class provides methods that can be overridden to <strong>change specific Web settings such as resource folder locations</strong></p>
+<h4 id="Override-the-addResourcesHandlers-method"><a href="#Override-the-addResourcesHandlers-method" class="headerlink" title="Override the addResourcesHandlers method"></a>Override the <code>addResourcesHandlers</code> method</h4><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Override</span><br><span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">void</span> <span class="hljs-title">addResourceHandlers</span><span class="hljs-params">(ResourceHandlerRegistry registry)</span> </span>&#123;<br>	registry.addResourceHandler(<span class="hljs-string">&quot;/static/**&quot;</span>).addResourceLocations(<span class="hljs-string">&quot;/static/&quot;</span>); <br>&#125;<br></code></pre></td></tr></table></figure>
+<h3 id="Loading-Config-Class"><a href="#Loading-Config-Class" class="headerlink" title="Loading Config Class"></a>Loading Config Class</h3><p><code>AbstractAnnotationConfigDispatcherServletInitializer</code></p>
+<ul>
+<li>Extend the abstract base class</li>
+<li>Override some required methods</li>
+<li>Specify servlet mapping and location of your app config</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AppInitializer</span> <span class="hljs-keyword">extends</span> <span class="hljs-title">AbstractAnnotationConfigDispatcherServletInitializer</span> </span>&#123;<br>	<span class="hljs-keyword">protected</span> Class&lt;?&gt;[] getRootConfigClasses() &#123; <br>		<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Class[] &#123; AppConfig.class &#125;;<br>	&#125;<br>	<span class="hljs-keyword">protected</span> Class&lt;?&gt;[] getServletConfigClasses() &#123; <br>		<span class="hljs-keyword">return</span> <span class="hljs-keyword">null</span>; <br>	&#125; <br>	<span class="hljs-keyword">protected</span> String[] getServletMappings() &#123;<br>		<span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> String[] &#123; <span class="hljs-string">&quot;/&quot;</span> &#125;; <br>	&#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+
+<h3 id="CORS-Configuration"><a href="#CORS-Configuration" class="headerlink" title="CORS Configuration"></a>CORS Configuration</h3><p><strong>Cross Origin Resource Sharing (CORS)</strong> allows you to configure whether web pages from sites other than your own can invoke your REST API</p>
+<p>By default, browsers will prevent Web sites calling REST APIs on other servers unless the server specifically allows it</p>
+<ul>
+<li>Allow it is achieved by a header set on the server</li>
+</ul>
+<h4 id="Enabling-CORS-in-Spring"><a href="#Enabling-CORS-in-Spring" class="headerlink" title="Enabling CORS in Spring"></a>Enabling CORS in Spring</h4><p>Annotate the request methods for REST Controller - <strong><code>@CrossOrigin</code></strong></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@CrossOrigin</span> <br><span class="hljs-meta">@RestController</span><br></code></pre></td></tr></table></figure>
+<h3 id="Open-API-Swagger"><a href="#Open-API-Swagger" class="headerlink" title="Open API/Swagger"></a>Open API/Swagger</h3><h4 id="Open-API"><a href="#Open-API" class="headerlink" title="Open API"></a>Open API</h4><p><strong>Open API</strong> is a Specification format for REST APIs. An OpenAPI file includes:</p>
+<ul>
+<li>Available Endpoints and operations to each endpoint.</li>
+<li>Operation parameters for both input and output.</li>
+<li>Authentication methods.</li>
+<li>Contact information/license/terms of conditions.</li>
+</ul>
+<h4 id="Swagger"><a href="#Swagger" class="headerlink" title="Swagger"></a>Swagger</h4><p><strong>Swagger</strong> is a set of tools built around OpenAPI Specification.</p>
+<ul>
+<li><strong>Swagger UI</strong> - renders OpenAPI specs without having any implementation logic.</li>
+<li><strong>Swagger Editor</strong> - browser-based editor where you can write OpenAPI specs.</li>
+</ul>
+<h4 id="Add-Dependency-and-Annotation"><a href="#Add-Dependency-and-Annotation" class="headerlink" title="Add Dependency and Annotation"></a>Add Dependency and Annotation</h4><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs xml"> <span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.springfox<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>springfox-swagger-ui<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.9.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>compile<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br><span class="hljs-tag">&lt;<span class="hljs-name">dependency</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">groupId</span>&gt;</span>io.springfox<span class="hljs-tag">&lt;/<span class="hljs-name">groupId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">artifactId</span>&gt;</span>springfox-swagger2<span class="hljs-tag">&lt;/<span class="hljs-name">artifactId</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">version</span>&gt;</span>2.9.2<span class="hljs-tag">&lt;/<span class="hljs-name">version</span>&gt;</span><br>    <span class="hljs-tag">&lt;<span class="hljs-name">scope</span>&gt;</span>compile<span class="hljs-tag">&lt;/<span class="hljs-name">scope</span>&gt;</span><br><span class="hljs-tag">&lt;/<span class="hljs-name">dependency</span>&gt;</span><br></code></pre></td></tr></table></figure>
+<h5 id="SwaggerConfig-File"><a href="#SwaggerConfig-File" class="headerlink" title="SwaggerConfig File"></a>SwaggerConfig File</h5><p>Enables <code>@EnablesSwagger2</code> in <code>SwaggerConfig.java</code>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@EnableSwagger2</span><br><span class="hljs-meta">@Profile(&quot;!test&quot;)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">SwaggerConfig</span> </span>&#123;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Docket <span class="hljs-title">newsApi</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Docket(DocumentationType.SWAGGER_2)<br>                .groupName(<span class="hljs-string">&quot;compactdiscs&quot;</span>)<br>                .apiInfo(apiInfo()) <br>                <span class="hljs-comment">// 指定构建api文档的详细信息的方法为:apiInfo()</span><br>                .select()<br>                .paths(PathSelectors.any()) <br>                <span class="hljs-comment">// 根据urls设置需要加入文档的请求和需要忽略的请求</span><br>                .build();<br>    &#125;<br><br>    <span class="hljs-function"><span class="hljs-keyword">private</span> ApiInfo <span class="hljs-title">apiInfo</span><span class="hljs-params">()</span> </span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> ApiInfoBuilder()<br>                .title(<span class="hljs-string">&quot;Album REST API with Swagger and SpringBoot&quot;</span>)<br>                .description(<span class="hljs-string">&quot;This API allows you to interact with albums. It is a CRUD API&quot;</span>)<br>                .contact(<span class="hljs-keyword">new</span> Contact(<span class="hljs-string">&quot;FirstName LastName&quot;</span>, <span class="hljs-string">&quot;http://www.google.com&quot;</span>, <span class="hljs-string">&quot;xxx@gmail.com&quot;</span>))<br>                <span class="hljs-comment">//.version(&quot;2.0&quot;)</span><br>                .build();<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h5 id="Add-Annotations-to-AppConfig-java-and-Controllers"><a href="#Add-Annotations-to-AppConfig-java-and-Controllers" class="headerlink" title="Add Annotations to AppConfig.java and Controllers"></a>Add Annotations to AppConfig.java and Controllers</h5><p>Enables <strong><code>@Import(SwaggerConfig.class)</code></strong> in <code>AppConfig.java</code>.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@EnableAutoConfiguration</span><br><span class="hljs-meta">@ComponentScan</span><br><span class="hljs-meta">@Import(SwaggerConfig.class)</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">AppConfig</span> </span>&#123;<br>    <span class="hljs-function"><span class="hljs-keyword">public</span> <span class="hljs-keyword">static</span> <span class="hljs-keyword">void</span> <span class="hljs-title">main</span><span class="hljs-params">(String[] args)</span> </span>&#123;<br>        SpringApplication.run(AppConfig.class, args);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<p>More annotations like <code>@ApiOperation</code> can be placed in the controller.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@ApiOperation(value = &quot;findAll&quot;, nickname = &quot;findAll&quot;)</span><br><span class="hljs-meta">@GetMethod</span><br></code></pre></td></tr></table></figure>
+<h5 id="Swagger-URL"><a href="#Swagger-URL" class="headerlink" title="Swagger URL"></a>Swagger URL</h5><p><a target="_blank" rel="noopener" href="http://localhost:8080/swagger-ui.html#/">http://localhost:8080/swagger-ui.html#/</a></p>
+
+            </div>
+            <hr>
+            <div>
+              <div class="post-metas mb-3">
+                
+                  <div class="post-meta mr-3">
+                    <i class="iconfont icon-category"></i>
+                    
+                      <a class="hover-with-bg" href="/categories/Training/">Training</a>
+                    
+                  </div>
+                
+                
+                  <div class="post-meta">
+                    <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Training/">Training</a>
+                    
+                  </div>
+                
+              </div>
+              
+              
+                <div class="post-prevnext">
+                  <article class="post-prev col-6">
+                    
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2021/08/10/JavaScript%20-%20How%20JS%20Works%20Behind%20the%20Scenes/">
+                        <span class="hidden-mobile">JavaScript - How JS Works Behind the Scenes</span>
+                        <span class="visible-mobile">Next</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+    
+      <div class="d-none d-lg-block col-lg-2 toc-container" id="toc-ctn">
+        <div id="toc">
+  <p class="toc-header"><i class="iconfont icon-list"></i>&nbsp;TOC</p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+      </div>
+    
+  </div>
+</div>
+
+<!-- Custom -->
+
+
+    
+
+    
+      <a id="scroll-top-button" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">Search</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v"
+                 for="local-search-input">keyword</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+
+    
+  </main>
+
+  <footer class="text-center mt-5 py-3">
+  <div class="footer-content">
+     © Xinyi Ma | Powered by  <a href="https://hexo.io" target="_blank" rel="nofollow noopener"><span>Hexo</span></a> <i class="iconfont icon-love"></i> <a href="https://github.com/fluid-dev/hexo-theme-fluid" target="_blank" rel="nofollow noopener"><span>Fluid</span></a> 
+  </div>
+  
+
+  
+
+  
+</footer>
+
+<!-- SCRIPTS -->
+
+  <script  src="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/nprogress@0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js" ></script>
+<script  src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.min.js" ></script>
+<script  src="/js/debouncer.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+<!-- Plugins -->
+
+
+  
+    <script  src="/js/lazyload.js" ></script>
+  
+
+
+
+  
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/tocbot@4.12.0/dist/tocbot.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.5.7/dist/jquery.fancybox.min.js" ></script>
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/anchor-js@4.3.0/anchor.min.js" ></script>
+
+
+
+  <script defer src="https://cdn.jsdelivr.net/npm/clipboard@2.0.6/dist/clipboard.min.js" ></script>
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11/lib/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var title = document.getElementById('subtitle').title;
+      
+      typing(title)
+      
+    })(window, document);
+  </script>
+
+
+
+  <script  src="/js/local-search.js" ></script>
+  <script>
+    (function () {
+      var path = "/local-search.xml";
+      var inputArea = document.querySelector("#local-search-input");
+      inputArea.onclick = function () {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+        this.onclick = null
+      }
+    })()
+  </script>
+
+
+
+
+
+
+
+
+
+  <script  src="https://cdn.jsdelivr.net/npm/mermaid@8.8.3/dist/mermaid.min.js" ></script>
+  <script>
+    if (window.mermaid) {
+      mermaid.initialize(null);
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- 主题的启动项 保持在最底部 -->
+<script  src="/js/boot.js" ></script>
+
+
+
+</body>
+</html>
