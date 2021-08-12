@@ -4,6 +4,33 @@
   
   
   <entry>
+    <title>Training - Spring</title>
+    <link href="/2021/08/11/Training-Spring/"/>
+    <url>/2021/08/11/Training-Spring/</url>
+    
+    <content type="html"><![CDATA[<h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="Dependency-Injection"><a href="#Dependency-Injection" class="headerlink" title="Dependency Injection"></a>Dependency Injection</h2><p>Allows one Java Object to be ==*Injected*== into as another Object as a property.</p><h2 id="Three-ways-to-Wire-Objects"><a href="#Three-ways-to-Wire-Objects" class="headerlink" title="Three ways to Wire Objects"></a>Three ways to Wire Objects</h2><h3 id="Java-Configuration-Class"><a href="#Java-Configuration-Class" class="headerlink" title="Java Configuration Class"></a>Java Configuration Class</h3><p>A Java class is created that acts as the configuration</p><p>- Creating and then wiring the two objects together</p><ul><li>The <strong>==@Configuration==</strong> annotation specifies that this class is acting as a configuration class</li><li>The <strong>==@Bean==</strong> is used to show that a method is returning a bean available within the context</li><li><strong>==@Autowired==</strong> is used to say that the Pet for the person must be automatically wired from another @Bean somewhere</li></ul><p><strong>Example:</strong></p><p>A pet is injected into person object as a property using ==Java Configuration==.</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PersonConfiguration</span> </span>&#123;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Pet <span class="hljs-title">pet</span><span class="hljs-params">()</span></span>&#123;<br>         <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Cat();<br>    &#125;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Person <span class="hljs-title">person</span><span class="hljs-params">(</span></span><br><span class="hljs-function"><span class="hljs-params">    <span class="hljs-meta">@Autowired</span> Pet pet)</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Person(pet);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure><h4 id="How-to-use-the-Configuration"><a href="#How-to-use-the-Configuration" class="headerlink" title="How to use the Configuration"></a>How to use the Configuration</h4><p>A configuration was loaded using <code>ApplicationContext</code></p><h3 id="Annotations"><a href="#Annotations" class="headerlink" title="Annotations"></a>Annotations</h3><h3 id="XML-Files"><a href="#XML-Files" class="headerlink" title="XML Files"></a>XML Files</h3><h2 id="Application-Context-or-XML-Bean-Factory"><a href="#Application-Context-or-XML-Bean-Factory" class="headerlink" title="Application Context or XML Bean Factory?"></a>Application Context or XML Bean Factory?</h2><p>Spring provides two kinds of IOC Container - </p><ul><li>XML BeanFactory</li><li>ApplicationContext</li></ul><p><img src="https://i.stack.imgur.com/EweA3.jpg"></p><p>Use <strong><code>ApplicationContext</code></strong> unless you have a really good reason not doing so.</p><p>Example:</p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">ApplicationContext applicationContext = <span class="hljs-keyword">new</span> AnnotationConfigApplicationContext(BeansConfiguration.class);<br></code></pre></td></tr></table></figure><h2 id="Singleton"><a href="#Singleton" class="headerlink" title="Singleton"></a>Singleton</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">Person person = context.getBean(Person.class);<br>Person person2 = (Person)context.getBean(<span class="hljs-string">&quot;person&quot;</span>);<br></code></pre></td></tr></table></figure><h2 id="Layered-Architectures"><a href="#Layered-Architectures" class="headerlink" title="Layered Architectures"></a>Layered Architectures</h2><h3 id="Controller-Layer"><a href="#Controller-Layer" class="headerlink" title="Controller Layer"></a>Controller Layer</h3><p>Receive requests from client applications</p><h3 id="Service-Layer"><a href="#Service-Layer" class="headerlink" title="Service Layer"></a>Service Layer</h3><p>Business layer with business functions</p><h3 id="Data-Access-Layer"><a href="#Data-Access-Layer" class="headerlink" title="Data Access Layer"></a>Data Access Layer</h3><p>Two Patterns: - Used Interchangeably</p><ul><li>Data Access Object</li><li>Repository </li></ul><h4 id="Data-Access-Repository-Pattern"><a href="#Data-Access-Repository-Pattern" class="headerlink" title="Data Access/Repository Pattern"></a>Data Access/Repository Pattern</h4><p>The pattern involves classes that carry out database access on behalf of data structures</p><p>Each Data structure has a corresponding Data Access Object</p><h2 id="More-Pattern-DTO"><a href="#More-Pattern-DTO" class="headerlink" title="More Pattern - DTO"></a>More Pattern - DTO</h2><p>Data Transfer Object (DTO)</p><ul><li>A DTO is a structure that can be used within the application itself</li><li>The DTO is converted to and from the database specific Entity class by the data layer</li><li>This decouples the rest of the application from any database specific class structures</li></ul>]]></content>
+    
+    
+    <categories>
+      
+      <category>Training</category>
+      
+    </categories>
+    
+    
+    <tags>
+      
+      <tag>Spring</tag>
+      
+      <tag>Training</tag>
+      
+    </tags>
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>Training - REST &amp; Spring Boot</title>
     <link href="/2021/08/11/Training%20-%20REST%20&amp;%20Spring%20Boot/"/>
     <url>/2021/08/11/Training%20-%20REST%20&amp;%20Spring%20Boot/</url>
@@ -21,6 +48,10 @@
     <tags>
       
       <tag>Training</tag>
+      
+      <tag>SpringBoot</tag>
+      
+      <tag>SpringREST</tag>
       
     </tags>
     
@@ -55,10 +86,10 @@
   
   <entry>
     <title>Training - JPA</title>
-    <link href="/2021/08/09/JPA%20Training%20/"/>
-    <url>/2021/08/09/JPA%20Training%20/</url>
+    <link href="/2021/08/09/Training%20JPA%20/"/>
+    <url>/2021/08/09/Training%20JPA%20/</url>
     
-    <content type="html"><![CDATA[<h1 id="JPA-Training"><a href="#JPA-Training" class="headerlink" title="JPA Training"></a>JPA Training</h1><h2 id="Introduction-to-JPA"><a href="#Introduction-to-JPA" class="headerlink" title="Introduction to JPA"></a>Introduction to JPA</h2><p><strong>JPA</strong> stands for <strong>JAVA PERSISTENCE API</strong>. </p><p>JPA is an object relational mapping API that makes it easier to </p><ul><li>Extract data from relational databases and put into objects</li><li>Extract data from objects and put into a relational database</li></ul><p>JPA is a <strong>standard</strong> </p><p>There are two commonly used ==implementations== </p><ul><li><strong>JBoss Hibernate</strong></li><li>Eclipse Link </li></ul><h3 id="Hierarchy"><a href="#Hierarchy" class="headerlink" title="Hierarchy"></a>Hierarchy</h3><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtb2ygsu6mj311k0i4gnq.jpg"></p><p>When writing applications to access databases - use JDBC</p><p>Then use an ORM Implementation - Hibernate on the top of JDBC </p><p>Then use JPA API that sits on the top of the ORM implementation</p><h3 id="JPA-Entity-and-Mapping"><a href="#JPA-Entity-and-Mapping" class="headerlink" title="JPA Entity and Mapping"></a>JPA Entity and Mapping</h3><h2 id="Further-with-JPA"><a href="#Further-with-JPA" class="headerlink" title="Further with JPA"></a>Further with JPA</h2><blockquote><p><a href="https://docs.oracle.com/javaee/7/api/">APIs</a></p></blockquote><h3 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h3><p>The Persistence Unit is the entity class along with the persistence.xml file</p><p>The Persistence Context, which is a set of entity instances based upon the persistence unit </p><p>The Entity Manager which provides access to a persistence context</p><h3 id="Entity-Object-Lifecycle"><a href="#Entity-Object-Lifecycle" class="headerlink" title="Entity Object Lifecycle"></a>Entity Object Lifecycle</h3><p>Persistence - always related to Database </p><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtb5700r9nj31cm0u0n18.jpg"></p><ul><li><strong>New</strong> - </li><li><strong>Managed</strong> - </li><li><strong>Detached</strong> - </li><li><strong>Removed</strong> - </li></ul><h3 id="JP-QL"><a href="#JP-QL" class="headerlink" title="JP-QL"></a>JP-QL</h3>]]></content>
+    <content type="html"><![CDATA[<h1 id="JPA"><a href="#JPA" class="headerlink" title="JPA"></a>JPA</h1><h2 id="Introduction-to-JPA"><a href="#Introduction-to-JPA" class="headerlink" title="Introduction to JPA"></a>Introduction to JPA</h2><p><strong>JPA</strong> stands for <strong>JAVA PERSISTENCE API</strong>. </p><p>JPA is an object relational mapping API that makes it easier to </p><ul><li>Extract data from relational databases and put into objects</li><li>Extract data from objects and put into a relational database</li></ul><p>JPA is a <strong>standard</strong> </p><p>There are two commonly used ==implementations== </p><ul><li><strong>JBoss Hibernate</strong></li><li>Eclipse Link </li></ul><h3 id="Hierarchy"><a href="#Hierarchy" class="headerlink" title="Hierarchy"></a>Hierarchy</h3><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtb2ygsu6mj311k0i4gnq.jpg"></p><p>When writing applications to access databases - use JDBC</p><p>Then use an ORM Implementation - Hibernate on the top of JDBC </p><p>Then use JPA API that sits on the top of the ORM implementation</p><h3 id="JPA-Entity-and-Mapping"><a href="#JPA-Entity-and-Mapping" class="headerlink" title="JPA Entity and Mapping"></a>JPA Entity and Mapping</h3><h2 id="Further-with-JPA"><a href="#Further-with-JPA" class="headerlink" title="Further with JPA"></a>Further with JPA</h2><blockquote><p><a href="https://docs.oracle.com/javaee/7/api/">APIs</a></p></blockquote><h3 id="Architecture"><a href="#Architecture" class="headerlink" title="Architecture"></a>Architecture</h3><p>The Persistence Unit is the entity class along with the persistence.xml file</p><p>The Persistence Context, which is a set of entity instances based upon the persistence unit </p><p>The Entity Manager which provides access to a persistence context</p><h3 id="Entity-Object-Lifecycle"><a href="#Entity-Object-Lifecycle" class="headerlink" title="Entity Object Lifecycle"></a>Entity Object Lifecycle</h3><p>Persistence - always related to Database </p><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtb5700r9nj31cm0u0n18.jpg"></p><ul><li><strong>New</strong> - New entities will be managed if persisted.</li><li><strong>Managed</strong> - This is the main state. Any changes made to these managed entities will automatically be saved into database.</li><li><strong>Detached</strong> </li><li><strong>Removed</strong> </li></ul><h3 id="JP-QL"><a href="#JP-QL" class="headerlink" title="JP-QL"></a>JP-QL</h3><p><strong>JP-QL</strong> stands for <strong>Java Persistence Query Language.</strong></p><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> e <span class="hljs-keyword">FROM</span> CompactDisc e <span class="hljs-keyword">WHERE</span> e.artist <span class="hljs-operator">=</span> ‘Abba’<br></code></pre></td></tr></table></figure><p><strong>Named</strong> Queries cached - </p><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@NamedQuery(name=”findAllCDs”, </span><br><span class="hljs-meta">query=”SELECT e FROM CompactDisc e”)</span> <br>Query query = em.createNamedQuery(“findAllCDs”);<br></code></pre></td></tr></table></figure>]]></content>
     
     
     <categories>
@@ -69,6 +100,8 @@
     
     
     <tags>
+      
+      <tag>Hibernate</tag>
       
       <tag>Training</tag>
       

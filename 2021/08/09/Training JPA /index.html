@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      145 Words
+      203 Words
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      2
+      4
        min
     </span>
   
@@ -228,12 +228,12 @@
             
               <p class="note note-info">
                 
-                  Last Updated on: August 10, 2021 pm
+                  Last Updated on: August 11, 2021 pm
                 
               </p>
             
             <div class="markdown-body">
-              <h1 id="JPA-Training"><a href="#JPA-Training" class="headerlink" title="JPA Training"></a>JPA Training</h1><h2 id="Introduction-to-JPA"><a href="#Introduction-to-JPA" class="headerlink" title="Introduction to JPA"></a>Introduction to JPA</h2><p><strong>JPA</strong> stands for <strong>JAVA PERSISTENCE API</strong>. </p>
+              <h1 id="JPA"><a href="#JPA" class="headerlink" title="JPA"></a>JPA</h1><h2 id="Introduction-to-JPA"><a href="#Introduction-to-JPA" class="headerlink" title="Introduction to JPA"></a>Introduction to JPA</h2><p><strong>JPA</strong> stands for <strong>JAVA PERSISTENCE API</strong>. </p>
 <p>JPA is an object relational mapping API that makes it easier to </p>
 <ul>
 <li>Extract data from relational databases and put into objects</li>
@@ -258,12 +258,17 @@
 <h3 id="Entity-Object-Lifecycle"><a href="#Entity-Object-Lifecycle" class="headerlink" title="Entity Object Lifecycle"></a>Entity Object Lifecycle</h3><p>Persistence - always related to Database </p>
 <p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtb5700r9nj31cm0u0n18.jpg" srcset="/img/loading.gif"></p>
 <ul>
-<li><strong>New</strong> - </li>
-<li><strong>Managed</strong> - </li>
-<li><strong>Detached</strong> - </li>
-<li><strong>Removed</strong> - </li>
+<li><strong>New</strong> - New entities will be managed if persisted.</li>
+<li><strong>Managed</strong> - This is the main state. Any changes made to these managed entities will automatically be saved into database.</li>
+<li><strong>Detached</strong> </li>
+<li><strong>Removed</strong> </li>
 </ul>
-<h3 id="JP-QL"><a href="#JP-QL" class="headerlink" title="JP-QL"></a>JP-QL</h3>
+<h3 id="JP-QL"><a href="#JP-QL" class="headerlink" title="JP-QL"></a>JP-QL</h3><p><strong>JP-QL</strong> stands for <strong>Java Persistence Query Language.</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs sql"><span class="hljs-keyword">SELECT</span> e <span class="hljs-keyword">FROM</span> CompactDisc e <span class="hljs-keyword">WHERE</span> e.artist <span class="hljs-operator">=</span> ‘Abba’<br></code></pre></td></tr></table></figure>
+<p><strong>Named</strong> Queries cached - </p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@NamedQuery(name=”findAllCDs”, </span><br><span class="hljs-meta">query=”SELECT e FROM CompactDisc e”)</span> <br>Query query = em.createNamedQuery(“findAllCDs”);<br></code></pre></td></tr></table></figure>
+
+
             </div>
             <hr>
             <div>
@@ -279,6 +284,8 @@
                 
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
+                    
+                      <a class="hover-with-bg" href="/tags/Hibernate/">Hibernate</a>
                     
                       <a class="hover-with-bg" href="/tags/Training/">Training</a>
                     

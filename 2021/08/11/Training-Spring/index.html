@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>JavaScript - How JS Works Behind the Scenes - Xinyi Ashley Ma</title>
+  <title>Training - Spring - Xinyi Ashley Ma</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="JavaScript - How JS Works Behind the Scenes">
+            <span class="h2" id="subtitle" title="Training - Spring">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-08-10 15:44" pubdate>
-        August 10, 2021 pm
+      <time datetime="2021-08-11 20:43" pubdate>
+        August 11, 2021 pm
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      552 Words
+      287 Words
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      11
+      5
        min
     </span>
   
@@ -224,96 +224,53 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">JavaScript - How JS Works Behind the Scenes</h1>
+            <h1 style="display: none">Training - Spring</h1>
             
               <p class="note note-info">
                 
-                  Last Updated on: August 10, 2021 pm
+                  Last Updated on: August 11, 2021 pm
                 
               </p>
             
             <div class="markdown-body">
-              <h1 id="How-JS-Works-Behind-the-Scenes"><a href="#How-JS-Works-Behind-the-Scenes" class="headerlink" title="How JS Works Behind the Scenes"></a>How JS Works Behind the Scenes</h1><h2 id="A-High-Level-Overview-of-JS"><a href="#A-High-Level-Overview-of-JS" class="headerlink" title="A High Level Overview of JS"></a>A High Level Overview of JS</h2><h3 id="High-level"><a href="#High-level" class="headerlink" title="High-level"></a>High-level</h3><p>Low-level - developers have to manage the resources manually</p>
-<p>High-level - all things happen automatically</p>
-<h3 id="Garbage-collected"><a href="#Garbage-collected" class="headerlink" title="Garbage-collected"></a>Garbage-collected</h3><p>Cleaning the memory so we don’t have to do manually</p>
-<h3 id="Interpreted-Just-in-time-Compiled"><a href="#Interpreted-Just-in-time-Compiled" class="headerlink" title="Interpreted / Just-in-time Compiled"></a>Interpreted / Just-in-time Compiled</h3><h3 id="Multi-paradigm"><a href="#Multi-paradigm" class="headerlink" title="Multi-paradigm"></a>Multi-paradigm</h3><p><strong>Paradigm -</strong> An approach and mindset of structuring code, which will direct your coding style and technique.</p>
+              <h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><h2 id="Dependency-Injection"><a href="#Dependency-Injection" class="headerlink" title="Dependency Injection"></a>Dependency Injection</h2><p>Allows one Java Object to be ==*Injected*== into as another Object as a property.</p>
+<h2 id="Three-ways-to-Wire-Objects"><a href="#Three-ways-to-Wire-Objects" class="headerlink" title="Three ways to Wire Objects"></a>Three ways to Wire Objects</h2><h3 id="Java-Configuration-Class"><a href="#Java-Configuration-Class" class="headerlink" title="Java Configuration Class"></a>Java Configuration Class</h3><p>A Java class is created that acts as the configuration</p>
+<p>- Creating and then wiring the two objects together</p>
 <ul>
-<li>Procedural Programming</li>
-<li>Objected-oriented Programming</li>
-<li>Functional Programming</li>
+<li>The <strong>==@Configuration==</strong> annotation specifies that this class is acting as a configuration class</li>
+<li>The <strong>==@Bean==</strong> is used to show that a method is returning a bean available within the context</li>
+<li><strong>==@Autowired==</strong> is used to say that the Pet for the person must be automatically wired from another @Bean somewhere</li>
 </ul>
-<h3 id="Prototype-based-OO"><a href="#Prototype-based-OO" class="headerlink" title="Prototype-based OO"></a>Prototype-based OO</h3><p>Except for primitive types, everything in JS are objects. </p>
-<h3 id="First-class-Functions"><a href="#First-class-Functions" class="headerlink" title="First-class Functions"></a>First-class Functions</h3><p>The functions are treated just as variables. </p>
-<h3 id="Dynamic"><a href="#Dynamic" class="headerlink" title="Dynamic"></a>Dynamic</h3><p>No data type definitions. - Type becomes know at runtime.</p>
-<p>JavaScript with Type - TypeScript</p>
-<h3 id="Single-threaded"><a href="#Single-threaded" class="headerlink" title="Single-threaded"></a>Single-threaded</h3><h3 id="Non-blocking-Event-Loop"><a href="#Non-blocking-Event-Loop" class="headerlink" title="Non-blocking Event Loop"></a>Non-blocking Event Loop</h3><h2 id="The-JavaScript-Engine-and-Runtime"><a href="#The-JavaScript-Engine-and-Runtime" class="headerlink" title="The JavaScript Engine and Runtime"></a>The JavaScript Engine and Runtime</h2><h3 id="JavaScript-Engine"><a href="#JavaScript-Engine" class="headerlink" title="JavaScript Engine"></a>JavaScript Engine</h3><p>Program that executes the JavaScript Code. </p>
-<p>For example: Google V8 / Node</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtcha3uhkej30h90e4q3i.jpg" srcset="/img/loading.gif" alt="JS Engine"></p>
-<h4 id="Call-Stack"><a href="#Call-Stack" class="headerlink" title="Call Stack"></a>Call Stack</h4><p>Execution context </p>
-<h4 id="Heap"><a href="#Heap" class="headerlink" title="Heap"></a>Heap</h4><p>Object stored </p>
-<h4 id="Compilation"><a href="#Compilation" class="headerlink" title="Compilation"></a>Compilation</h4><p>Entire code is converted into machine code at once and written to a binary file that can be executed by a computer.</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtci9bpky5j30nt0320sz.jpg" srcset="/img/loading.gif"></p>
-<h4 id="Interpretation"><a href="#Interpretation" class="headerlink" title="Interpretation"></a>Interpretation</h4><p>Interpreter runs though the source code and executes it line by line.</p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtcia3f0qgj30lj0340su.jpg" srcset="/img/loading.gif"></p>
-<h4 id="Just-in-time-Compilation"><a href="#Just-in-time-Compilation" class="headerlink" title="Just-in-time Compilation"></a>Just-in-time Compilation</h4><p>Entire code is converted to machine code at once, and executed immediately. - <strong>No Portable File</strong></p>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtcibn7recj30ls035aaa.jpg" srcset="/img/loading.gif"></p>
-<h4 id="Just-in-time-Compilation-Detail"><a href="#Just-in-time-Compilation-Detail" class="headerlink" title="Just-in-time Compilation Detail"></a>Just-in-time Compilation Detail</h4><blockquote>
-<p>Modern JavaScript is no longer an interpreted language.</p>
-</blockquote>
-<p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtci4fjym2j30mk0f4mym.jpg" srcset="/img/loading.gif"></p>
-<ol>
-<li><strong>Parsing -</strong> Parse the code into <strong>AST(Abstract Syntax Tree)</strong> - check if any <strong>syntax errors</strong></li>
-<li><strong>Compilation -</strong> Compile the generated AST and compile it into machine code</li>
-<li><strong>Execution -</strong> Machine code gets executed right away - where Just-in-time Happens in <strong>Call Stack</strong></li>
-<li><strong>Optimization -</strong> the machine code is optimized and recompiled during running program execution - multiple times</li>
-<li>All above happens in the special  threads inside the engine that are totally separate from the <strong>MAIN THREAD</strong> running in the <strong>Call Stack</strong> </li>
-</ol>
-<h3 id="JavaScript-Runtime"><a href="#JavaScript-Runtime" class="headerlink" title="JavaScript Runtime"></a>JavaScript Runtime</h3><h4 id="Runtime-in-the-Browser"><a href="#Runtime-in-the-Browser" class="headerlink" title="Runtime in the Browser"></a>Runtime in the Browser</h4><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtcink153fj60t00esta702.jpg" srcset="/img/loading.gif"></p>
-<p>A big container including all the things that we need to use JavaScript </p>
-<h5 id="WEB-APIs"><a href="#WEB-APIs" class="headerlink" title="WEB APIs"></a>WEB APIs</h5><p>Functionalities provided to the engine, accessible on window object. </p>
-<p><strong>JS Engine</strong> always acts as the heart of the Runtime. </p>
-<h5 id="CallBack-Queue"><a href="#CallBack-Queue" class="headerlink" title="CallBack Queue"></a>CallBack Queue</h5><p>Contains all the call back functions that are ready to be executed. </p>
-<p><strong>Callback function(onClick) from DOM Event Listener</strong></p>
-<ol>
-<li>The call back function(onClick) is put into the call back queue</li>
-<li>onClick is passed to the call stack - then be executed.</li>
-<li><strong>Event Loop</strong> -&gt; Essential for non-blocking concurrency model.</li>
-</ol>
-<h4 id="Runtime-in-Node-js"><a href="#Runtime-in-Node-js" class="headerlink" title="Runtime in Node.js"></a>Runtime in Node.js</h4><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtciomo2bzj30qg0ej75a.jpg" srcset="/img/loading.gif"></p>
-<p>No WEB APIs</p>
-<h2 id="Execution-Context-and-Call-Stack"><a href="#Execution-Context-and-Call-Stack" class="headerlink" title="Execution Context and Call Stack"></a>Execution Context and Call Stack</h2><h2 id="Execution-Context"><a href="#Execution-Context" class="headerlink" title="Execution Context"></a>Execution Context</h2><p><img src="https://tva1.sinaimg.cn/large/008i3skNgy1gtckjy96fuj30bc0f0dgu.jpg" srcset="/img/loading.gif"></p>
-<p><strong>Prerequisite:</strong> After compilation, ready for execution.</p>
+<p><strong>Example:</strong></p>
+<p>A pet is injected into person object as a property using ==Java Configuration==.</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><code class="hljs java"><span class="hljs-meta">@Configuration</span><br><span class="hljs-keyword">public</span> <span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">PersonConfiguration</span> </span>&#123;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Pet <span class="hljs-title">pet</span><span class="hljs-params">()</span></span>&#123;<br>         <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Cat();<br>    &#125;<br><br>    <span class="hljs-meta">@Bean</span><br>    <span class="hljs-function"><span class="hljs-keyword">public</span> Person <span class="hljs-title">person</span><span class="hljs-params">(</span></span><br><span class="hljs-function"><span class="hljs-params">    	<span class="hljs-meta">@Autowired</span> Pet pet)</span></span>&#123;<br>        <span class="hljs-keyword">return</span> <span class="hljs-keyword">new</span> Person(pet);<br>    &#125;<br>&#125;<br></code></pre></td></tr></table></figure>
+<h4 id="How-to-use-the-Configuration"><a href="#How-to-use-the-Configuration" class="headerlink" title="How to use the Configuration"></a>How to use the Configuration</h4><p>A configuration was loaded using <code>ApplicationContext</code></p>
+<h3 id="Annotations"><a href="#Annotations" class="headerlink" title="Annotations"></a>Annotations</h3><h3 id="XML-Files"><a href="#XML-Files" class="headerlink" title="XML Files"></a>XML Files</h3><h2 id="Application-Context-or-XML-Bean-Factory"><a href="#Application-Context-or-XML-Bean-Factory" class="headerlink" title="Application Context or XML Bean Factory?"></a>Application Context or XML Bean Factory?</h2><p>Spring provides two kinds of IOC Container - </p>
 <ul>
-<li><strong>Global</strong> Execution Context is created - for top level code(The code that is <strong>NOT</strong> inside any function)</li>
-<li>Function body will only be executed when called!</li>
-<li>There is always only <strong>ONE Gobal</strong> Execution Context.</li>
+<li>XML BeanFactory</li>
+<li>ApplicationContext</li>
 </ul>
-<blockquote>
-<p><strong>Definition</strong> -<br>Execution Context is like an environment in which a piece of JavaScript Code is executed. It stores all the necessary information for some code to be executed.</p>
-</blockquote>
+<p><img src="https://i.stack.imgur.com/EweA3.jpg" srcset="/img/loading.gif"></p>
+<p>Use <strong><code>ApplicationContext</code></strong> unless you have a really good reason not doing so.</p>
+<p>Example:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs java">ApplicationContext applicationContext = <span class="hljs-keyword">new</span> AnnotationConfigApplicationContext(BeansConfiguration.class);<br></code></pre></td></tr></table></figure>
+
+<h2 id="Singleton"><a href="#Singleton" class="headerlink" title="Singleton"></a>Singleton</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs java">Person person = context.getBean(Person.class);<br>Person person2 = (Person)context.getBean(<span class="hljs-string">&quot;person&quot;</span>);<br></code></pre></td></tr></table></figure>
+<h2 id="Layered-Architectures"><a href="#Layered-Architectures" class="headerlink" title="Layered Architectures"></a>Layered Architectures</h2><h3 id="Controller-Layer"><a href="#Controller-Layer" class="headerlink" title="Controller Layer"></a>Controller Layer</h3><p>Receive requests from client applications</p>
+<h3 id="Service-Layer"><a href="#Service-Layer" class="headerlink" title="Service Layer"></a>Service Layer</h3><p>Business layer with business functions</p>
+<h3 id="Data-Access-Layer"><a href="#Data-Access-Layer" class="headerlink" title="Data Access Layer"></a>Data Access Layer</h3><p>Two Patterns: - Used Interchangeably</p>
 <ul>
-<li>Execution of the Top level Code inside the global EC - the CPU processing the machine code it received.</li>
-<li>Execution of Functions and waiting for callbacks.</li>
+<li>Data Access Object</li>
+<li>Repository </li>
 </ul>
-<blockquote>
-<p>One execution context <strong>per function</strong>: for each function call, a new execution context is created.</p>
-</blockquote>
+<h4 id="Data-Access-Repository-Pattern"><a href="#Data-Access-Repository-Pattern" class="headerlink" title="Data Access/Repository Pattern"></a>Data Access/Repository Pattern</h4><p>The pattern involves classes that carry out database access on behalf of data structures</p>
+<p>Each Data structure has a corresponding Data Access Object</p>
+<h2 id="More-Pattern-DTO"><a href="#More-Pattern-DTO" class="headerlink" title="More Pattern - DTO"></a>More Pattern - DTO</h2><p>Data Transfer Object (DTO)</p>
 <ul>
-<li>All the ECs together make the call stack.</li>
-<li>After all functions being executed, the engine keeps waiting the callback functions to arrive. </li>
+<li>A DTO is a structure that can be used within the application itself</li>
+<li>The DTO is converted to and from the database specific Entity class by the data layer</li>
+<li>This decouples the rest of the application from any database specific class structures</li>
 </ul>
-<p>For example - click event call back</p>
-<h3 id="Execution-Context-in-Detail"><a href="#Execution-Context-in-Detail" class="headerlink" title="Execution Context in Detail"></a>Execution Context in Detail</h3><h4 id="What’s-inside"><a href="#What’s-inside" class="headerlink" title="What’s inside?"></a>What’s inside?</h4><ol>
-<li>Variable Environment<ul>
-<li><code>let</code>, <code>const</code>, <code>var</code> declarations</li>
-<li>Functions</li>
-<li>Arguments object</li>
-</ul>
-</li>
-<li>Scope Chain</li>
-<li><code>this</code> keyword - generated in a so-called “creation phase” right before execution</li>
-</ol>
-<p><strong>IMPORTANT:</strong> Execution Contexts that belong to <strong>Arrow Functions</strong> do not get their <strong><code>argument</code> object</strong>, nor do they get <strong><code>this</code> keyword</strong></p>
 
             </div>
             <hr>
@@ -323,7 +280,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/JavaScript/">JavaScript</a>
+                      <a class="hover-with-bg" href="/categories/Training/">Training</a>
                     
                   </div>
                 
@@ -331,7 +288,9 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/JavaScript/">JavaScript</a>
+                      <a class="hover-with-bg" href="/tags/Spring/">Spring</a>
+                    
+                      <a class="hover-with-bg" href="/tags/Training/">Training</a>
                     
                   </div>
                 
@@ -342,18 +301,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/08/11/Training%20-%20REST%20&amp;%20Spring%20Boot/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">Training - REST & Spring Boot</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/08/09/Training%20JPA%20/">
-                        <span class="hidden-mobile">Training - JPA</span>
+                      <a href="/2021/08/11/Training%20-%20REST%20&amp;%20Spring%20Boot/">
+                        <span class="hidden-mobile">Training - REST & Spring Boot</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
