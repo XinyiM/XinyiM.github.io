@@ -17,7 +17,7 @@
   <meta name="description" content="">
   <meta name="author" content="John Doe">
   <meta name="keywords" content="">
-  <title>Training - Docker - Xinyi Ashley Ma</title>
+  <title>JavaScript - Data Structures, Modern Operators and Strings - Xinyi Ashley Ma</title>
 
   <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" />
 
@@ -162,7 +162,7 @@
       <div class="full-bg-img">
         <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
           <div class="page-header text-center fade-in-up">
-            <span class="h2" id="subtitle" title="Training - Docker">
+            <span class="h2" id="subtitle" title="JavaScript - Data Structures, Modern Operators and Strings">
               
             </span>
 
@@ -172,8 +172,8 @@
   
     <span class="post-meta">
       <i class="iconfont icon-date-fill" aria-hidden="true"></i>
-      <time datetime="2021-08-17 17:28" pubdate>
-        August 17, 2021 pm
+      <time datetime="2021-08-31 15:23" pubdate>
+        August 31, 2021 pm
       </time>
     </span>
   
@@ -184,7 +184,7 @@
     
     <span class="post-meta mr-2">
       <i class="iconfont icon-chart"></i>
-      490 Words
+      189 Words
     </span>
   
 
@@ -194,7 +194,7 @@
       <i class="iconfont icon-clock-fill"></i>
       
       
-      9
+      3
        min
     </span>
   
@@ -224,74 +224,33 @@
         <div class="py-5" id="board">
           <article class="post-content mx-auto">
             <!-- SEO header -->
-            <h1 style="display: none">Training - Docker</h1>
+            <h1 style="display: none">JavaScript - Data Structures, Modern Operators and Strings</h1>
             
               <p class="note note-info">
                 
-                  Last Updated on: August 17, 2021 pm
+                  Last Updated on: October 16, 2021 pm
                 
               </p>
             
             <div class="markdown-body">
-              <h1 id="Training-Docker"><a href="#Training-Docker" class="headerlink" title="Training - Docker"></a>Training - Docker</h1><h2 id="Log-in-to-Linux-Server"><a href="#Log-in-to-Linux-Server" class="headerlink" title="Log in to Linux Server"></a>Log in to Linux Server</h2><ol>
-<li>Turn on the personal linux server on <a target="_blank" rel="noopener" href="https://student.conygre.com/">https://student.conygre.com/</a></li>
-<li>Open a terminal and do <code>ssh grads@devopsnama23.conygre.com</code></li>
-<li>Password: <code>c0nygre</code> </li>
-<li>run <code>docker run -d -p 8081:8080 nicktodd40/compactdiscs</code> - to launch a docker container</li>
-<li>Go to a browser - type in <code>devopsnama23.conygre.com:8081</code> </li>
-</ol>
-<h1 id="Docker-Overview"><a href="#Docker-Overview" class="headerlink" title="Docker Overview"></a>Docker Overview</h1><p>Docker containers abstract some of the Linux OS capabilities and the virtualization is done at the OS layer.</p>
-<h2 id="Docker-Abstraction"><a href="#Docker-Abstraction" class="headerlink" title="Docker Abstraction"></a>Docker Abstraction</h2><p>Docker containers run in separate namespaces sharing the kernel of the host OS.</p>
-<ul>
-<li>Makes the containers much faster to launch than a VM</li>
-<li>Means that containers on the same host are NOT totally isolated – more on that later</li>
-</ul>
-<h2 id="Run-Docker"><a href="#Run-Docker" class="headerlink" title="Run Docker"></a>Run Docker</h2><p><code>docker --version</code> check if installed.</p>
-<h2 id="DockerHub"><a href="#DockerHub" class="headerlink" title="DockerHub"></a>DockerHub</h2><p>Images are commonly used from <strong>DockerHub</strong> Repository.</p>
-<h2 id="Launch-a-Container"><a href="#Launch-a-Container" class="headerlink" title="Launch a Container"></a>Launch a Container</h2><p><code>docker run tomcat:9</code> Run a container from the Tomcat9 image from the dockerHub.</p>
-<p><strong>More useful option:</strong></p>
-<p><code>docker run –d –p 8081:8080 tomcat:9.0</code></p>
-<h3 id="d-Flag"><a href="#d-Flag" class="headerlink" title="-d Flag"></a>-d Flag</h3><p>To put the container in the <strong>background</strong>, use the <code>–d</code> flag</p>
-<h3 id="Port-Binding"><a href="#Port-Binding" class="headerlink" title="Port Binding"></a>Port Binding</h3><p>The <code>-p</code> flag allows you to bind ports between Docker Host and the container port.</p>
-<p>In the example above:</p>
-<p>Port <strong>8081</strong> on the <strong>Docker Host</strong> is now going to forward to the <strong>Container port</strong> <strong>8080</strong></p>
-<h2 id="What-is-running"><a href="#What-is-running" class="headerlink" title="What is running?"></a>What is running?</h2><p><code>docker ps -a</code> - show all the running docker containers</p>
-<h2 id="Starting-amp-Stopping-Containers"><a href="#Starting-amp-Stopping-Containers" class="headerlink" title="Starting &amp; Stopping Containers"></a>Starting &amp; Stopping Containers</h2><p><code>docker stop [id]</code></p>
-<p><code>docker start [id]</code> </p>
-<p>The <strong>[id]</strong> is the first couple of char from the <strong>Container ID.</strong></p>
-<h2 id="Destroy-Containers"><a href="#Destroy-Containers" class="headerlink" title="Destroy Containers"></a>Destroy Containers</h2><p><code>docker rm -f [id]</code></p>
-<h1 id="Docker-Images"><a href="#Docker-Images" class="headerlink" title="Docker Images"></a>Docker Images</h1><ul>
-<li>Docker images are the template from which we launch container</li>
-<li>Each image is based on a parent image</li>
-<li>Each image therefore consists of multiple layers</li>
-<li>Each layer contains directories and files</li>
-</ul>
-<h2 id="Building-the-Image"><a href="#Building-the-Image" class="headerlink" title="Building the Image"></a>Building the Image</h2><p><code> docker build -t trades .</code></p>
-<p><code>-t</code> - you can can provide a tag for the image</p>
-<ul>
-<li>To enable easy identification</li>
-<li>In order to push to a repository (more on that later)</li>
-</ul>
-<p><code>.</code> - The period (.) is the directory containing the Dockerfile</p>
-<h2 id="Dockerfile"><a href="#Dockerfile" class="headerlink" title="Dockerfile"></a>Dockerfile</h2><figure class="highlight docker"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><code class="hljs docker"><span class="hljs-keyword">FROM</span> openjdk:<span class="hljs-number">8</span><br><span class="hljs-keyword">ADD</span><span class="bash"> target/SpringBootExample-0.0.1-SNAPSHOT.jar app.jar</span><br><span class="hljs-keyword">EXPOSE</span> <span class="hljs-number">8080</span><br><span class="hljs-keyword">ENTRYPOINT</span><span class="bash"> [ <span class="hljs-string">&quot;sh&quot;</span>, <span class="hljs-string">&quot;-c&quot;</span>, <span class="hljs-string">&quot;java -jar /app.jar&quot;</span> ]</span><br></code></pre></td></tr></table></figure>
-<ul>
-<li><code>FROM</code> - specifies the base image, this base image will be copied down from Artifactory onto your local machine</li>
-<li><code>ADD</code> - Files to copy into the image from the local machine </li>
-<li><code>EXPOSE</code> - specify which port to expose to the outside world </li>
-<li><code>RUN</code> - Command to run at build</li>
-<li><code>WORKDIR</code> - Working directories for subsequent commands</li>
-<li><code>ENV</code> - Environment Variables</li>
-<li><code>CMD</code> - used when you might want to override the command that is used when you launch the container - like <code>[&quot;npm&quot;, &quot;start&quot;]</code></li>
-<li><code>ENTRYPOINT</code> - used for images that are running server software where you are unlikely to want to override what it is doing</li>
-</ul>
-<h2 id="Manage-Images"><a href="#Manage-Images" class="headerlink" title="Manage Images"></a>Manage Images</h2><p><code>docker images</code> </p>
-<h2 id="Remove-Images"><a href="#Remove-Images" class="headerlink" title="Remove Images"></a>Remove Images</h2><p><code>docker rmi [imageName]</code></p>
-<h2 id="Sharing-Images"><a href="#Sharing-Images" class="headerlink" title="Sharing Images"></a>Sharing Images</h2><p><code>docker login</code></p>
-<p><code>docker push</code></p>
-<p><code>docker pull</code></p>
-<h1 id="Appendix"><a href="#Appendix" class="headerlink" title="Appendix"></a>Appendix</h1><h2 id="Pull-Jenkins-Server"><a href="#Pull-Jenkins-Server" class="headerlink" title="Pull Jenkins Server"></a>Pull Jenkins Server</h2><p><code>docker run -p 8081:8080 jenkins/jenkins:lts-jdk11</code></p>
-<p>Then open <code>devopsnama23.conygre.com:8081</code> to open Jenkins in docker container - because of pulled image </p>
-<p><code>devopsnama23.conygre.com:8080</code> also a Jenkins running - directly on the Linux server.</p>
+              <h1 id="JavaScript-Data-Structures-Modern-Operators-and-Strings"><a href="#JavaScript-Data-Structures-Modern-Operators-and-Strings" class="headerlink" title="JavaScript - Data Structures, Modern Operators and Strings"></a>JavaScript - Data Structures, Modern Operators and Strings</h1><h2 id="Destructuring-Arrays"><a href="#Destructuring-Arrays" class="headerlink" title="Destructuring Arrays"></a>Destructuring Arrays</h2><p>Switch the two variables.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript">[main, secondary] = [secondary, main]<br></code></pre></td></tr></table></figure>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> [p, q, r] = [<span class="hljs-number">8</span>, <span class="hljs-number">9</span>];<br><span class="hljs-built_in">console</span>.log(p, q, r);<br></code></pre></td></tr></table></figure>
+<p>get <code>r = undefined</code></p>
+<h2 id="Destructuring-Objects"><a href="#Destructuring-Objects" class="headerlink" title="Destructuring Objects"></a>Destructuring Objects</h2><h3 id="Set-a-default-value"><a href="#Set-a-default-value" class="headerlink" title="Set a default value"></a>Set a default value</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> &#123; menu = [], <span class="hljs-attr">starterMenu</span>: starters = [] &#125; = restaurant;<br><span class="hljs-built_in">console</span>.log(menu, starters);<br></code></pre></td></tr></table></figure>
+<h3 id="Mutating-Variables"><a href="#Mutating-Variables" class="headerlink" title="Mutating Variables"></a>Mutating Variables</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">let</span> a = <span class="hljs-number">111</span>;<br><span class="hljs-keyword">let</span> b = <span class="hljs-number">999</span>;<br><span class="hljs-keyword">const</span> obj = &#123; <span class="hljs-attr">a</span>: <span class="hljs-number">23</span>, <span class="hljs-attr">b</span>: <span class="hljs-number">6</span>, <span class="hljs-attr">c</span>: <span class="hljs-number">234</span> &#125;;<br>(&#123; a, b &#125; = obj); <span class="hljs-comment">// &#123; &#125; means code block</span><br><span class="hljs-built_in">console</span>.log(a, b);<br></code></pre></td></tr></table></figure>
+<p><code>&#123;&#125;</code> means code block</p>
+<p>Needs to wrap the destructuring assignment into parenthesis.</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> restaurant = &#123;<br>	orderDelivery: <span class="hljs-function"><span class="hljs-keyword">function</span> (<span class="hljs-params">&#123; starterIndex, mainIndex, time &#125;</span>) </span>&#123;<br>	    <span class="hljs-built_in">console</span>.log(<br>	      <span class="hljs-string">`Order received! <span class="hljs-subst">$&#123;<span class="hljs-built_in">this</span>.starterMenu[starterIndex]&#125;</span> will be delivered at <span class="hljs-subst">$&#123;time&#125;</span>`</span><br>	    );<br>	  &#125;,<br>&#125;<br>restaurant.orderDelivery(&#123;<br>  starterIndex: <span class="hljs-number">1</span>,<br>  mainIndex: <span class="hljs-number">1</span>,<br>  time: <span class="hljs-string">&#x27;22:40&#x27;</span>,<br>&#125;);<br></code></pre></td></tr></table></figure>
+<h2 id="The-Spread-Operator"><a href="#The-Spread-Operator" class="headerlink" title="The Spread Operator"></a>The Spread Operator</h2><p>The spread operator <code>...arr</code> takes all the elements from the array and it doesnt create new variables. </p>
+<p>Only use it in places.</p>
+<h3 id="Copy-Array"><a href="#Copy-Array" class="headerlink" title="Copy Array"></a>Copy Array</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> mainMenuArray = [...restaurant.mainMenu]<br></code></pre></td></tr></table></figure>
+
+<h3 id="Merge-Arrays"><a href="#Merge-Arrays" class="headerlink" title="Merge Arrays"></a>Merge Arrays</h3><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> menu = [...restaurant.starterMenu, ...restaurant.mainMenu]<br></code></pre></td></tr></table></figure>
+
+
+<h2 id="REST-Pattern-and-Parameters"><a href="#REST-Pattern-and-Parameters" class="headerlink" title="REST Pattern and Parameters"></a>REST Pattern and Parameters</h2><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs javascript"><span class="hljs-keyword">const</span> [a, b, ...others] = [<span class="hljs-number">1</span>, <span class="hljs-number">2</span>, <span class="hljs-number">3</span>, <span class="hljs-number">5</span>];<br></code></pre></td></tr></table></figure>
+<p>The rest patter always must be the last element in the array.</p>
 
             </div>
             <hr>
@@ -301,7 +260,7 @@
                   <div class="post-meta mr-3">
                     <i class="iconfont icon-category"></i>
                     
-                      <a class="hover-with-bg" href="/categories/Training/">Training</a>
+                      <a class="hover-with-bg" href="/categories/JavaScript/">JavaScript</a>
                     
                   </div>
                 
@@ -309,9 +268,7 @@
                   <div class="post-meta">
                     <i class="iconfont icon-tags"></i>
                     
-                      <a class="hover-with-bg" href="/tags/Training/">Training</a>
-                    
-                      <a class="hover-with-bg" href="/tags/Docker/">Docker</a>
+                      <a class="hover-with-bg" href="/tags/JavaScript/">JavaScript</a>
                     
                   </div>
                 
@@ -322,18 +279,12 @@
                   <article class="post-prev col-6">
                     
                     
-                      <a href="/2021/08/31/JavaScript%20-%20Data%20Structures,%20Modern%20Operators%20and%20Strings/">
-                        <i class="iconfont icon-arrowleft"></i>
-                        <span class="hidden-mobile">JavaScript - Data Structures, Modern Operators and Strings</span>
-                        <span class="visible-mobile">Previous</span>
-                      </a>
-                    
                   </article>
                   <article class="post-next col-6">
                     
                     
-                      <a href="/2021/08/16/Training-IntroductiontoDevOpsandCI:CD/">
-                        <span class="hidden-mobile">Training - Introduction to DevOps and CI/CD</span>
+                      <a href="/2021/08/17/Training-DockerCloud/">
+                        <span class="hidden-mobile">Training - Docker</span>
                         <span class="visible-mobile">Next</span>
                         <i class="iconfont icon-arrowright"></i>
                       </a>
